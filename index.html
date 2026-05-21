@@ -7,14 +7,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background-color: #162a3d; font-family: 'Lato', Arial, sans-serif; }
-  .wrap { max-width: 640px; margin: 0 auto; padding: 0; }
+  html, body { background-color: #162a3d; font-family: 'Lato', Arial, sans-serif; min-height: 100%; }
+  .wrap { width: 100%; max-width: 960px; margin: 0 auto; padding: 0; }
   .date-bar { background: #f5821f; padding: 9px 20px; text-align: center; }
   .date-bar span { font-weight: 900; font-size: 13px; color: #162a3d; letter-spacing: 3px; text-transform: uppercase; }
-  .cat-header { padding: 16px 20px 8px; }
+  .cat-header { padding: 16px 28px 8px; }
   .cat-header .label { border-left: 4px solid #f5821f; padding-left: 10px; font-weight: 900; font-size: 11px; color: #f5821f; letter-spacing: 3px; text-transform: uppercase; }
-  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 0 20px; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; padding: 0 28px; }
   .grid.single { grid-template-columns: 1fr; }
+  .grid.two { grid-template-columns: 1fr 1fr; }
   .card { background: #1a3349; border-radius: 4px; padding: 14px; }
   .card .meta { font-size: 10px; font-weight: 700; color: #f5821f; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 5px; }
   .card .title { font-size: 15px; font-weight: 900; color: #ffffff; line-height: 1.3; margin-bottom: 4px; }
@@ -36,7 +37,7 @@
 
   <!-- FAMILY -->
   <div class="cat-header"><div class="label">&#127968;&nbsp; Family Events</div></div>
-  <div class="grid">
+  <div class="grid two">
     <div class="card">
       <div class="meta">SAT–SUN &nbsp;·&nbsp; FREE</div>
       <div class="title">Denver Arts Festival</div>
@@ -67,7 +68,7 @@
     </div>
   </div>
   <div class="spacer"></div>
-  <div class="grid single" style="padding: 0 20px;">
+  <div class="grid single" style="padding: 0 28px;">
     <div class="card">
       <div class="meta">MON &nbsp;·&nbsp; FREE &nbsp;·&nbsp; Commerce City</div>
       <div class="title">Memorial Day Parade &amp; Festival</div>
@@ -78,7 +79,7 @@
 
   <!-- SPORTS -->
   <div class="cat-header"><div class="label">&#127944;&nbsp; Sports</div></div>
-  <div class="grid">
+  <div class="grid two">
     <div class="card">
       <div class="meta">SAT &nbsp;·&nbsp; MLS Soccer</div>
       <div class="title">Rapids vs. FC Dallas</div>
@@ -95,7 +96,7 @@
 
   <!-- CONCERTS -->
   <div class="cat-header"><div class="label">&#127926;&nbsp; Concerts</div></div>
-  <div class="grid">
+  <div class="grid two">
     <div class="card">
       <div class="meta">SUN &nbsp;·&nbsp; Red Rocks</div>
       <div class="title">Alabama Shakes + JJ Grey &amp; Mofro</div>
@@ -110,7 +111,7 @@
     </div>
   </div>
   <div class="spacer"></div>
-  <div class="grid single" style="padding: 0 20px;">
+  <div class="grid single" style="padding: 0 28px;">
     <div class="card">
       <div class="meta">FRI–SUN &nbsp;·&nbsp; Colorado Symphony</div>
       <div class="title">Star Wars: Return of the Jedi in Concert</div>
