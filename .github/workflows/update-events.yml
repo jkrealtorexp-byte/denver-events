@@ -1,0 +1,37 @@
+name: Update Denver Weekend Events
+
+on:
+  schedule:
+    - cron: '0 14 * * 1'  # Every Monday at 8am MT (14:00 UTC)
+  workflow_dispatch:       # Also allows manual trigger from GitHub
+
+jobs:
+  update-events:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install anthropic
+
+      - name: Generate events HTML
+        run: python scripts/update_events.py
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+
+      - name: Commit and push updated files
+        run: |
+          git config user.name "Denver Events Bot"
+          git config user.email "bot@noreply.github.com"
+          git add index.html email.html
+          git diff --staged --quiet || git commit -m "Weekly events update $(date +%Y-%m-%d)"
+          git push
