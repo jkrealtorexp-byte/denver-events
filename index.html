@@ -3,16 +3,16 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>What's Happening in Denver This Weekend</title>
-  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     html, body {
       background: #162a3d;
       font-family: 'Lato', sans-serif;
-      color: #ccddee;
+      color: #fff;
     }
 
     .wrap {
@@ -22,61 +22,48 @@
     }
 
     /* Header */
-    .site-header {
-      text-align: center;
-      padding-bottom: 8px;
-    }
-    .site-header h1 {
-      font-size: 26px;
+    .header-title {
+      font-size: 22px;
       font-weight: 900;
-      color: #ffffff;
-      letter-spacing: 0.5px;
+      color: #fff;
       text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 4px;
     }
-    .site-header p.tagline {
-      font-size: 13px;
+    .header-sub {
+      font-size: 12px;
       color: #8aabcc;
-      margin-top: 4px;
+      margin-bottom: 16px;
     }
 
-    /* Date Bar */
+    /* Date bar */
     .date-bar {
       background: #f5821f;
-      color: #ffffff;
-      text-align: center;
-      font-size: 15px;
+      color: #fff;
+      font-size: 16px;
       font-weight: 700;
-      letter-spacing: 1.5px;
       text-transform: uppercase;
-      padding: 10px 16px;
+      letter-spacing: 1.5px;
+      padding: 10px 18px;
       border-radius: 4px;
-      margin: 18px 0 28px;
+      margin-bottom: 28px;
+      display: inline-block;
     }
 
-    /* Category Header */
-    .category-header {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin: 28px 0 16px;
-    }
-    .category-header h2 {
-      font-size: 13px;
-      font-weight: 900;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: #ffffff;
-      padding-left: 12px;
+    /* Category header */
+    .cat-header {
       border-left: 4px solid #f5821f;
-    }
-    .category-header .cat-line {
-      flex: 1;
-      height: 1px;
-      background: #1e3f5a;
+      padding-left: 12px;
+      font-size: 15px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #fff;
+      margin: 28px 0 14px;
     }
 
     /* Grid */
-    .card-grid {
+    .grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 14px;
@@ -86,275 +73,193 @@
     .card {
       background: #1a3349;
       border-radius: 4px;
-      padding: 14px 16px 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
+      padding: 14px;
     }
-
     .card-meta {
+      color: #f5821f;
       font-size: 10px;
       font-weight: 700;
-      letter-spacing: 1.5px;
       text-transform: uppercase;
-      color: #f5821f;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
     }
-
     .card-title {
+      color: #fff;
       font-size: 15px;
       font-weight: 700;
-      color: #ffffff;
-      line-height: 1.35;
-    }
-
-    .card-venue {
-      font-size: 12px;
-      color: #8aabcc;
+      margin-bottom: 5px;
       line-height: 1.3;
     }
-
-    .card-desc {
-      font-size: 11px;
-      color: #ccddee;
-      line-height: 1.5;
-      flex: 1;
+    .card-venue {
+      color: #8aabcc;
+      font-size: 12px;
+      margin-bottom: 6px;
     }
-
+    .card-desc {
+      color: #ccddee;
+      font-size: 11px;
+      line-height: 1.5;
+      margin-bottom: 10px;
+    }
     .card-link {
-      display: inline-block;
-      margin-top: 8px;
+      color: #f5821f;
       font-size: 11px;
       font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: #f5821f;
       text-decoration: none;
-    }
-    .card-link:hover {
-      text-decoration: underline;
-    }
-
-    /* Free badge */
-    .free-badge {
-      display: inline-block;
-      background: #f5821f;
-      color: #ffffff;
-      font-size: 9px;
-      font-weight: 900;
-      letter-spacing: 1px;
       text-transform: uppercase;
-      padding: 2px 6px;
-      border-radius: 2px;
-      margin-left: 6px;
-      vertical-align: middle;
+      letter-spacing: 0.5px;
     }
+    .card-link:hover { text-decoration: underline; }
 
-    /* Footer spacer */
+    /* Spacer */
     .spacer { height: 20px; }
 
-    /* Footer */
-    .site-footer {
-      text-align: center;
-      padding: 18px 0 8px;
-      font-size: 11px;
-      color: #4a6a88;
-    }
-    .site-footer a {
-      color: #f5821f;
-      text-decoration: none;
-    }
-    .site-footer a:hover { text-decoration: underline; }
-
-    /* Responsive */
     @media (max-width: 620px) {
-      .card-grid { grid-template-columns: 1fr; }
-      .site-header h1 { font-size: 20px; }
+      .grid { grid-template-columns: 1fr; }
+      .header-title { font-size: 18px; }
     }
   </style>
 </head>
 <body>
 <div class="wrap">
 
-  <!-- Header -->
-  <div class="site-header">
-    <h1>What's Happening in Denver This Weekend</h1>
-    <p class="tagline">Your local guide to the best events in the Mile High City</p>
+  <div class="header-title">What's Happening in Denver This Weekend</div>
+  <div class="header-sub">Your family guide to the Mile High City · jeremykanehomes.com</div>
+  <div class="date-bar">May 29 – 31, 2026</div>
+
+  <!-- ===== FAMILY EVENTS ===== -->
+  <div class="cat-header">🎡 Family Events</div>
+  <div class="grid">
+
+    <div class="card">
+      <div class="card-meta">Fri–Sun · May 29–31 · All Ages</div>
+      <div class="card-title">Outside Days Festival</div>
+      <div class="card-venue">Auraria Campus · 900 Auraria Pkwy, Denver</div>
+      <div class="card-desc">Now in its 3rd year, this outdoor fest presented by Capital One x REI Co-op packs three days with live music, adventure films, inspiring speakers, wellness events, gear demos, and immersive outdoor experiences. Perfect for active families!</div>
+      <a class="card-link" href="https://www.outsidedays.com" target="_blank">Details &amp; Tickets →</a>
+    </div>
+
+    <div class="card">
+      <div class="card-meta">Thu–Sun · May 28–31 · All Ages</div>
+      <div class="card-title">FAN EXPO Denver 2026</div>
+      <div class="card-venue">Colorado Convention Center · 700 14th St, Denver</div>
+      <div class="card-desc">The ultimate fandom weekend! Comics, sci-fi, horror, anime, gaming, cosplay, and celebrity meet-and-greets all under one roof. With over 110,000 fans expected, this is one of Colorado's biggest pop culture events of the year.</div>
+      <a class="card-link" href="https://fanexpohq.com/fanexpodenver/" target="_blank">Details &amp; Tickets →</a>
+    </div>
+
+    <div class="card">
+      <div class="card-meta">Sat · May 30 · Opening Night</div>
+      <div class="card-title">Harry Potter and the Cursed Child</div>
+      <div class="card-venue">Denver Center for the Performing Arts · 1101 13th St, Denver</div>
+      <div class="card-desc">Broadway's spellbinding spectacular arrives in Denver! Winner of 6 Tony Awards including Best Play, this magical show follows Harry, Hermione, and Ron as adults facing an all-new wizarding world adventure. Opens May 30, runs through June 21.</div>
+      <a class="card-link" href="https://www.denvercenter.org" target="_blank">Details &amp; Tickets →</a>
+    </div>
+
+    <div class="card">
+      <div class="card-meta">Sat · May 30 · 10 AM · FREE</div>
+      <div class="card-title">Demo Days Denver!</div>
+      <div class="card-venue">5004 National Western Dr, Denver</div>
+      <div class="card-desc">Try out the latest outdoor and sporting gear at this hands-on demo event. A great way for families to test equipment, explore new activities, and get outdoors together — all at no cost to enter.</div>
+      <a class="card-link" href="https://denver365.com" target="_blank">Details →</a>
+    </div>
+
+    <div class="card">
+      <div class="card-meta">Sat · May 30 – Ongoing · All Ages</div>
+      <div class="card-title">Urban Markets at Union Station</div>
+      <div class="card-venue">Union Station · 1701 Wynkoop St, Denver</div>
+      <div class="card-desc">Set against one of Denver's most iconic backdrops, this vibrant outdoor market brings together local artists, makers, collectors, and small businesses with handmade crafts, antiques, jewelry, art, and more. Fun for the whole family to browse!</div>
+      <a class="card-link" href="https://unionstationindenver.com" target="_blank">Details →</a>
+    </div>
+
+    <div class="card">
+      <div class="card-meta">Fri–Sun · Through June 28 · All Ages</div>
+      <div class="card-title">Bodies: The Science Within</div>
+      <div class="card-venue">Denver Pavilions · 500 16th St, Ste 280, Denver</div>
+      <div class="card-desc">This national touring exhibition uses real human specimens — carefully preserved — to reveal the intricate systems that keep us alive. An eye-opening, educational experience for curious kids and adults alike. Open all three days this weekend, 11 AM–7 PM.</div>
+      <a class="card-link" href="https://bodiestheexhibition.com" target="_blank">Details &amp; Tickets →</a>
+    </div>
+
   </div>
 
-  <!-- Date Bar -->
-  <div class="date-bar">Memorial Day Weekend &nbsp;·&nbsp; May 22–24, 2026</div>
+  <!-- ===== SPORTS ===== -->
+  <div class="cat-header">⚾🏒 Sports</div>
+  <div class="grid">
 
-  <!-- ═══════════════════════════════════════════
-       CATEGORY: FAMILY EVENTS
-  ═══════════════════════════════════════════ -->
-  <div class="category-header">
-    <h2>🎨 Family Events</h2>
-    <div class="cat-line"></div>
+    <div class="card">
+      <div class="card-meta">Fri · May 29 · 6:40 PM</div>
+      <div class="card-title">Rockies vs. San Francisco Giants</div>
+      <div class="card-venue">Coors Field · 2001 Blake St, Denver</div>
+      <div class="card-desc">Kick off the series at one of baseball's most beautiful ballparks! The Colorado Rockies host the San Francisco Giants for a three-game home stand. Also Sat May 30 at 7:10 PM and Sun May 31 at 1:10 PM. Tickets from $17.</div>
+      <a class="card-link" href="https://www.mlb.com/rockies/tickets" target="_blank">Details &amp; Tickets →</a>
+    </div>
+
+    <div class="card">
+      <div class="card-meta">Fri · May 29 · 5:30 PM</div>
+      <div class="card-title">Morgan Wallen at Mile High (Concert)</div>
+      <div class="card-venue">Empower Field at Mile High · 1701 Bryant St, Denver</div>
+      <div class="card-desc">Country megastar Morgan Wallen brings his "I'm Still The Problem Tour" to Empower Field for two massive sold-out nights — Friday May 29 and Saturday May 30. One of the biggest concerts of the Denver summer season.</div>
+      <a class="card-link" href="https://www.empowerfieldatmilehigh.com/events" target="_blank">Details &amp; Tickets →</a>
+    </div>
+
+    <div class="card">
+      <div class="card-meta">Fri · May 29 · 7 PM · FREE</div>
+      <div class="card-title">Levitt FREE Concert: Between Friends</div>
+      <div class="card-venue">Levitt Pavilion · Ruby Hill Park, 1360 W Florida Ave, Denver</div>
+      <div class="card-desc">Enjoy a FREE outdoor concert featuring Between Friends with Fly by Midnight &amp; Exhaler at the gorgeous Levitt Pavilion in Ruby Hill Park. Bring a blanket, grab some food, and enjoy a warm May evening with the family — no tickets needed!</div>
+      <a class="card-link" href="https://levittdenver.org" target="_blank">Details →</a>
+    </div>
+
+    <div class="card">
+      <div class="card-meta">Sat–Sun · May 30–31 · If Necessary</div>
+      <div class="card-title">Avalanche NHL Playoff Watch Parties</div>
+      <div class="card-venue">Ball Arena / McGregor Square · Denver</div>
+      <div class="card-desc">The Colorado Avalanche are in the NHL Western Conference Finals vs. the Vegas Golden Knights! Watch parties and potential home games may be scheduled this weekend. Check Ball Arena and McGregor Square's giant 66-ft Jumbotron for game-day details.</div>
+      <a class="card-link" href="https://www.nhl.com/avalanche/tickets" target="_blank">Details &amp; Tickets →</a>
+    </div>
+
   </div>
 
-  <div class="card-grid">
+  <!-- ===== CONCERTS ===== -->
+  <div class="cat-header">🎸 Concerts at Red Rocks</div>
+  <div class="grid">
 
-    <!-- Card 1 -->
     <div class="card">
-      <div class="card-meta">SAT–SUN · MAY 23–24 · 10 AM – 8 PM (SAT) / 5 PM (SUN) <span class="free-badge">FREE</span></div>
-      <div class="card-title">27th Annual Denver Arts Festival</div>
-      <div class="card-venue">📍 Conservatory Green, Central Park Neighborhood</div>
-      <div class="card-desc">Denver's beloved Memorial Day arts tradition returns with 140+ juried artists, live music from the Denver Concert Band, Dotsero &amp; Bailenque, food vendors, and a kids' art zone. Free admission &amp; parking.</div>
-      <a class="card-link" href="https://www.denverartsfestival.com/" target="_blank">Details / Free Admission →</a>
+      <div class="card-meta">Fri · May 29 · 7 PM</div>
+      <div class="card-title">Michael Franti &amp; Spearhead + The Original Wailers</div>
+      <div class="card-venue">Red Rocks Amphitheatre · 18300 W Alameda Pkwy, Morrison</div>
+      <div class="card-desc">Feel-good, soulful reggae-rock under the stars! Michael Franti &amp; Spearhead bring their uplifting sound to Red Rocks, joined by The Original Wailers for a night of positive vibes. Family-friendly energy — just be aware of late start time.</div>
+      <a class="card-link" href="https://www.redrocksonline.com" target="_blank">Details &amp; Tickets →</a>
     </div>
 
-    <!-- Card 2 -->
     <div class="card">
-      <div class="card-meta">FRI–SUN · MAY 22–24 · ALL DAY <span class="free-badge">FREE</span></div>
-      <div class="card-title">Boulder Creek Festival 2026</div>
-      <div class="card-venue">📍 Boulder Creek Path, Downtown Boulder</div>
-      <div class="card-desc">Colorado's unofficial summer kickoff features 30+ live bands across 3 stages, 200+ artisan vendors, food trucks, carnival rides, and family-friendly activities. Free to attend all weekend long.</div>
-      <a class="card-link" href="https://bceproductions.com/boulder-creek-festival/" target="_blank">Details / Schedule →</a>
+      <div class="card-meta">Sat · May 30 · 9 AM · ALL AGES</div>
+      <div class="card-title">Yoga on the Rocks</div>
+      <div class="card-venue">Red Rocks Amphitheatre · 18300 W Alameda Pkwy, Morrison</div>
+      <div class="card-desc">One of Denver's most beloved wellness traditions — guided yoga at sunrise in the breathtaking Red Rocks natural amphitheater. A unique, memorable experience for families with older kids or teens. Yoga mats and layers recommended.</div>
+      <a class="card-link" href="https://www.redrocksonline.com" target="_blank">Details &amp; Tickets →</a>
     </div>
 
-    <!-- Card 3 -->
     <div class="card">
-      <div class="card-meta">FRI · MAY 22 · EVENING <span class="free-badge">FREE</span></div>
-      <div class="card-title">AAPI Culture Fest × Civic Center Night Market</div>
-      <div class="card-venue">📍 Civic Center Park, Denver</div>
-      <div class="card-desc">Presented by the AAPI Commission of Denver and Asian Roundtable of Colorado, this vibrant night market celebrates Asian American &amp; Pacific Islander cultures with food, vendors, performances, and community.</div>
-      <a class="card-link" href="https://visitdenver.com/blog/post/denver-events-this-weekend/" target="_blank">Details →</a>
+      <div class="card-meta">Sat · May 30 · 6 PM</div>
+      <div class="card-title">Alan Walker + Audien &amp; Lonely Club</div>
+      <div class="card-venue">Red Rocks Amphitheatre · 18300 W Alameda Pkwy, Morrison</div>
+      <div class="card-desc">Norwegian DJ and electronic music sensation Alan Walker lights up Red Rocks alongside Audien and the Lonely Club (Alan Walker x Steve Aoki collab). An electrifying EDM night at one of the world's greatest outdoor venues.</div>
+      <a class="card-link" href="https://www.redrocksonline.com" target="_blank">Details &amp; Tickets →</a>
     </div>
 
-    <!-- Card 4 -->
     <div class="card">
-      <div class="card-meta">FRI–SUN · MAY 22–24 · 7:30 PM</div>
-      <div class="card-title">Star Wars: Return of the Jedi in Concert</div>
-      <div class="card-venue">📍 Boettcher Concert Hall, Denver Performing Arts Complex</div>
-      <div class="card-desc">See the classic film on the big screen while the Colorado Symphony performs John Williams' legendary score live. A must-see event for families and Star Wars fans of all ages!</div>
-      <a class="card-link" href="https://coloradosymphony.org/" target="_blank">Details / Tickets →</a>
+      <div class="card-meta">Sun · May 31 · 7 PM</div>
+      <div class="card-title">CA7RIEL &amp; Paco Amoroso: Free Spirits World Tour</div>
+      <div class="card-venue">Red Rocks Amphitheatre · 18300 W Alameda Pkwy, Morrison</div>
+      <div class="card-desc">Argentinian trap, hip-hop, and electronic pop duo CA7RIEL &amp; Paco Amoroso make their Red Rocks debut as part of their globe-spanning Free Spirits World Tour. A unique international act in an unforgettable setting.</div>
+      <a class="card-link" href="https://www.redrocksonline.com" target="_blank">Details &amp; Tickets →</a>
     </div>
 
-    <!-- Card 5 -->
-    <div class="card">
-      <div class="card-meta">FRI · MAY 22 · 4:30 PM <span class="free-badge">FREE</span></div>
-      <div class="card-title">Avs Playoff Watch Party at McGregor Square</div>
-      <div class="card-venue">📍 McGregor Square, 1901 Wazee St, LoDo Denver</div>
-      <div class="card-desc">Head to LoDo to cheer on the Colorado Avalanche on a massive 66-foot Jumbotron during the NHL Western Conference Finals. Food &amp; drinks available from 6 Colorado dining options. Also on Sunday, May 24 at 4:30 PM.</div>
-      <a class="card-link" href="https://www.mcgregorsquare.com/" target="_blank">Details / Tickets ($12–$18) →</a>
-    </div>
-
-    <!-- Card 6 -->
-    <div class="card">
-      <div class="card-meta">SAT · MAY 23 · 10 AM – 8 PM <span class="free-badge">FREE</span></div>
-      <div class="card-title">Rock de Mayo at Levitt Pavilion</div>
-      <div class="card-venue">📍 Levitt Pavilion Denver, Ruby Hill Park</div>
-      <div class="card-desc">Free outdoor concert celebrating Latin culture with iZCALLi, Los Mocochetes, El Cro, Fruta Brutal, Monica the Great &amp; El Jag. Bring a blanket and picnic — the lawn is free for all ages.</div>
-      <a class="card-link" href="https://levittdenver.org/" target="_blank">Free Tickets / Info →</a>
-    </div>
-
-  </div><!-- /card-grid family -->
-
-  <!-- ═══════════════════════════════════════════
-       CATEGORY: SPORTS
-  ═══════════════════════════════════════════ -->
-  <div class="category-header">
-    <h2>🏒 Sports</h2>
-    <div class="cat-line"></div>
-  </div>
-
-  <div class="card-grid">
-
-    <!-- Card 7 -->
-    <div class="card">
-      <div class="card-meta">FRI · MAY 22 · 6:00 PM</div>
-      <div class="card-title">NHL Western Conference Finals: Avalanche vs. Vegas Golden Knights — Game 2</div>
-      <div class="card-venue">📍 Ball Arena · 1000 Chopper Circle, Denver</div>
-      <div class="card-desc">The Colorado Avalanche face the Vegas Golden Knights in a critical playoff home game. The energy at Ball Arena during playoff season is electric — don't miss it! Parking available at Ball Arena.</div>
-      <a class="card-link" href="https://www.ballarena.com/" target="_blank">Details / Tickets →</a>
-    </div>
-
-    <!-- Card 8 -->
-    <div class="card">
-      <div class="card-meta">SUN · MAY 24 · 6:00 PM</div>
-      <div class="card-title">NHL Western Conference Finals: Avalanche vs. Vegas — Home Game 3 (If Necessary)</div>
-      <div class="card-venue">📍 Ball Arena · 1000 Chopper Circle, Denver</div>
-      <div class="card-desc">Another potential home playoff game for the Colorado Avalanche against the Vegas Golden Knights. Great family outing — check Ball Arena for kid-friendly packages and family seating options.</div>
-      <a class="card-link" href="https://www.ballarena.com/" target="_blank">Details / Tickets →</a>
-    </div>
-
-    <!-- Card 9 -->
-    <div class="card">
-      <div class="card-meta">SAT · MAY 23 · 7:30 PM</div>
-      <div class="card-title">Colorado Rapids vs. FC Dallas — Summer Kickoff</div>
-      <div class="card-venue">📍 DICK'S Sporting Goods Park · 6000 Victory Way, Commerce City</div>
-      <div class="card-desc">The Rapids host FC Dallas for the Summer Kickoff presented by King Soopers. Great family night out with affordable tickets, outdoor seating, and all the action of MLS soccer. Kids love the atmosphere!</div>
-      <a class="card-link" href="https://www.coloradorapids.com/" target="_blank">Details / Tickets →</a>
-    </div>
-
-    <!-- Card 10 -->
-    <div class="card">
-      <div class="card-meta">FRI–SUN · MAY 22–24 · ALL WEEKEND</div>
-      <div class="card-title">Colorado Rockies Home Stand at Coors Field</div>
-      <div class="card-venue">📍 Coors Field · 2001 Blake St, Downtown Denver</div>
-      <div class="card-desc">The Rockies are home this weekend for a Memorial Day series. Nothing says Denver summer like a ballgame at Coors Field with mountain views, great food, and a sunny afternoon. Check the schedule for game times.</div>
-      <a class="card-link" href="https://www.mlb.com/rockies/schedule" target="_blank">Schedule / Tickets →</a>
-    </div>
-
-  </div><!-- /card-grid sports -->
-
-  <!-- ═══════════════════════════════════════════
-       CATEGORY: CONCERTS
-  ═══════════════════════════════════════════ -->
-  <div class="category-header">
-    <h2>🎸 Concerts</h2>
-    <div class="cat-line"></div>
-  </div>
-
-  <div class="card-grid">
-
-    <!-- Card 11 -->
-    <div class="card">
-      <div class="card-meta">FRI · MAY 22 · 6:00 PM</div>
-      <div class="card-title">Seven Lions at Red Rocks Amphitheatre</div>
-      <div class="card-venue">📍 Red Rocks Amphitheatre · 18300 W. Alameda Pkwy, Morrison</div>
-      <div class="card-desc">Electronic music powerhouse Seven Lions headlines Red Rocks with support from Mitis, Kill the Noise, HVDES, and Quackson. An unforgettable outdoor concert experience in the iconic red sandstone venue.</div>
-      <a class="card-link" href="https://www.redrocksonline.com/" target="_blank">Details / Tickets →</a>
-    </div>
-
-    <!-- Card 12 -->
-    <div class="card">
-      <div class="card-meta">SAT · MAY 23 · 7:00 PM</div>
-      <div class="card-title">Fisher at Red Rocks Amphitheatre</div>
-      <div class="card-venue">📍 Red Rocks Amphitheatre · 18300 W. Alameda Pkwy, Morrison</div>
-      <div class="card-desc">Multi-Grammy Award-winning artist Fisher brings his electrifying DJ set to Red Rocks for a night of genre-defying electronic music. One of the hottest tickets of the Memorial Day weekend.</div>
-      <a class="card-link" href="https://www.redrocksonline.com/" target="_blank">Details / Tickets →</a>
-    </div>
-
-    <!-- Card 13 -->
-    <div class="card">
-      <div class="card-meta">SUN · MAY 24 · 7:00 PM</div>
-      <div class="card-title">Alabama Shakes at Red Rocks Amphitheatre</div>
-      <div class="card-venue">📍 Red Rocks Amphitheatre · 18300 W. Alameda Pkwy, Morrison</div>
-      <div class="card-desc">The acclaimed rock and soul band Alabama Shakes headlines Red Rocks on Sunday night — one of the most anticipated performances of the summer. Older kids and teens will love this legendary act under the stars.</div>
-      <a class="card-link" href="https://www.redrocksonline.com/" target="_blank">Details / Tickets →</a>
-    </div>
-
-    <!-- Card 14 -->
-    <div class="card">
-      <div class="card-meta">FRI · MAY 22 · 7:00 PM</div>
-      <div class="card-title">Neyla Pekarek: Vaudevillian Extravaganza</div>
-      <div class="card-venue">📍 Oriental Theater · 4335 W. 44th Ave, Denver</div>
-      <div class="card-desc">Neyla Pekarek — formerly of The Lumineers and composer of DCPA's "Rattlesnake Kate" — debuts her new EP "The Queen of Magic" in an evening of unmatched spectacle and storytelling at the historic Oriental Theater.</div>
-      <a class="card-link" href="https://www.theorientaltheater.com/" target="_blank">Details / Tickets →</a>
-    </div>
-
-  </div><!-- /card-grid concerts -->
-
-  <div class="spacer"></div>
-
-  <div class="site-footer">
-    Powered by <a href="https://jeremykanehomes.com/this-weekend-in-denver" target="_blank">JeremyKaneHomes.com</a> &nbsp;·&nbsp; Denver Metro Real Estate &amp; Community Guide
   </div>
 
   <div class="spacer"></div>
 
-</div><!-- /wrap -->
+</div>
 </body>
 </html>
 ```
