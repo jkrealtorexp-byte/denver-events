@@ -5,8 +5,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>What's Happening in Denver This Weekend</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -14,292 +12,350 @@
     html, body {
       background: #162a3d;
       font-family: 'Lato', sans-serif;
-      color: #ffffff;
+      color: #fff;
       min-height: 100vh;
     }
 
     .wrap {
       max-width: 960px;
       margin: 0 auto;
-      padding: 24px 16px;
+      padding: 28px 16px 20px;
     }
 
-    /* Header */
+    /* ── Header ── */
     .site-header {
       text-align: center;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
+    }
+    .site-header .eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #8aabcc;
+      margin-bottom: 6px;
     }
     .site-header h1 {
       font-size: 26px;
       font-weight: 900;
-      color: #ffffff;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
+      color: #fff;
+      line-height: 1.2;
     }
 
-    /* Date Bar */
+    /* ── Date Bar ── */
     .date-bar {
       background: #f5821f;
-      color: #ffffff;
       text-align: center;
+      padding: 10px 20px;
+      border-radius: 4px;
+      margin: 18px 0 28px;
       font-size: 15px;
       font-weight: 700;
+      letter-spacing: 1.5px;
       text-transform: uppercase;
-      letter-spacing: 2px;
-      padding: 10px 16px;
-      border-radius: 4px;
-      margin-bottom: 28px;
+      color: #fff;
     }
 
-    /* Category Header */
+    /* ── Category Header ── */
     .category-header {
       border-left: 4px solid #f5821f;
       padding-left: 12px;
-      margin: 28px 0 14px 0;
+      margin-bottom: 16px;
+      margin-top: 32px;
+    }
+    .category-header:first-of-type { margin-top: 0; }
+    .category-header h2 {
       font-size: 13px;
       font-weight: 900;
-      text-transform: uppercase;
       letter-spacing: 2px;
-      color: #ffffff;
+      text-transform: uppercase;
+      color: #f5821f;
+    }
+    .category-header p {
+      font-size: 11px;
+      color: #8aabcc;
+      margin-top: 2px;
     }
 
-    /* Card Grid */
+    /* ── Card Grid ── */
     .card-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 14px;
+      margin-bottom: 8px;
     }
 
     .card {
       background: #1a3349;
       border-radius: 4px;
-      padding: 14px;
+      padding: 14px 16px;
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      gap: 5px;
     }
 
-    .card-meta {
+    .card .meta {
       font-size: 10px;
       font-weight: 700;
+      letter-spacing: 1.4px;
       text-transform: uppercase;
-      letter-spacing: 1.5px;
       color: #f5821f;
     }
+    .card .meta .free-badge {
+      display: inline-block;
+      background: #f5821f;
+      color: #fff;
+      font-size: 9px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      padding: 1px 5px;
+      border-radius: 2px;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
 
-    .card-title {
+    .card .title {
       font-size: 15px;
       font-weight: 700;
-      color: #ffffff;
-      line-height: 1.35;
+      color: #fff;
+      line-height: 1.3;
     }
 
-    .card-venue {
+    .card .venue {
       font-size: 12px;
       color: #8aabcc;
-      line-height: 1.4;
+      line-height: 1.3;
     }
 
-    .card-desc {
+    .card .desc {
       font-size: 11px;
       color: #ccddee;
       line-height: 1.5;
       flex: 1;
     }
 
-    .card-link {
+    .card .card-link {
       display: inline-block;
       margin-top: 8px;
       font-size: 11px;
       font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
       color: #f5821f;
       text-decoration: none;
-      text-transform: uppercase;
-      letter-spacing: 1px;
+      border-bottom: 1px solid rgba(245,130,31,0.35);
+      padding-bottom: 1px;
+      align-self: flex-start;
     }
-    .card-link:hover {
-      text-decoration: underline;
-    }
+    .card .card-link:hover { color: #ffaa55; border-color: #ffaa55; }
 
-    /* Responsive */
+    /* ── Spacer ── */
+    .bottom-spacer { height: 20px; }
+
+    /* ── Responsive ── */
     @media (max-width: 600px) {
-      .card-grid {
-        grid-template-columns: 1fr;
-      }
-      .site-header h1 {
-        font-size: 20px;
-      }
+      .card-grid { grid-template-columns: 1fr; }
+      .site-header h1 { font-size: 20px; }
     }
-
-    .spacer { height: 20px; }
   </style>
 </head>
 <body>
-  <div class="wrap">
+<div class="wrap">
 
-    <div class="site-header">
-      <h1>What's Happening in Denver This Weekend</h1>
+  <!-- Header -->
+  <div class="site-header">
+    <div class="eyebrow">Denver Metro · Family Guide</div>
+    <h1>What's Happening in Denver<br>This Weekend</h1>
+  </div>
+
+  <!-- Date Bar -->
+  <div class="date-bar">Jun 12–14, 2026</div>
+
+  <!-- ═══════════════════════════════════════
+       CATEGORY: FAMILY EVENTS
+  ════════════════════════════════════════ -->
+  <div class="category-header">
+    <h2>🎉 Family Events</h2>
+    <p>Kid-friendly fun all weekend long</p>
+  </div>
+
+  <div class="card-grid">
+
+    <div class="card">
+      <div class="meta">FRI Jun 12 · All Day<span class="free-badge">FREE</span></div>
+      <div class="title">Historic Elitch Theatre Family Film Series: Ghostbusters</div>
+      <div class="venue">Historic Elitch Theatre · Denver</div>
+      <div class="desc">The beloved outdoor family film series kicks off the weekend with a screening of the classic Ghostbusters. A perfect summer evening for all ages under the stars at one of Denver's most iconic venues.</div>
+      <a class="card-link" href="https://www.elitchtheatre.org" target="_blank">Details &amp; Tickets →</a>
     </div>
 
-    <div class="date-bar">Jun 5–7, 2026</div>
-
-    <!-- ===================== FAMILY EVENTS ===================== -->
-    <div class="category-header">🎨 Family Events</div>
-    <div class="card-grid">
-
-      <div class="card">
-        <div class="card-meta">Fri Jun 5 · 6–10 PM · FREE</div>
-        <div class="card-title">Pride Kick-Off: Tiana Major9 Live</div>
-        <div class="card-venue">Levitt Pavilion Denver · Ruby Hill Park</div>
-        <div class="card-desc">Kick off Pride Month with a FREE outdoor concert featuring Tiana Major9. All ages, all welcome — bring the whole family to this high-energy evening in Ruby Hill Park.</div>
-        <a class="card-link" href="https://levittdenver.org" target="_blank">Details / Tickets →</a>
-      </div>
-
-      <div class="card">
-        <div class="card-meta">Fri Jun 5 · 4–8 PM · FREE</div>
-        <div class="card-title">First Friday Gallery Walk + Larimer Square Live</div>
-        <div class="card-venue">South Pearl St, Tennyson St, RiNo & Larimer Square · Denver</div>
-        <div class="card-desc">Monthly gallery walks across three Denver neighborhoods with galleries open late and artists on site. Live music on Larimer Square 4–8 PM with happy hour and dinner at nearby restaurants.</div>
-        <a class="card-link" href="https://www.denver365.com" target="_blank">Details →</a>
-      </div>
-
-      <div class="card">
-        <div class="card-meta">Sat Jun 6 – Sun Jun 7 · 10 AM–5 PM · FREE</div>
-        <div class="card-title">Denver Chalk Art Festival</div>
-        <div class="card-venue">Golden Triangle Creative District · Denver</div>
-        <div class="card-desc">Over 200 professional and amateur artists transform Denver's streets into breathtaking chalk murals over two full days. A beloved, free family tradition in the heart of the city's cultural district.</div>
-        <a class="card-link" href="https://www.denver365.com" target="_blank">Details →</a>
-      </div>
-
-      <div class="card">
-        <div class="card-meta">Sat Jun 6 · 2–9 PM · FREE</div>
-        <div class="card-title">Summer Sessions at Riverfront Park</div>
-        <div class="card-venue">Riverfront Park · Downtown Denver</div>
-        <div class="card-desc">Kick off festival season at Riverfront Park with this free, high-energy downtown celebration featuring live music, cold drinks, and a lively crowd all afternoon and evening.</div>
-        <a class="card-link" href="https://visitdenver.com" target="_blank">Details →</a>
-      </div>
-
-      <div class="card">
-        <div class="card-meta">Sat Jun 6 · 11 AM & 1 PM</div>
-        <div class="card-title">Cinderella — Miners Alley Performing Arts</div>
-        <div class="card-venue">Miners Alley Performing Arts Center · 1100 Miner's Alley, Golden</div>
-        <div class="card-desc">A peachy-keen, rockin' update on the classic Cinderella fairy tale! Perfect for families with young kids. Multiple showtimes Saturday (11 AM & 1 PM) and Sunday (1 PM).</div>
-        <a class="card-link" href="https://www.minersalley.com" target="_blank">Details / Tickets →</a>
-      </div>
-
-      <div class="card">
-        <div class="card-meta">Sun Jun 7 · All Day · FREE</div>
-        <div class="card-title">Paws with Pride — 3rd Annual</div>
-        <div class="card-venue">Denver Union Station · 1701 Wynkoop St, Denver</div>
-        <div class="card-desc">Bring your pup to Denver Union Station's 3rd annual Paws with Pride community celebration. A pet-friendly, family-friendly Pride Month event open to all at one of Denver's most iconic landmarks.</div>
-        <a class="card-link" href="https://unionstationindenver.com" target="_blank">Details →</a>
-      </div>
-
-      <div class="card">
-        <div class="card-meta">Through Jun 14 · Daily · Paid Admission</div>
-        <div class="card-title">Freedom Plane: Documents That Forged a Nation</div>
-        <div class="card-venue">History Colorado Center · 1200 Broadway, Denver</div>
-        <div class="card-desc">One of only 8 cultural institutions in the US displaying a once-in-a-generation collection of the nation's founding documents — including an original engraving of the Declaration of Independence.</div>
-        <a class="card-link" href="https://www.historycolorado.org" target="_blank">Details / Tickets →</a>
-      </div>
-
-      <div class="card">
-        <div class="card-meta">Fri Jun 5 · Opens Jun 5 · Paid Admission</div>
-        <div class="card-title">Immersive Empire — Grand Opening</div>
-        <div class="card-venue">Immersive Empire · Lafayette, CO</div>
-        <div class="card-desc">Launching June 5, 2026, Immersive Empire is the newest immersive experience concept from the founders of Colorado's leading immersive entertainment company. Great for families and teens!</div>
-        <a class="card-link" href="https://www.immersiveempire.com" target="_blank">Details / Tickets →</a>
-      </div>
-
+    <div class="card">
+      <div class="meta">SAT–SUN Jun 13–14 · 10am–6:30pm</div>
+      <div class="title">Colorado Renaissance Festival — Opening Weekend</div>
+      <div class="venue">650 W Perry Park Ave · Larkspur (I-25 between Denver &amp; CO Springs)</div>
+      <div class="desc">The beloved Ren Fest returns for its opening weekend! Medieval jousting, costumed characters, artisan vendors, food, rides, and family activities across 8 weekends. Free parking, rain or shine.</div>
+      <a class="card-link" href="https://www.coloradorenaissance.com" target="_blank">Details &amp; Tickets →</a>
     </div>
 
-    <!-- ===================== SPORTS ===================== -->
-    <div class="category-header">⚾ Sports</div>
-    <div class="card-grid">
-
-      <div class="card">
-        <div class="card-meta">Fri Jun 5 · 6:40 PM</div>
-        <div class="card-title">Colorado Rockies vs. Milwaukee Brewers</div>
-        <div class="card-venue">Coors Field · 2001 Blake St, Denver</div>
-        <div class="card-desc">Game 1 of the weekend home series — take the family out to the ballpark for a summer evening at Coors Field. Arrive early for views of the Rocky Mountains and pregame activities.</div>
-        <a class="card-link" href="https://www.mlb.com/rockies/tickets" target="_blank">Details / Tickets →</a>
-      </div>
-
-      <div class="card">
-        <div class="card-meta">Sat Jun 6 · 7:10 PM</div>
-        <div class="card-title">Colorado Rockies vs. Milwaukee Brewers</div>
-        <div class="card-venue">Coors Field · 2001 Blake St, Denver</div>
-        <div class="card-desc">Saturday night baseball at the ballpark! Game 2 of the Rockies vs. Brewers series. A classic family outing with great food, fun atmosphere, and Rocky Mountain views.</div>
-        <a class="card-link" href="https://www.mlb.com/rockies/tickets" target="_blank">Details / Tickets →</a>
-      </div>
-
-      <div class="card">
-        <div class="card-meta">Sun Jun 7 · 1:10 PM</div>
-        <div class="card-title">Colorado Rockies vs. Milwaukee Brewers</div>
-        <div class="card-venue">Coors Field · 2001 Blake St, Denver</div>
-        <div class="card-desc">Sunday afternoon series finale — perfect for a family day game! Grab the kids and enjoy 9 innings of Rockies baseball under blue Colorado skies at the beloved Coors Field.</div>
-        <a class="card-link" href="https://www.mlb.com/rockies/tickets" target="_blank">Details / Tickets →</a>
-      </div>
-
-      <div class="card">
-        <div class="card-meta">Sun Jun 7 · 7:00 PM</div>
-        <div class="card-title">Denver Onyx vs. Chicago Tempest</div>
-        <div class="card-venue">Infinity Park · Denver</div>
-        <div class="card-desc">Watch Denver's women's rugby team, the Onyx, take on the Chicago Tempest at Infinity Park. An exciting, fast-paced match that's great for families looking for a different kind of sports night out.</div>
-        <a class="card-link" href="https://www.ticketmaster.com" target="_blank">Details / Tickets →</a>
-      </div>
-
-      <div class="card">
-        <div class="card-meta">Sat Jun 6 · Morning · Paid Admission</div>
-        <div class="card-title">Yoga on the Rocks — Season 14</div>
-        <div class="card-venue">Red Rocks Park & Amphitheatre · Morrison</div>
-        <div class="card-desc">The 14th season of Yoga on the Rocks, presented by White Claw Hard Seltzer, returns for Saturday morning sessions. Flow through a yoga class in one of the world's most iconic natural venues.</div>
-        <a class="card-link" href="https://www.redrocksonline.com" target="_blank">Details / Tickets →</a>
-      </div>
-
+    <div class="card">
+      <div class="meta">Through SUN Jun 14 · Museum Hours</div>
+      <div class="title">Freedom Plane: Documents That Forged a Nation</div>
+      <div class="venue">History Colorado Center · 1200 Broadway, Denver</div>
+      <div class="desc">One of only eight institutions nationwide to display these priceless founding documents — including an original engraving of the Declaration of Independence. Last weekend to see this once-in-a-generation exhibition.</div>
+      <a class="card-link" href="https://www.historycolorado.org" target="_blank">Details &amp; Tickets →</a>
     </div>
 
-    <!-- ===================== CONCERTS ===================== -->
-    <div class="category-header">🎸 Concerts</div>
-    <div class="card-grid">
-
-      <div class="card">
-        <div class="card-meta">Fri Jun 5 · 8:00 PM</div>
-        <div class="card-title">Brit Floyd</div>
-        <div class="card-venue">Red Rocks Park & Amphitheatre · Morrison</div>
-        <div class="card-desc">The world's greatest Pink Floyd tribute show returns to Red Rocks for two consecutive nights. An unforgettable evening of laser lights, iconic visuals, and classic Pink Floyd music under the stars.</div>
-        <a class="card-link" href="https://www.redrocksonline.com" target="_blank">Details / Tickets →</a>
-      </div>
-
-      <div class="card">
-        <div class="card-meta">Sat Jun 6 · 7:00 PM</div>
-        <div class="card-title">Big Head Todd & The Monsters</div>
-        <div class="card-venue">Red Rocks Park & Amphitheatre · Morrison</div>
-        <div class="card-desc">Colorado's own Big Head Todd and the Monsters — a Red Rocks staple since the '90s — returns to their home stage. Joined by special guests 4 Non Blondes for a legendary Colorado summer night.</div>
-        <a class="card-link" href="https://www.redrocksonline.com" target="_blank">Details / Tickets →</a>
-      </div>
-
-      <div class="card">
-        <div class="card-meta">Sun Jun 7 · 7:30 PM</div>
-        <div class="card-title">Trey Anastasio with the Colorado Symphony</div>
-        <div class="card-venue">Red Rocks Park & Amphitheatre · Morrison</div>
-        <div class="card-desc">Phish frontman Trey Anastasio teams up with the Colorado Symphony for a one-of-a-kind Sunday evening concert at Red Rocks. A magical pairing of rock improvisation and full orchestral power.</div>
-        <a class="card-link" href="https://www.redrocksonline.com" target="_blank">Details / Tickets →</a>
-      </div>
-
-      <div class="card">
-        <div class="card-meta">Sat Jun 6 · 8:00 PM</div>
-        <div class="card-title">Joe Jackson + Band — Hope & Fury Tour</div>
-        <div class="card-venue">Paramount Theatre · 1621 Glenarm Pl, Denver</div>
-        <div class="card-desc">Presented by 97.3 KBCO, new wave and rock icon Joe Jackson brings his Hope and Fury Tour 2026 to Denver's stunning historic Paramount Theatre for an unforgettable night of classic hits and new music.</div>
-        <a class="card-link" href="https://www.ticketmaster.com" target="_blank">Details / Tickets →</a>
-      </div>
-
+    <div class="card">
+      <div class="meta">SUN Jun 14 · 10am–Noon<span class="free-badge">FREE</span></div>
+      <div class="title">Lenny Pearce's Family Rave at Red Rocks</div>
+      <div class="venue">Red Rocks Amphitheatre · Morrison</div>
+      <div class="desc">A wildly fun morning dance party for kids and families at Red Rocks, featuring DJ Raphi spinning music the whole family can move to. One of the most unique kid-friendly events of the summer — dancing at an iconic outdoor venue!</div>
+      <a class="card-link" href="https://www.redrocksonline.com" target="_blank">Details &amp; Tickets →</a>
     </div>
 
-    <div class="spacer"></div>
+    <div class="card">
+      <div class="meta">SUN Jun 14 · Museum Hours</div>
+      <div class="title">International Children's Day at Museum of Illusions</div>
+      <div class="venue">Museum of Illusions · Downtown Denver</div>
+      <div class="desc">Celebrate International Children's Day with a special event at the Museum of Illusions — 60,000 sq ft of mind-bending, interactive fun featuring perspective rooms, holograms, and illusions the whole family will love.</div>
+      <a class="card-link" href="https://denver.museumofillusions.us" target="_blank">Details &amp; Tickets →</a>
+    </div>
 
-  </div><!-- /.wrap -->
+    <div class="card">
+      <div class="meta">SUN Jun 14 · 10am–Noon<span class="free-badge">FREE</span></div>
+      <div class="title">Spring Cory Merrill Makers Market at Little Bird</div>
+      <div class="venue">Little Bird · Cory Merrill Neighborhood, Denver</div>
+      <div class="desc">Young makers showcase and sell their own handmade creations at this charming neighborhood market. A genuinely lovely community event that supports young entrepreneurs and local artisans.</div>
+      <a class="card-link" href="https://littlebirddenver.com" target="_blank">Details &amp; Tickets →</a>
+    </div>
+
+  </div><!-- /.card-grid -->
+
+
+  <!-- ═══════════════════════════════════════
+       CATEGORY: SPORTS
+  ════════════════════════════════════════ -->
+  <div class="category-header">
+    <h2>🏟️ Sports</h2>
+    <p>Rockies, Rapids &amp; more live action</p>
+  </div>
+
+  <div class="card-grid">
+
+    <div class="card">
+      <div class="meta">FRI Jun 12 · 6:40 PM</div>
+      <div class="title">Colorado Rockies vs. Boston Red Sox</div>
+      <div class="venue">Coors Field · 2001 Blake St, Denver</div>
+      <div class="desc">The Rockies host the Boston Red Sox for the first game of a weekend series at Coors Field. Grab a hot dog, soak in the mountain views, and cheer on the home team. Tickets start from $20.</div>
+      <a class="card-link" href="https://www.mlb.com/rockies/tickets" target="_blank">Details &amp; Tickets →</a>
+    </div>
+
+    <div class="card">
+      <div class="meta">SAT Jun 13 · 1:10 PM</div>
+      <div class="title">Colorado Rockies vs. Boston Red Sox</div>
+      <div class="venue">Coors Field · 2001 Blake St, Denver</div>
+      <div class="desc">Day game under the Rocky Mountain sun as the Rockies take on the Red Sox. A great family outing — Coors Field offers excellent kids' areas and one of baseball's most scenic settings.</div>
+      <a class="card-link" href="https://www.mlb.com/rockies/tickets" target="_blank">Details &amp; Tickets →</a>
+    </div>
+
+    <div class="card">
+      <div class="meta">SAT Jun 13 · 5:00 PM</div>
+      <div class="title">Denver Onyx vs. Boston Banshees</div>
+      <div class="venue">Infinity Park · 950 S Birch St, Glendale</div>
+      <div class="desc">Denver's Onyx rugby team battles the Boston Banshees in a home match at the intimate Infinity Park. Women's professional rugby at its best — fast, physical, and exciting for the whole family.</div>
+      <a class="card-link" href="https://www.denveronyx.com" target="_blank">Details &amp; Tickets →</a>
+    </div>
+
+    <div class="card">
+      <div class="meta">SAT Jun 13 · All Day</div>
+      <div class="title">Red Bull Soapbox Race</div>
+      <div class="venue">Empower Field at Mile High · 1701 Bryant St, Denver</div>
+      <div class="desc">The world's wildest downhill race rolls back into Denver for the first time in 24 years! Teams race imaginative, non-motorized soapbox cars down a winding course — judged on speed, design, and showmanship. A wild, free family spectacle.</div>
+      <a class="card-link" href="https://www.redbull.com/us-en/events/red-bull-soapbox-race-denver-2026" target="_blank">Details &amp; Tickets →</a>
+    </div>
+
+    <div class="card">
+      <div class="meta">SUN Jun 14 · 1:10 PM</div>
+      <div class="title">Colorado Rockies vs. Boston Red Sox</div>
+      <div class="venue">Coors Field · 2001 Blake St, Denver</div>
+      <div class="desc">Sunday afternoon finale of the Rockies vs. Red Sox series. A classic American Sunday — baseball, fresh air, and family memories at one of MLB's most fan-friendly ballparks.</div>
+      <a class="card-link" href="https://www.mlb.com/rockies/tickets" target="_blank">Details &amp; Tickets →</a>
+    </div>
+
+    <div class="card">
+      <div class="meta">Jun 11–Jul 19 · Daily<span class="free-badge">FREE</span></div>
+      <div class="title">Colorado Rapids Soccer Celebration at Skyline Park</div>
+      <div class="venue">Skyline Park · Downtown Denver</div>
+      <div class="desc">Fan central for soccer supporters all summer long. Local food vendors, retail specials, surprise guest appearances by Rapids legends, and family-friendly soccer activities in the heart of downtown Denver.</div>
+      <a class="card-link" href="https://www.coloradorapids.com" target="_blank">Details &amp; Tickets →</a>
+    </div>
+
+  </div><!-- /.card-grid -->
+
+
+  <!-- ═══════════════════════════════════════
+       CATEGORY: CONCERTS
+  ════════════════════════════════════════ -->
+  <div class="category-header">
+    <h2>🎵 Concerts &amp; Live Music</h2>
+    <p>Red Rocks, Paramount, City Park &amp; more</p>
+  </div>
+
+  <div class="card-grid">
+
+    <div class="card">
+      <div class="meta">FRI–SAT Jun 12–13 · 8:00 PM</div>
+      <div class="title">Paul Simon — "A Quiet Celebration" Tour</div>
+      <div class="venue">Red Rocks Amphitheatre · Morrison</div>
+      <div class="desc">Music legend Paul Simon plays two magical nights at Red Rocks on his "A Quiet Celebration" acoustic tour. Expect greatest hits spanning six decades — Simon &amp; Garfunkel classics through solo masterpieces — in one of the world's most iconic venues.</div>
+      <a class="card-link" href="https://www.redrocksonline.com" target="_blank">Details &amp; Tickets →</a>
+    </div>
+
+    <div class="card">
+      <div class="meta">SUN Jun 14 · 5:30 PM</div>
+      <div class="title">Trevor Hall, Thievery Corporation &amp; Dirtwire</div>
+      <div class="venue">Red Rocks Amphitheatre · Morrison</div>
+      <div class="desc">A transcendent Sunday evening at Red Rocks featuring reggae-folk artist Trevor Hall, the legendary electronic/world music duo Thievery Corporation, and sonic experimentalists Dirtwire, with special guest Porangui.</div>
+      <a class="card-link" href="https://www.redrocksonline.com" target="_blank">Details &amp; Tickets →</a>
+    </div>
+
+    <div class="card">
+      <div class="meta">SAT Jun 13 · 7:00 PM</div>
+      <div class="title">America — "The Happy Trails Tour 2026"</div>
+      <div class="venue">Paramount Theatre · 1621 Glenarm Pl, Denver</div>
+      <div class="desc">Classic rock icons America bring their beloved catalog of hits — "A Horse With No Name," "Ventura Highway," "Sister Golden Hair" — to the gorgeous historic Paramount Theatre for an unforgettable evening.</div>
+      <a class="card-link" href="https://www.paramountdenver.com" target="_blank">Details &amp; Tickets →</a>
+    </div>
+
+    <div class="card">
+      <div class="meta">SUN Jun 14 · 2:00 PM<span class="free-badge">FREE</span></div>
+      <div class="title">City Park Jazz: Spicy Pickles feat. Hannah Rodriguez</div>
+      <div class="venue">City Park · Denver (near E 17th &amp; Colorado Blvd)</div>
+      <div class="desc">Denver's beloved free outdoor concert series returns to City Park. The Spicy Pickles jazz band headlines with vocalist Hannah Rodriguez for a beautiful Sunday afternoon of live jazz under the trees — bring a blanket and a picnic!</div>
+      <a class="card-link" href="https://www.cityparkjazz.org" target="_blank">Details &amp; Tickets →</a>
+    </div>
+
+    <div class="card">
+      <div class="meta">FRI–SAT Jun 12–13 · 7:30 PM</div>
+      <div class="title">Pete Holmes — Comedy Works Downtown</div>
+      <div class="venue">Comedy Works Downtown · 1226 15th St, Denver</div>
+      <div class="desc">Comedian and podcaster Pete Holmes ("You Made It Weird") brings his sharp observational humor to Comedy Works Downtown for a weekend run. VIP tickets include priority seating in the first six rows.</div>
+      <a class="card-link" href="https://www.comedyworks.com" target="_blank">Details &amp; Tickets →</a>
+    </div>
+
+    <div class="card">
+      <div class="meta">FRI Jun 12 · 7:30 PM</div>
+      <div class="title">The Moth Mainstage — "American Dreams"</div>
+      <div class="venue">Paramount Theatre · 1621 Glenarm Pl, Denver</div>
+      <div class="desc">The legendary storytelling series The Moth brings its Mainstage show to Denver with the theme "American Dreams." Five real people tell true, personal stories live — no notes, no nets. An evening of laughter, tears, and genuine human connection.</div>
+      <a class="card-link" href="https://www.themoth.org" target="_blank">Details &amp; Tickets →</a>
+    </div>
+
+  </div><!-- /.card-grid -->
+
+  <div class="bottom-spacer"></div>
+
+</div><!-- /.wrap -->
 </body>
 </html>
 ```
