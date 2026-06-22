@@ -14,7 +14,7 @@
     html, body {
       background: #162a3d;
       font-family: 'Lato', sans-serif;
-      color: #ffffff;
+      color: #e0eaf4;
       min-height: 100vh;
     }
 
@@ -24,71 +24,71 @@
       padding: 28px 16px 20px;
     }
 
-    /* Header */
+    /* ── Header ── */
     .site-header {
       text-align: center;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
     .site-header h1 {
       font-size: 26px;
       font-weight: 900;
-      letter-spacing: 0.5px;
       color: #ffffff;
-      line-height: 1.25;
+      letter-spacing: 0.5px;
     }
-    .site-header p {
+    .site-header p.tagline {
       font-size: 13px;
       color: #8aabcc;
       margin-top: 4px;
     }
 
-    /* Date Bar */
+    /* ── Date bar ── */
     .date-bar {
       background: #f5821f;
+      color: #fff;
       text-align: center;
-      padding: 10px 16px;
-      border-radius: 4px;
-      font-size: 17px;
-      font-weight: 900;
-      letter-spacing: 1px;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
       text-transform: uppercase;
-      color: #ffffff;
-      margin: 16px 0 28px;
+      padding: 10px 0;
+      border-radius: 4px;
+      margin-bottom: 28px;
     }
 
-    /* Category Header */
-    .category-header {
+    /* ── Category header ── */
+    .cat-header {
       border-left: 5px solid #f5821f;
       padding-left: 12px;
       margin-bottom: 16px;
-      margin-top: 32px;
+      margin-top: 30px;
     }
-    .category-header h2 {
-      font-size: 18px;
+    .cat-header h2 {
+      font-size: 16px;
       font-weight: 900;
+      color: #ffffff;
       text-transform: uppercase;
       letter-spacing: 1px;
-      color: #ffffff;
     }
-    .category-header p {
-      font-size: 12px;
+    .cat-header p {
+      font-size: 11px;
       color: #8aabcc;
       margin-top: 2px;
     }
 
-    /* Card Grid */
+    /* ── Card grid ── */
     .card-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 14px;
+      margin-bottom: 8px;
     }
 
-    /* Card */
     .card {
       background: #1a3349;
       border-radius: 4px;
       padding: 14px;
     }
+
     .card-meta {
       font-size: 10px;
       font-weight: 700;
@@ -97,212 +97,227 @@
       letter-spacing: 0.8px;
       margin-bottom: 6px;
     }
-    .card-meta .free-badge {
-      display: inline-block;
-      background: #f5821f;
-      color: #ffffff;
-      font-size: 9px;
-      font-weight: 900;
-      padding: 1px 5px;
-      border-radius: 2px;
-      margin-left: 6px;
-      letter-spacing: 0.5px;
-    }
+
     .card-title {
       font-size: 15px;
       font-weight: 700;
       color: #ffffff;
-      line-height: 1.3;
       margin-bottom: 5px;
+      line-height: 1.3;
     }
+
     .card-venue {
       font-size: 12px;
       color: #8aabcc;
       margin-bottom: 6px;
     }
+
     .card-desc {
       font-size: 11px;
       color: #ccddee;
       line-height: 1.5;
       margin-bottom: 10px;
     }
+
     .card-link {
-      display: inline-block;
       font-size: 11px;
       font-weight: 700;
       color: #f5821f;
       text-decoration: none;
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      border-bottom: 1px solid rgba(245,130,31,0.35);
-      padding-bottom: 1px;
     }
-    .card-link:hover { color: #ffa04d; border-color: #ffa04d; }
+    .card-link:hover { text-decoration: underline; }
 
-    /* Spacer */
-    .spacer { height: 20px; }
+    /* ── Footer spacer ── */
+    .footer-spacer { height: 20px; }
 
-    /* Responsive */
-    @media (max-width: 620px) {
-      .card-grid { grid-template-columns: 1fr; }
-      .site-header h1 { font-size: 21px; }
+    /* ── Responsive: single column on mobile ── */
+    @media (max-width: 600px) {
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+      .site-header h1 { font-size: 20px; }
     }
   </style>
 </head>
 <body>
   <div class="wrap">
 
-    <!-- Header -->
     <div class="site-header">
       <h1>What's Happening in Denver This Weekend</h1>
-      <p>Your guide to the best events in the Mile High City</p>
+      <p class="tagline">Your family guide to the Mile High City · jeremykanehomes.com</p>
     </div>
 
-    <!-- Date Bar -->
-    <div class="date-bar">Jun 19–21, 2026 &nbsp;·&nbsp; Father's Day Weekend &nbsp;·&nbsp; Juneteenth</div>
+    <div class="date-bar">Jun 26–28, 2026</div>
 
-    <!-- ===================== FAMILY EVENTS ===================== -->
-    <div class="category-header">
-      <h2>🎪 Family Events</h2>
-      <p>Kid-friendly fun across the Denver metro</p>
+    <!-- ════════════════════════════
+         FAMILY EVENTS
+    ════════════════════════════ -->
+    <div class="cat-header">
+      <h2>🎡 Family Events</h2>
+      <p>Kid-friendly fun across the metro</p>
     </div>
+
     <div class="card-grid">
 
       <div class="card">
-        <div class="card-meta">Sat Jun 20 &nbsp;·&nbsp; All Day <span class="free-badge">FREE</span></div>
-        <div class="card-title">Juneteenth Music Festival – 15th Annual Street Festival</div>
-        <div class="card-venue">27th &amp; Welton St, Historic Five Points · Denver</div>
-        <div class="card-desc">One of the nation's largest Juneteenth celebrations returns to Five Points. Expect a parade, live performances, art, vendors, food stalls, and family-friendly activities — all free and open to the public. 20,000+ attendees expected.</div>
-        <a class="card-link" href="https://www.juneteenthevents.us/denver" target="_blank">Details &amp; Info →</a>
-      </div>
-
-      <div class="card">
-        <div class="card-meta">Sat–Sun Jun 20–21 &nbsp;·&nbsp; 10am–6:30pm</div>
-        <div class="card-title">Colorado Renaissance Festival</div>
-        <div class="card-venue">650 W Perry Park Ave · Larkspur (25 min south of Denver)</div>
-        <div class="card-desc">Travel back in time at one of Colorado's most beloved family traditions! Knights, jesters, jousting, artisan crafts, turkey legs, and medieval adventures for all ages — rain or shine every weekend through August.</div>
-        <a class="card-link" href="https://www.coloradorenaissance.com" target="_blank">Details &amp; Tickets →</a>
-      </div>
-
-      <div class="card">
-        <div class="card-meta">Fri–Sun Jun 19–21</div>
-        <div class="card-title">Harry Potter and the Cursed Child</div>
-        <div class="card-venue">Temple Hoyne Buell Theatre · Downtown Denver</div>
-        <div class="card-desc">Broadway's Tony Award-winning wizarding spectacular is in Denver through June 21. Join the next chapter in the Harry Potter story with stunning stage magic — perfect for young witches and wizards of all ages.</div>
-        <a class="card-link" href="https://www.denvercenter.org" target="_blank">Details &amp; Tickets →</a>
-      </div>
-
-      <div class="card">
-        <div class="card-meta">Sat Jun 20 &nbsp;·&nbsp; 3–8pm <span class="free-badge">FREE</span></div>
-        <div class="card-title">Denver BAZAAR at Larimer Square</div>
+        <div class="card-meta">Fri–Sun · All Weekend · FREE</div>
+        <div class="card-title">Larimer Square Pride Celebration</div>
         <div class="card-venue">Larimer Square · Downtown Denver</div>
-        <div class="card-desc">The Denver BAZAAR kicks off its summer season at Larimer Square with local makers, outdoor shopping, artisan goods, and the block in full summer form. Free to browse and stroll — a great Father's Day Saturday outing.</div>
-        <a class="card-link" href="https://www.larimersquare.com" target="_blank">Details →</a>
+        <div class="card-desc">Historic Larimer Square transforms into a colorful Pride celebration with live music, drag performances, local vendors, outdoor dining, and family-friendly entertainment all weekend long.</div>
+        <a class="card-link" href="https://larimersquare.com" target="_blank">Details &amp; Info →</a>
       </div>
 
       <div class="card">
-        <div class="card-meta">Sat Jun 20 &nbsp;·&nbsp; All Day <span class="free-badge">FREE</span></div>
-        <div class="card-title">Highlands Street Fair</div>
-        <div class="card-venue">32nd Ave (Irving to Perry) · Highlands, Denver</div>
-        <div class="card-desc">A beloved Denver neighborhood tradition, the Highlands Street Fair brings the community together along 32nd Avenue with live music, local vendors, great food, and family-friendly entertainment throughout the day.</div>
-        <a class="card-link" href="https://visitdenver.com" target="_blank">Details →</a>
+        <div class="card-meta">Sat · June 27 · FREE</div>
+        <div class="card-title">Troutfest Colorado</div>
+        <div class="card-venue">Coors Field · 2001 Blake St, Denver</div>
+        <div class="card-desc">A one-of-a-kind family festival celebrating conservation at Coors Field. Featuring exhibitors, fly-tying clinics, casting lessons, and live music — perfect for outdoor enthusiasts of all ages.</div>
+        <a class="card-link" href="https://coloradotroutunlimited.org" target="_blank">Details &amp; Tickets →</a>
       </div>
 
       <div class="card">
-        <div class="card-meta">Sat–Sun Jun 20–21</div>
-        <div class="card-title">Harry Potter &amp; the Sorcerer's Stone in Concert</div>
-        <div class="card-venue">Boettcher Concert Hall · Denver Performing Arts Complex</div>
-        <div class="card-desc">Celebrate 25 Years of Magic with the Colorado Symphony as they perform the iconic film score live while the movie plays on screen. A magical experience for the whole family — the perfect Father's Day weekend treat!</div>
+        <div class="card-meta">Sat–Sun · June 27–28</div>
+        <div class="card-title">Denver Cherry Blossom Festival</div>
+        <div class="card-venue">Sakura Square · Downtown Denver</div>
+        <div class="card-desc">Denver's beloved celebration of Japanese culture returns with taiko drumming, teriyaki, sake, traditional artwork, and wares. A rich cultural experience families look forward to every summer.</div>
+        <a class="card-link" href="https://cherryblossomdenver.org" target="_blank">Details &amp; Tickets →</a>
+      </div>
+
+      <div class="card">
+        <div class="card-meta">Fri–Sun · Jun 26–28 · ~6 AM</div>
+        <div class="card-title">Frederick In Flight — 15th Anniversary</div>
+        <div class="card-venue">Frederick, CO (North Metro)</div>
+        <div class="card-desc">Celebrate 15 years of Frederick In Flight with hot air balloon lifts each morning around 6 am (weather permitting), a Saturday night party, and fun for the whole family all weekend.</div>
+        <a class="card-link" href="https://frederickinflight.com" target="_blank">Details &amp; Info →</a>
+      </div>
+
+      <div class="card">
+        <div class="card-meta">Sat–Sun · Jun 27–28 · 10 AM–6:30 PM</div>
+        <div class="card-title">Colorado Renaissance Festival</div>
+        <div class="card-venue">650 W. Perry Park Ave · Larkspur, CO</div>
+        <div class="card-desc">Step into a magical medieval village in Larkspur! Running every weekend through August, enjoy turkey legs, artisan vendors, jousting, entertainers, and creative costumes. Rain or shine; parking free.</div>
+        <a class="card-link" href="https://coloradorenaissance.com" target="_blank">Details &amp; Tickets →</a>
+      </div>
+
+      <div class="card">
+        <div class="card-meta">Sun · June 28 · FREE</div>
+        <div class="card-title">City Park Jazz — 40th Anniversary Season</div>
+        <div class="card-venue">City Park · Denver</div>
+        <div class="card-desc">A beloved Denver tradition! City Park Jazz returns for its landmark 40th season with free Sunday evening concerts featuring jazz, funk, and Latin music in one of Denver's most iconic parks.</div>
+        <a class="card-link" href="https://cityparkjazz.org" target="_blank">Details &amp; Info →</a>
+      </div>
+
+      <div class="card">
+        <div class="card-meta">Fri · June 26 · FREE</div>
+        <div class="card-title">Final Friday on South Pearl Street</div>
+        <div class="card-venue">South Pearl Street · Denver</div>
+        <div class="card-desc">The first Final Friday of the season kicks off June 26! South Pearl Street turns into a lively neighborhood block event with local makers, shops, food, and community. Free and family-friendly.</div>
+        <a class="card-link" href="https://southpearlstreet.com" target="_blank">Details &amp; Info →</a>
+      </div>
+
+      <div class="card">
+        <div class="card-meta">Sun · June 28 · FREE</div>
+        <div class="card-title">Free Concert: Shane Endsley &amp; Denver Municipal Band</div>
+        <div class="card-venue">Levitt Pavilion · Ruby Hill Park, Denver</div>
+        <div class="card-desc">The Levitt Pavilion's free summer series continues with a free outdoor concert by Shane Endsley and the Denver Municipal Band. Bring a blanket, a picnic, and the whole family!</div>
+        <a class="card-link" href="https://levittdenver.org" target="_blank">Details &amp; Info →</a>
+      </div>
+
+    </div><!-- /card-grid -->
+
+
+    <!-- ════════════════════════════
+         SPORTS
+    ════════════════════════════ -->
+    <div class="cat-header">
+      <h2>⚾ Sports</h2>
+      <p>Colorado Rockies · Colorado Rapids · Denver pro sports</p>
+    </div>
+
+    <div class="card-grid">
+
+      <div class="card">
+        <div class="card-meta">Fri–Sun · Jun 26–28 · 1:10 / 6:40 PM</div>
+        <div class="card-title">Colorado Rockies vs. Chicago Cubs</div>
+        <div class="card-venue">Coors Field · 2001 Blake St, Denver</div>
+        <div class="card-desc">The Rockies host the Chicago Cubs for a weekend series at Coors Field. America's best ballpark experience — cold beer, warm sun, and Rocky Mountain views beyond the outfield.</div>
+        <a class="card-link" href="https://www.mlb.com/rockies/tickets" target="_blank">Details &amp; Tickets →</a>
+      </div>
+
+      <div class="card">
+        <div class="card-meta">Sat · June 27 · 9 AM · $40+</div>
+        <div class="card-title">Denver Pride 5K</div>
+        <div class="card-venue">Cheesman Park Pavilion · Denver</div>
+        <div class="card-desc">Join 4,000 runners and walkers at the gayest race of the year! Walking and running both welcome. Proceeds benefit The Center on Colfax, Denver's LGBTQ+ resource center. Registration from $40.</div>
+        <a class="card-link" href="https://denverpride.org" target="_blank">Details &amp; Register →</a>
+      </div>
+
+    </div><!-- /card-grid -->
+
+
+    <!-- ════════════════════════════
+         CONCERTS
+    ════════════════════════════ -->
+    <div class="cat-header">
+      <h2>🎵 Concerts &amp; Live Music</h2>
+      <p>Red Rocks · Empower Field · Downtown venues</p>
+    </div>
+
+    <div class="card-grid">
+
+      <div class="card">
+        <div class="card-meta">Fri–Sun · Jun 26–28 · 7:30 PM</div>
+        <div class="card-title">Widespread Panic — 3-Night Run</div>
+        <div class="card-venue">Red Rocks Amphitheatre · Morrison, CO</div>
+        <div class="card-desc">The beloved Georgia jam band returns to Red Rocks for a sold-out 3-night run Friday through Sunday. One of the most iconic live music experiences Colorado has to offer. Tickets at AXS.com.</div>
+        <a class="card-link" href="https://www.axs.com" target="_blank">Details &amp; Tickets →</a>
+      </div>
+
+      <div class="card">
+        <div class="card-meta">Fri · June 26 · 7:00 PM</div>
+        <div class="card-title">Usher &amp; Chris Brown — The R&amp;B Tour</div>
+        <div class="card-venue">Empower Field at Mile High · Denver</div>
+        <div class="card-desc">Two generations of R&B superstars share the same stage for one epic night at Mile High. Expect an electrifying production with exceptional choreography and an all-hits setlist.</div>
+        <a class="card-link" href="https://www.empowerfieldatmilehigh.com" target="_blank">Details &amp; Tickets →</a>
+      </div>
+
+      <div class="card">
+        <div class="card-meta">Fri · June 26 · 6:30 PM</div>
+        <div class="card-title">Connor Price &amp; Nic D — ICONIC Tour</div>
+        <div class="card-venue">Mission Ballroom · Denver</div>
+        <div class="card-desc">Connor Price and Nic D bring their ICONIC Tour to Denver's Mission Ballroom for a high-energy night of pop-rap and crowd-pleasing anthems. A great choice for teens and young adults.</div>
+        <a class="card-link" href="https://missionballroom.com" target="_blank">Details &amp; Tickets →</a>
+      </div>
+
+      <div class="card">
+        <div class="card-meta">Fri · June 26 · 7:30 PM</div>
+        <div class="card-title">Colorado Symphony Orchestra</div>
+        <div class="card-venue">Boettcher Concert Hall · Denver</div>
+        <div class="card-desc">An evening of world-class orchestral music at downtown Denver's Boettcher Concert Hall. The Colorado Symphony delivers a stunning performance in one of the city's finest acoustic venues.</div>
         <a class="card-link" href="https://coloradosymphony.org" target="_blank">Details &amp; Tickets →</a>
       </div>
 
-    </div><!-- /card-grid -->
-
-
-    <!-- ===================== SPORTS ===================== -->
-    <div class="category-header">
-      <h2>⚾ Sports</h2>
-      <p>Cheer on Denver's teams this Father's Day weekend</p>
-    </div>
-    <div class="card-grid">
-
       <div class="card">
-        <div class="card-meta">Fri Jun 19 &nbsp;·&nbsp; 6:40pm</div>
-        <div class="card-title">Colorado Rockies vs. Pittsburgh Pirates</div>
-        <div class="card-venue">Coors Field · 2001 Blake St, Denver</div>
-        <div class="card-desc">Kick off Father's Day weekend at the ballpark! The Rockies host Pittsburgh in Game 1 of a 3-game series. Grab Dad, some Coors, and enjoy baseball under the Rocky Mountain sky. Games Fri–Sun all weekend long.</div>
-        <a class="card-link" href="https://www.mlb.com/rockies/tickets" target="_blank">Details &amp; Tickets →</a>
+        <div class="card-meta">Sun · June 28 · Free · Evening</div>
+        <div class="card-title">Denver PrideFest — Live Entertainment Stages</div>
+        <div class="card-venue">16th Street · Downtown Denver</div>
+        <div class="card-desc">One of the country's largest Pride celebrations takes over downtown with the Pride Parade, multiple live entertainment stages, food vendors, and community organizations. Free to attend.</div>
+        <a class="card-link" href="https://denverpride.org" target="_blank">Details &amp; Info →</a>
       </div>
 
       <div class="card">
-        <div class="card-meta">Fri Jun 19 &nbsp;·&nbsp; 1:00pm MT <span class="free-badge">FREE</span></div>
-        <div class="card-title">FIFA World Cup Watch Party: USA vs. Australia</div>
-        <div class="card-venue">McGregor Square · 1901 Wazee St, LoDo Denver</div>
-        <div class="card-desc">Watch the US Men's National Team take on Australia on McGregor Square's massive 66-foot outdoor screen! Free admission with advanced registration encouraged. Food, drinks, and World Cup energy in the heart of LoDo.</div>
-        <a class="card-link" href="https://www.mcgregorsquare.com" target="_blank">Details &amp; Register →</a>
-      </div>
-
-      <div class="card">
-        <div class="card-meta">Sat Jun 20 &nbsp;·&nbsp; 6:40pm</div>
-        <div class="card-title">Colorado Rockies vs. Pittsburgh Pirates – Game 2</div>
-        <div class="card-venue">Coors Field · 2001 Blake St, Denver</div>
-        <div class="card-desc">Take Dad to the ballpark for Father's Day weekend Game 2! Enjoy the classic Coors Field atmosphere with great sightlines of the Rockies. Plenty of family-friendly food options and activities throughout the park.</div>
-        <a class="card-link" href="https://www.mlb.com/rockies/tickets" target="_blank">Details &amp; Tickets →</a>
-      </div>
-
-      <div class="card">
-        <div class="card-meta">Sun Jun 21 &nbsp;·&nbsp; Father's Day</div>
-        <div class="card-title">Colorado Rockies vs. Pittsburgh Pirates – Father's Day</div>
-        <div class="card-venue">Coors Field · 2001 Blake St, Denver</div>
-        <div class="card-desc">Celebrate Father's Day the Colorado way — with a baseball game! Game 3 wraps up the Pirates series. Check for special Father's Day promotions, giveaways, and family packages at the box office.</div>
-        <a class="card-link" href="https://www.mlb.com/rockies/tickets" target="_blank">Details &amp; Tickets →</a>
-      </div>
-
-    </div><!-- /card-grid -->
-
-
-    <!-- ===================== CONCERTS ===================== -->
-    <div class="category-header">
-      <h2>🎸 Concerts</h2>
-      <p>Live music under the Colorado sky</p>
-    </div>
-    <div class="card-grid">
-
-      <div class="card">
-        <div class="card-meta">Fri Jun 19 &nbsp;·&nbsp; Evening</div>
-        <div class="card-title">Louis Tomlinson: How Did We Get Here? World Tour</div>
+        <div class="card-meta">Sat · June 27 · 10 AM · $28+</div>
+        <div class="card-title">Yoga on the Rocks</div>
         <div class="card-venue">Red Rocks Amphitheatre · Morrison, CO</div>
-        <div class="card-desc">Former One Direction star Louis Tomlinson brings his "How Did We Get Here?" World Tour to Red Rocks with support from The Aces. A high-energy night in the world's most iconic outdoor venue — 15 miles from downtown Denver.</div>
-        <a class="card-link" href="https://www.redrocksonline.com" target="_blank">Details &amp; Tickets →</a>
-      </div>
-
-      <div class="card">
-        <div class="card-meta">Sat Jun 20 &nbsp;·&nbsp; Evening</div>
-        <div class="card-title">O.A.R. with Gavin DeGraw &amp; Phantom Planet</div>
-        <div class="card-venue">Red Rocks Amphitheatre · Morrison, CO</div>
-        <div class="card-desc">A perfect summer night lineup — O.A.R. headlines Red Rocks with special guests Gavin DeGraw and Phantom Planet. Classic rock anthems and crowd favorites under the stars at one of the world's greatest concert venues.</div>
-        <a class="card-link" href="https://www.redrocksonline.com" target="_blank">Details &amp; Tickets →</a>
-      </div>
-
-      <div class="card">
-        <div class="card-meta">Sat Jun 20 &nbsp;·&nbsp; All Day <span class="free-badge">FREE</span></div>
-        <div class="card-title">Juneteenth Free Music &amp; Live Performances</div>
-        <div class="card-venue">Welton Street Corridor · Five Points, Denver</div>
-        <div class="card-desc">Headliner SiR and multiple live acts take the stage as part of the free Juneteenth Music Festival. Jazz, soul, hip-hop and more fill the streets of Denver's Historic Five Points neighborhood all day long — no tickets needed.</div>
-        <a class="card-link" href="https://www.juneteenthevents.us/denver" target="_blank">Details →</a>
-      </div>
-
-      <div class="card">
-        <div class="card-meta">Sat Jun 21 &nbsp;·&nbsp; 10am</div>
-        <div class="card-title">Yoga on the Rocks (14th Season)</div>
-        <div class="card-venue">Red Rocks Amphitheatre · Morrison, CO</div>
-        <div class="card-desc">Start Father's Day with a sunrise yoga session at Red Rocks Amphitheatre! Now in its 14th season, Yoga on the Rocks presented by White Claw runs Saturday mornings through the summer. A uniquely Denver experience families love.</div>
+        <div class="card-desc">The 14th season of Yoga on the Rocks, presented by White Claw, runs Saturday mornings all summer. Flow through an all-levels vinyasa class surrounded by the world's most spectacular rock formations.</div>
         <a class="card-link" href="https://www.redrocksonline.com" target="_blank">Details &amp; Tickets →</a>
       </div>
 
     </div><!-- /card-grid -->
 
-    <div class="spacer"></div>
+    <div class="footer-spacer"></div>
 
   </div><!-- /wrap -->
 </body>
