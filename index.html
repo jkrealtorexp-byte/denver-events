@@ -3,338 +3,340 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>What's Happening in Denver This Weekend</title>
-  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     html, body {
       background: #162a3d;
       font-family: 'Lato', sans-serif;
-      color: #fff;
+      color: #ffffff;
+      min-height: 100vh;
     }
 
     .wrap {
       max-width: 960px;
       margin: 0 auto;
-      padding: 24px 16px;
+      padding: 28px 16px 20px;
     }
 
-    /* Header */
+    /* ── Header ── */
     .site-header {
       text-align: center;
-      padding-bottom: 6px;
-    }
-    .site-header .label {
-      font-size: 11px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: #8aabcc;
       margin-bottom: 6px;
     }
     .site-header h1 {
       font-size: 26px;
       font-weight: 900;
+      letter-spacing: 0.5px;
       color: #ffffff;
-      line-height: 1.2;
+      text-transform: uppercase;
+    }
+    .site-header p.tagline {
+      font-size: 13px;
+      color: #8aabcc;
+      margin-top: 4px;
     }
 
-    /* Date Bar */
+    /* ── Date Bar ── */
     .date-bar {
       background: #f5821f;
-      color: #fff;
-      font-weight: 900;
-      font-size: 15px;
       text-align: center;
-      letter-spacing: 1.5px;
+      padding: 10px 0;
+      font-size: 17px;
+      font-weight: 900;
+      letter-spacing: 1px;
       text-transform: uppercase;
-      padding: 10px 20px;
+      color: #ffffff;
       border-radius: 4px;
-      margin: 18px 0 28px;
+      margin-bottom: 28px;
     }
 
-    /* Category Header */
-    .category-header {
-      border-left: 4px solid #f5821f;
+    /* ── Category Header ── */
+    .cat-header {
+      border-left: 5px solid #f5821f;
       padding-left: 12px;
-      margin: 32px 0 16px;
+      margin: 28px 0 14px;
     }
-    .category-header h2 {
-      font-size: 13px;
+    .cat-header h2 {
+      font-size: 14px;
       font-weight: 900;
-      letter-spacing: 2px;
       text-transform: uppercase;
+      letter-spacing: 1.5px;
       color: #f5821f;
     }
-    .category-header p {
+    .cat-header p {
       font-size: 11px;
       color: #8aabcc;
       margin-top: 2px;
     }
 
-    /* Grid */
-    .grid {
+    /* ── Card Grid ── */
+    .card-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 14px;
     }
 
-    /* Card */
+    /* ── Event Card ── */
     .card {
       background: #1a3349;
       border-radius: 4px;
       padding: 14px;
       display: flex;
       flex-direction: column;
-      gap: 6px;
     }
     .card .meta {
       font-size: 10px;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 1.2px;
+      letter-spacing: 0.8px;
       color: #f5821f;
+      margin-bottom: 6px;
     }
-    .card .card-title {
+    .card .meta .badge-free {
+      display: inline-block;
+      background: #f5821f;
+      color: #ffffff;
+      font-size: 9px;
+      font-weight: 900;
+      padding: 1px 5px;
+      border-radius: 2px;
+      margin-left: 6px;
+      letter-spacing: 0.5px;
+    }
+    .card h3 {
       font-size: 15px;
       font-weight: 700;
       color: #ffffff;
       line-height: 1.3;
+      margin-bottom: 5px;
     }
     .card .venue {
       font-size: 12px;
       color: #8aabcc;
+      margin-bottom: 6px;
     }
     .card .desc {
       font-size: 11px;
       color: #ccddee;
       line-height: 1.5;
-      flex: 1;
+      flex-grow: 1;
+      margin-bottom: 12px;
     }
-    .card .card-link {
+    .card .cta {
       display: inline-block;
-      margin-top: 8px;
       font-size: 11px;
       font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
       color: #f5821f;
       text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      border-top: 1px solid #1e3e57;
+      padding-top: 10px;
+      margin-top: auto;
     }
-    .card .card-link:hover {
-      text-decoration: underline;
+    .card .cta:hover {
+      color: #ffaa55;
     }
 
-    /* Spacer */
+    /* ── Spacer ── */
     .spacer { height: 20px; }
 
-    /* Footer */
-    .footer {
-      text-align: center;
-      padding: 24px 0 8px;
-      font-size: 11px;
-      color: #4e7094;
-    }
-    .footer a { color: #f5821f; text-decoration: none; }
-    .footer a:hover { text-decoration: underline; }
-
-    /* Responsive */
+    /* ── Responsive ── */
     @media (max-width: 620px) {
-      .grid { grid-template-columns: 1fr; }
+      .card-grid { grid-template-columns: 1fr; }
       .site-header h1 { font-size: 20px; }
+      .date-bar { font-size: 15px; }
     }
   </style>
 </head>
 <body>
 <div class="wrap">
 
+  <!-- Header -->
   <div class="site-header">
-    <p class="label">Denver Metro · Family Weekend Guide</p>
-    <h1>What's Happening in Denver<br>This Weekend</h1>
+    <h1>What's Happening in Denver This Weekend</h1>
+    <p class="tagline">Your family guide to the Mile High City · Powered by JeremyKaneHomes.com</p>
   </div>
 
-  <div class="date-bar">🎆 Jul 3 – 5, 2026 · Independence Day Weekend 🎆</div>
+  <!-- Date Bar -->
+  <div class="date-bar">🗓 Jul 10–12, 2026</div>
 
-  <!-- ===================== FAMILY EVENTS ===================== -->
-  <div class="category-header">
-    <h2>🎨 Family Events &amp; Festivals</h2>
-    <p>Free fests, outdoor movies, fireworks &amp; community fun</p>
+  <!-- ═══════════════════════════════════ -->
+  <!--  CATEGORY: FREE FESTIVALS          -->
+  <!-- ═══════════════════════════════════ -->
+  <div class="cat-header">
+    <h2>🎉 Free Festivals</h2>
+    <p>No-cost fun for the whole family</p>
   </div>
 
-  <div class="grid">
+  <div class="card-grid">
 
     <div class="card">
-      <div class="meta">Fri–Sun · Jul 3–5 · FREE</div>
-      <div class="card-title">Cherry Creek Arts Festival</div>
-      <div class="venue">📍 Cherry Creek North Neighborhood</div>
-      <div class="desc">One of Denver's signature summer events featuring 250+ juried artists, live music, food vendors, interactive exhibits, and a dedicated children's creative area. Admission is free all three days.</div>
-      <a href="https://cherrycreekartsfestival.org" target="_blank" class="card-link">Details &amp; Map →</a>
+      <div class="meta">Jul 10–12 &nbsp;·&nbsp; Fri 11AM–7PM · Sat 10AM–8PM · Sun 11AM–7PM <span class="badge-free">FREE</span></div>
+      <h3>Colorado Black Arts Festival — 40th Anniversary</h3>
+      <div class="venue">📍 City Park West, Denver</div>
+      <div class="desc">Celebrate 40 years of this iconic annual festival honoring African American art and culture. Enjoy multiple performance stages, 100+ vendors, visual artists, live music, an artisan marketplace, and a community food court.</div>
+      <a class="cta" href="https://colbaf.org" target="_blank" rel="noopener">Details &amp; Info →</a>
     </div>
 
     <div class="card">
-      <div class="meta">Fri · Jul 3 · Doors 5:30 PM · FREE</div>
-      <div class="card-title">Sunset Cinema: "National Treasure" + Drone Show</div>
-      <div class="venue">📍 Sculpture Park, Denver Performing Arts Complex</div>
-      <div class="desc">Free outdoor screening of "National Treasure" at 7 PM with a pre-show at 6 PM. Mayor Mike Johnston appears live. A spectacular America 250 | Colorado 150 drone show follows at 9:15 PM. Register free on Eventbrite.</div>
-      <a href="https://www.artsandvenuesdenver.com" target="_blank" class="card-link">Free RSVP →</a>
+      <div class="meta">Jul 10–12 &nbsp;·&nbsp; Fri 4–10PM · Sat 11AM–10PM · Sun 11AM–7PM <span class="badge-free">FREE</span></div>
+      <h3>Denver French Fest — Bastille Day Celebration</h3>
+      <div class="venue">📍 Fillmore Plaza, 105 Fillmore St., Cherry Creek</div>
+      <div class="desc">A three-day immersion into French culture featuring culinary experiences, Provençal market vendors, live jazz manouche, contemporary art installations, and world-class gastronomy in the heart of Cherry Creek.</div>
+      <a class="cta" href="https://denverfrenchfest.com" target="_blank" rel="noopener">Details &amp; Info →</a>
     </div>
 
     <div class="card">
-      <div class="meta">Fri · Jul 3 · 6:00 PM</div>
-      <div class="card-title">Hudson Gardens Red, White &amp; Rock</div>
-      <div class="venue">📍 Hudson Gardens &amp; Event Center, Littleton</div>
-      <div class="desc">Dance to '80s &amp; '90s hits at this high-energy celebration with themed cocktails, local food trucks, and a fireworks finale. Celebrates America's 250th and Colorado's 150th. Tickets from $17 (kids) / $29 (adults).</div>
-      <a href="https://hudsongardens.org" target="_blank" class="card-link">Get Tickets →</a>
+      <div class="meta">Sat Jul 11 &nbsp;·&nbsp; All Day <span class="badge-free">FREE</span></div>
+      <h3>Riverfront Park Summer Sessions</h3>
+      <div class="venue">📍 Confluence Park, Downtown Denver</div>
+      <div class="desc">Festival-like free outdoor concert at the South Platte River featuring a Neil Frances DJ set along with JEV, Bershy, Slow Caves, and Circling Girl. Food vendors, recreation, and community activities along the riverfront.</div>
+      <a class="cta" href="https://visitdenver.com" target="_blank" rel="noopener">Details &amp; Info →</a>
     </div>
 
     <div class="card">
-      <div class="meta">Fri · Jul 3 · FREE</div>
-      <div class="card-title">Adams County Stars &amp; Stripes Celebration</div>
-      <div class="venue">📍 Riverdale Regional Park, Adams County</div>
-      <div class="desc">Free and family-friendly pre-Fourth celebration with live music, food vendors, beverage vendors, and a professional fireworks show capping off the night.</div>
-      <a href="https://www.adamscounty.us" target="_blank" class="card-link">Event Info →</a>
+      <div class="meta">Sat–Sun Jul 11–12 &nbsp;·&nbsp; 10AM–6:30PM</div>
+      <h3>Colorado Renaissance Festival</h3>
+      <div class="venue">📍 650 W Perry Park Ave, Larkspur (30 min from Denver)</div>
+      <div class="desc">Medieval jousting, costumes, performers, artisan vendors, food, and family-friendly entertainment across 8 summer weekends. One of the largest Renaissance festivals in the country — rain or shine, free parking.</div>
+      <a class="cta" href="https://coloradorenaissance.com" target="_blank" rel="noopener">Tickets &amp; Info →</a>
+    </div>
+
+  </div><!-- /card-grid -->
+
+
+  <!-- ═══════════════════════════════════ -->
+  <!--  CATEGORY: FAMILY EVENTS           -->
+  <!-- ═══════════════════════════════════ -->
+  <div class="cat-header">
+    <h2>👨‍👩‍👧 Family Events</h2>
+    <p>Kid-approved fun around the metro</p>
+  </div>
+
+  <div class="card-grid">
+
+    <div class="card">
+      <div class="meta">Sat–Sun Jul 11–12 &nbsp;·&nbsp; 11:30AM &amp; 6:30PM shows</div>
+      <h3>Hot Wheels Monster Trucks Live™: Glow-N-Fire</h3>
+      <div class="venue">📍 Ball Arena, Denver</div>
+      <div class="desc">World debut of Rhinomite joins fan favorites Mega Wrex™, Tiger Shark™ and Bone Shaker™ for car-crushing action and gravity-defying stunts. FMX riders perform an all-new no-handed front flip. Pre-show pit parties available!</div>
+      <a class="cta" href="https://www.ticketmaster.com" target="_blank" rel="noopener">Get Tickets →</a>
     </div>
 
     <div class="card">
-      <div class="meta">Sat · Jul 4 · FREE Parade · 1:30 PM</div>
-      <div class="card-title">Park Hill 4th of July Parade</div>
-      <div class="venue">📍 23rd Ave (Dexter to Krameria St), Denver</div>
-      <div class="desc">A beloved Denver tradition — floats, marching bands, and plenty of red, white and blue take to Park Hill's historic streets. Free for all. Parade steps off at 1:30 PM sharp.</div>
-      <a href="https://www.denver7.com/2026fireworks" target="_blank" class="card-link">Details →</a>
+      <div class="meta">Sat Jul 11 &nbsp;·&nbsp; 6:30PM–10PM <span class="badge-free">FREE</span></div>
+      <h3>Pedal the Moon — Castle Rock</h3>
+      <div class="venue">📍 Castle View High School → Festival Park, Castle Rock</div>
+      <div class="desc">Twilight family bike ride along East Plum Creek Trail followed by a free outdoor screening of "E.T. the Extra-Terrestrial" at Festival Park. ~6 miles on mostly flat terrain suitable for all ages. Ride departs 7 PM.</div>
+      <a class="cta" href="https://castlerock.org" target="_blank" rel="noopener">Details &amp; Info →</a>
     </div>
 
     <div class="card">
-      <div class="meta">Sat · Jul 4 · FREE · Noon–6 PM</div>
-      <div class="card-title">Urban Markets at Union Station</div>
-      <div class="venue">📍 Union Station, 1701 Wynkoop St, Denver</div>
-      <div class="desc">Free outdoor market featuring local artists, makers and creators with live music and entertainment. Running July 4–5 this weekend — perfect stroll for the whole family.</div>
-      <a href="https://denverunionstation.com" target="_blank" class="card-link">Learn More →</a>
+      <div class="meta">Sat Jul 11 &nbsp;·&nbsp; 7:00AM</div>
+      <h3>Yoga on the Rocks</h3>
+      <div class="venue">📍 Red Rocks Amphitheatre, Morrison</div>
+      <div class="desc">Start your Saturday morning with an all-levels vinyasa yoga class set against the iconic red sandstone formations of Red Rocks. One of Denver's most beloved outdoor wellness traditions — bring a mat and water bottle!</div>
+      <a class="cta" href="https://redrocksonline.com" target="_blank" rel="noopener">Get Tickets →</a>
     </div>
 
     <div class="card">
-      <div class="meta">Sun · Jul 5 · FREE · Afternoon</div>
-      <div class="card-title">City Park Jazz – Brass Band Holiday Special</div>
+      <div class="meta">Sun Jul 12 &nbsp;·&nbsp; All Day <span class="badge-free">FREE</span></div>
+      <h3>City Park Jazz — Sunday Concert Series</h3>
       <div class="venue">📍 City Park, Denver</div>
-      <div class="desc">City Park Jazz is celebrating its 40th anniversary season. This Sunday features a special brass band performance for Independence Day weekend — bring a blanket, a picnic, and the family.</div>
-      <a href="https://cityparkjazz.org" target="_blank" class="card-link">Event Info →</a>
+      <div class="desc">Pack a blanket and a picnic for Denver's beloved 40th-anniversary season of free Sunday evening jazz concerts in City Park. Featuring jazz, funk, and Latin music in one of Denver's most iconic outdoor settings — all ages welcome.</div>
+      <a class="cta" href="https://cityparkjazz.org" target="_blank" rel="noopener">Details &amp; Info →</a>
     </div>
 
-    <div class="card">
-      <div class="meta">Sat–Sun · Jul 4–5 · Colorado Renaissance Festival</div>
-      <div class="card-title">Colorado Renaissance Festival</div>
-      <div class="venue">📍 650 W Perry Park Ave, Larkspur (30 min south)</div>
-      <div class="desc">The beloved Renaissance Festival runs weekends through August. This 4th of July weekend edition brings jousting, medieval games, costumed characters, craft vendors and food — open 10 AM–6:30 PM. Free parking.</div>
-      <a href="https://coloradorenaissance.com" target="_blank" class="card-link">Get Tickets →</a>
-    </div>
+  </div><!-- /card-grid -->
 
-  </div><!-- /grid -->
 
-  <!-- ===================== SPORTS ===================== -->
-  <div class="category-header">
-    <h2>⚾ Sports</h2>
-    <p>Rockies, NWSL Soccer &amp; World Rugby at Denver venues</p>
-  </div>
-
-  <div class="grid">
-
-    <div class="card">
-      <div class="meta">Fri · Jul 3 · 6:10 PM · + Post-Game Fireworks</div>
-      <div class="card-title">Colorado Rockies vs. San Francisco Giants – Game 1</div>
-      <div class="venue">📍 Coors Field, 2001 Blake St, Denver</div>
-      <div class="desc">Star-spangled Independence Day weekend showdown at Coors Field. Post-game fireworks light up the sky after the final out — a perfect family night. Tickets from $56.</div>
-      <a href="https://www.mlb.com/rockies" target="_blank" class="card-link">Get Tickets →</a>
-    </div>
-
-    <div class="card">
-      <div class="meta">Fri · Jul 3 · 7:30 PM · NWSL Soccer</div>
-      <div class="card-title">Denver Summit FC vs. Kansas City Current</div>
-      <div class="venue">📍 Dick's Sporting Goods Park, Commerce City</div>
-      <div class="desc">Denver's brand-new NWSL franchise, Denver Summit FC, hosts Kansas City Current in a home match. Great family atmosphere with pro women's soccer action under the lights. Tickets from $51.</div>
-      <a href="https://www.denversummitfc.com" target="_blank" class="card-link">Get Tickets →</a>
-    </div>
-
-    <div class="card">
-      <div class="meta">Sat · Jul 4 · 4:45 PM · FREE Festival Included</div>
-      <div class="card-title">Rugby Nations Cup Doubleheader &amp; 4thFest</div>
-      <div class="venue">📍 Dick's Sporting Goods Park, Commerce City</div>
-      <div class="desc">USA Eagles face Portugal &amp; Zimbabwe takes on Tonga in a historic Independence Day rugby doubleheader. The 4thFest includes a free, family-friendly festival with live music, games, and one of Colorado's largest fireworks displays. Tickets from $30.</div>
-      <a href="https://www.usarugby.org" target="_blank" class="card-link">Get Tickets →</a>
-    </div>
-
-    <div class="card">
-      <div class="meta">Sat · Jul 4 · 6:10 PM · + Post-Game Fireworks</div>
-      <div class="card-title">Colorado Rockies vs. San Francisco Giants – Game 2</div>
-      <div class="venue">📍 Coors Field, 2001 Blake St, Denver</div>
-      <div class="desc">The 4th of July night game at Coors Field — catch the Giants series Game 2 with a massive post-game fireworks display to cap your Independence Day. Order tickets early; this game sells fast.</div>
-      <a href="https://www.mlb.com/rockies" target="_blank" class="card-link">Get Tickets →</a>
-    </div>
-
-    <div class="card">
-      <div class="meta">Sun · Jul 5 · 1:10 PM · Afternoon Game</div>
-      <div class="card-title">Colorado Rockies vs. San Francisco Giants – Game 3</div>
-      <div class="venue">📍 Coors Field, 2001 Blake St, Denver</div>
-      <div class="desc">Close out Independence Day weekend with an afternoon ballgame in the sunshine. A relaxed, family-friendly pace with classic Rockies game-day fun. Great for all ages.</div>
-      <a href="https://www.mlb.com/rockies" target="_blank" class="card-link">Get Tickets →</a>
-    </div>
-
-    <div class="card">
-      <div class="meta">Sat · Jul 4 · 4th of July Festivities</div>
-      <div class="card-title">4th of July Party at Empower Field at Mile High</div>
-      <div class="venue">📍 Empower Field at Mile High, Denver</div>
-      <div class="desc">Family-friendly Independence Day event featuring live music by Yachty Got Back (a 13-piece Denver yacht rock band), food vendors, face painting, axe throwing, a golf simulator, and a grand finale fireworks show.</div>
-      <a href="https://www.empowerfieldatmilehigh.com" target="_blank" class="card-link">Get Tickets →</a>
-    </div>
-
-  </div><!-- /grid -->
-
-  <!-- ===================== CONCERTS ===================== -->
-  <div class="category-header">
+  <!-- ═══════════════════════════════════ -->
+  <!--  CATEGORY: CONCERTS & MUSIC        -->
+  <!-- ═══════════════════════════════════ -->
+  <div class="cat-header">
     <h2>🎵 Concerts &amp; Live Music</h2>
-    <p>Red Rocks, Ball Arena &amp; more — live music all weekend long</p>
+    <p>From Red Rocks to free pavilion shows</p>
   </div>
 
-  <div class="grid">
+  <div class="card-grid">
 
     <div class="card">
-      <div class="meta">Fri · Jul 3 · Red Rocks · Night 2</div>
-      <div class="card-title">Deadrocks XII with Zeds Dead</div>
-      <div class="venue">📍 Red Rocks Park &amp; Amphitheatre, Morrison</div>
-      <div class="desc">The beloved electronic duo Zeds Dead wraps up their two-night Deadrocks XII residency at one of the world's most iconic venues. Night two of an unforgettable outdoor electronic music experience.</div>
-      <a href="https://www.redrocksonline.com" target="_blank" class="card-link">Get Tickets →</a>
+      <div class="meta">Fri Jul 10 &nbsp;·&nbsp; 7:30PM</div>
+      <h3>The Avett Brothers at Red Rocks</h3>
+      <div class="venue">📍 Red Rocks Amphitheatre, Morrison</div>
+      <div class="desc">Night 1 of 3 for the Avett Brothers at the world's greatest outdoor venue. The Mountain Goats open. Three nights of folk-rock under the stars — also Sat Jul 11 (with Asleep At The Wheel) and Sun Jul 12 (with Graham Nash).</div>
+      <a class="cta" href="https://redrocksonline.com" target="_blank" rel="noopener">Get Tickets →</a>
     </div>
 
     <div class="card">
-      <div class="meta">Sat · Jul 4 · Empower Field</div>
-      <div class="card-title">Ed Sheeran – The Loop Tour</div>
-      <div class="venue">📍 Empower Field at Mile High, Denver</div>
-      <div class="desc">The king of loops plays Empower Field on the Fourth of July as part of his aptly named Loop Tour. One of the biggest concerts of the summer — expect massive singalongs and a legendary Independence Day show.</div>
-      <a href="https://www.empowerfieldatmilehigh.com" target="_blank" class="card-link">Get Tickets →</a>
+      <div class="meta">Sat Jul 11 &nbsp;·&nbsp; 7:30PM</div>
+      <h3>The Avett Brothers — Night 2 at Red Rocks</h3>
+      <div class="venue">📍 Red Rocks Amphitheatre, Morrison</div>
+      <div class="desc">Night 2 features Asleep At The Wheel as special guests for an evening of roots music and heartfelt songwriting in the iconic red stone setting. Arrive early for sunset views before the show.</div>
+      <a class="cta" href="https://redrocksonline.com" target="_blank" rel="noopener">Get Tickets →</a>
     </div>
 
     <div class="card">
-      <div class="meta">Sun · Jul 5 · Red Rocks · Special Event</div>
-      <div class="card-title">Andrea Gibson: Love Letter from the Afterlife</div>
-      <div class="venue">📍 Red Rocks Park &amp; Amphitheatre, Morrison</div>
-      <div class="desc">A multimedia premiere of Andrea Gibson's final live poetry reading, with the Colorado Symphony performing live. Special guests Sara Bareilles and Chris Pureka join Megan Falley for an unforgettable evening under the stars.</div>
-      <a href="https://www.redrocksonline.com" target="_blank" class="card-link">Get Tickets →</a>
+      <div class="meta">Sun Jul 12 &nbsp;·&nbsp; 6:30PM</div>
+      <h3>The Avett Brothers — Night 3 ft. Graham Nash</h3>
+      <div class="venue">📍 Red Rocks Amphitheatre, Morrison</div>
+      <div class="desc">The final night of the Avett Brothers' three-night Red Rocks residency features legendary singer-songwriter Graham Nash as special guest. A once-in-a-season bill for music lovers of all generations.</div>
+      <a class="cta" href="https://redrocksonline.com" target="_blank" rel="noopener">Get Tickets →</a>
     </div>
 
     <div class="card">
-      <div class="meta">Sat · Jul 4 · Tivoli Quad · FREE</div>
-      <div class="card-title">Independence Day Concert at Auraria Campus</div>
-      <div class="venue">📍 Tivoli Quad, Auraria Campus, Downtown Denver</div>
-      <div class="desc">The annual downtown Denver Independence Day concert moves to a new location at the scenic Tivoli Quad on Auraria Campus. Free patriotic live music in the heart of downtown — bring the family.</div>
-      <a href="https://visitdenver.com" target="_blank" class="card-link">Event Info →</a>
+      <div class="meta">Sat Jul 11 &nbsp;·&nbsp; 6:00PM <span class="badge-free">FREE</span></div>
+      <h3>Andy Frasco &amp; the U.N. — Levitt Pavilion</h3>
+      <div class="venue">📍 Levitt Pavilion, 1380 W. Florida Ave., Denver</div>
+      <div class="desc">Funky, high-energy improv-driven rock with The Cultet opening the show. Levitt Pavilion is a beautiful outdoor amphitheater in Ruby Hill Park — bring a blanket, a picnic, and the whole family for this free summer night.</div>
+      <a class="cta" href="https://levittdenver.org" target="_blank" rel="noopener">RSVP Free →</a>
     </div>
 
-  </div><!-- /grid -->
+    <div class="card">
+      <div class="meta">Sun Jul 12 &nbsp;·&nbsp; 6:00PM <span class="badge-free">FREE</span></div>
+      <h3>Soul Rebel Reggae Fest ft. Black Uhuru — Levitt</h3>
+      <div class="venue">📍 Levitt Pavilion, 1380 W. Florida Ave., Denver</div>
+      <div class="desc">Wrap up your weekend with the Soul Rebel Reggae Fest headlined by Grammy-winning reggae legends Black Uhuru. The Levitt Pavilion's free summer concert series is one of Denver's great outdoor music traditions.</div>
+      <a class="cta" href="https://levittdenver.org" target="_blank" rel="noopener">RSVP Free →</a>
+    </div>
 
-  <div class="spacer"></div>
+  </div><!-- /card-grid -->
 
-  <div class="footer">
-    <p>Curated for Denver Metro Families · <a href="https://jeremykanehomes.com/this-weekend-in-denver">JeremyKaneHomes.com</a> · Always verify event details directly with organizers.</p>
+
+  <!-- ═══════════════════════════════════ -->
+  <!--  CATEGORY: SPORTS                  -->
+  <!-- ═══════════════════════════════════ -->
+  <div class="cat-header">
+    <h2>🏆 Sports</h2>
+    <p>Cheer on Denver's home teams</p>
   </div>
+
+  <div class="card-grid">
+
+    <div class="card">
+      <div class="meta">Sun Jul 12 &nbsp;·&nbsp; 5:00PM</div>
+      <h3>Denver Summit FC vs. Houston Dash — NWSL</h3>
+      <div class="venue">📍 Dick's Sporting Goods Park, Commerce City</div>
+      <div class="desc">Cheer on Denver's first professional women's soccer team in the NWSL in what's shaping up to be a breakout inaugural season. A fun, family-friendly game-day atmosphere with affordable tickets starting under $35.</div>
+      <a class="cta" href="https://denversummitfc.com" target="_blank" rel="noopener">Get Tickets →</a>
+    </div>
+
+    <div class="card">
+      <div class="meta">Fri–Sun Jul 10–12 &nbsp;·&nbsp; Various times</div>
+      <h3>Colorado Rockies — Home Series at Coors Field</h3>
+      <div class="venue">📍 Coors Field, 2001 Blake St., Denver</div>
+      <div class="desc">Catch the Rockies at iconic Coors Field this weekend. Summer baseball at altitude with views of the Rocky Mountains — great family outing with affordable seats, in-park food, and classic ballpark atmosphere.</div>
+      <a class="cta" href="https://coloradorockies.com" target="_blank" rel="noopener">Get Tickets →</a>
+    </div>
+
+  </div><!-- /card-grid -->
 
   <div class="spacer"></div>
 
