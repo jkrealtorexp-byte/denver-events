@@ -5,6 +5,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>What's Happening in Denver This Weekend</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -12,75 +14,76 @@
     html, body {
       background: #162a3d;
       font-family: 'Lato', sans-serif;
-      color: #ccddee;
+      color: #fff;
+      min-height: 100vh;
     }
 
     .wrap {
       max-width: 960px;
       margin: 0 auto;
-      padding: 24px 16px 20px;
+      padding: 0 16px;
     }
 
     /* ── Header ── */
     .site-header {
-      text-align: center;
-      margin-bottom: 6px;
+      background: #0f1f2e;
+      padding: 20px 0 16px;
+      border-bottom: 3px solid #f5821f;
     }
     .site-header h1 {
-      font-size: 26px;
+      font-size: 22px;
       font-weight: 900;
-      color: #ffffff;
-      letter-spacing: 0.5px;
+      letter-spacing: .5px;
+      color: #fff;
+      text-transform: uppercase;
     }
     .site-header p {
-      font-size: 13px;
+      font-size: 12px;
       color: #8aabcc;
-      margin-top: 4px;
+      margin-top: 3px;
     }
 
     /* ── Date Bar ── */
     .date-bar {
       background: #f5821f;
-      color: #ffffff;
-      text-align: center;
-      font-size: 15px;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
       padding: 10px 0;
-      border-radius: 4px;
-      margin: 16px 0 28px;
+      text-align: center;
+    }
+    .date-bar span {
+      font-size: 17px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      color: #fff;
+      text-transform: uppercase;
     }
 
     /* ── Category Header ── */
-    .category-header {
-      border-left: 4px solid #f5821f;
-      padding-left: 12px;
-      margin-bottom: 16px;
-      margin-top: 32px;
+    .cat-header {
+      border-left: 5px solid #f5821f;
+      padding: 6px 0 6px 14px;
+      margin: 30px 0 16px;
     }
-    .category-header h2 {
-      font-size: 18px;
+    .cat-header h2 {
+      font-size: 13px;
       font-weight: 900;
-      color: #ffffff;
+      letter-spacing: 2px;
       text-transform: uppercase;
-      letter-spacing: 1px;
+      color: #f5821f;
     }
-    .category-header p {
-      font-size: 12px;
+    .cat-header p {
+      font-size: 11px;
       color: #8aabcc;
       margin-top: 2px;
     }
 
     /* ── Grid ── */
-    .card-grid {
+    .grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin-bottom: 8px;
+      gap: 14px;
     }
 
-    /* ── Event Card ── */
+    /* ── Card ── */
     .card {
       background: #1a3349;
       border-radius: 4px;
@@ -89,263 +92,214 @@
       flex-direction: column;
       gap: 6px;
     }
-    .card .meta {
+    .card-meta {
       font-size: 10px;
       font-weight: 700;
-      color: #f5821f;
+      letter-spacing: 1.5px;
       text-transform: uppercase;
-      letter-spacing: 0.8px;
+      color: #f5821f;
     }
-    .card .title {
+    .card-title {
       font-size: 15px;
       font-weight: 700;
       color: #ffffff;
-      line-height: 1.35;
+      line-height: 1.3;
     }
-    .card .venue {
+    .card-venue {
       font-size: 12px;
       color: #8aabcc;
     }
-    .card .desc {
+    .card-desc {
       font-size: 11px;
       color: #ccddee;
       line-height: 1.5;
       flex: 1;
     }
-    .card a.btn {
+    .card-link {
       display: inline-block;
-      margin-top: 8px;
+      margin-top: 6px;
       font-size: 11px;
       font-weight: 700;
       color: #f5821f;
       text-decoration: none;
-      text-transform: uppercase;
-      letter-spacing: 0.6px;
-      border: 1px solid #f5821f;
-      border-radius: 3px;
-      padding: 5px 10px;
-      width: fit-content;
-      transition: background 0.2s, color 0.2s;
+      letter-spacing: .5px;
     }
-    .card a.btn:hover {
-      background: #f5821f;
-      color: #ffffff;
-    }
-
-    .badge-free {
-      display: inline-block;
-      background: #f5821f;
-      color: #ffffff;
-      font-size: 9px;
-      font-weight: 900;
-      letter-spacing: 0.8px;
-      text-transform: uppercase;
-      padding: 2px 6px;
-      border-radius: 2px;
-      margin-left: 6px;
-      vertical-align: middle;
-    }
-
-    /* ── Footer ── */
-    .footer {
-      text-align: center;
-      margin-top: 36px;
-      padding-top: 16px;
-      border-top: 1px solid #1e3f5a;
-      font-size: 11px;
-      color: #8aabcc;
-    }
-    .footer a {
-      color: #f5821f;
-      text-decoration: none;
-    }
-
-    /* ── Spacer ── */
-    .spacer { height: 20px; }
+    .card-link:hover { text-decoration: underline; }
 
     /* ── Responsive ── */
     @media (max-width: 600px) {
-      .card-grid {
-        grid-template-columns: 1fr;
-      }
-      .site-header h1 {
-        font-size: 20px;
-      }
+      .grid { grid-template-columns: 1fr; }
+      .site-header h1 { font-size: 17px; }
     }
+
+    .spacer { height: 20px; }
   </style>
 </head>
 <body>
+
+  <header class="site-header">
+    <div class="wrap">
+      <h1>What's Happening in Denver This Weekend</h1>
+      <p>Your family guide to the Denver metro — Aug 7–9, 2026</p>
+    </div>
+  </header>
+
+  <div class="date-bar">
+    <span>Aug 7–9, 2026</span>
+  </div>
+
   <div class="wrap">
 
-    <!-- Header -->
-    <div class="site-header">
-      <h1>What's Happening in Denver This Weekend</h1>
-      <p>Your family guide to the Denver Metro area — curated by <a href="https://jeremykanehomes.com" style="color:#f5821f;text-decoration:none;">JeremyKaneHomes.com</a></p>
+    <!-- ══════════════════════════════════════
+         CATEGORY: FAMILY EVENTS & FESTIVALS
+    ══════════════════════════════════════ -->
+    <div class="cat-header">
+      <h2>🎡 Family Events &amp; Festivals</h2>
+      <p>Free fun, outdoor adventures, and community celebrations for the whole family</p>
     </div>
 
-    <!-- Date Bar -->
-    <div class="date-bar">Jul 31 – Aug 2, 2026</div>
+    <div class="grid">
 
-    <!-- ══════════════════════════════ -->
-    <!-- CATEGORY: FAMILY EVENTS       -->
-    <!-- ══════════════════════════════ -->
-    <div class="category-header">
-      <h2>🎪 Family Events</h2>
-      <p>Kid-friendly fun across the Denver metro</p>
-    </div>
-
-    <div class="card-grid">
-
+      <!-- Card 1 -->
       <div class="card">
-        <div class="meta">Sat, Aug 1 · All Day <span class="badge-free">Free</span></div>
-        <div class="title">Colorado Day 2026 — State's 150th Birthday</div>
-        <div class="venue">History Colorado Center · 1200 Broadway, Denver</div>
-        <div class="desc">Celebrate Colorado's sesquicentennial with a free pancake breakfast at 9am, free museum admission 10am–5pm, live music by Isaac Slade (The Fray), gold panning, face painting, archaeology demos, and the grand opening of the "Shared History" community mural.</div>
-        <a class="btn" href="https://www.historycolorado.org" target="_blank">Details →</a>
+        <div class="card-meta">Fri–Sun, Aug 7–9 · FREE</div>
+        <div class="card-title">Wheat Ridge Carnation Festival</div>
+        <div class="card-venue">📍 Anderson Park, Wheat Ridge, CO</div>
+        <div class="card-desc">A beloved 3-day community festival celebrating Wheat Ridge's unique history and charm. Expect live music, carnival rides, local food vendors, a parade, and family-friendly activities all weekend long. One of the Denver metro's most treasured neighborhood traditions.</div>
+        <a class="card-link" href="https://www.carnationfestival.org" target="_blank" rel="noopener">Details &amp; Info →</a>
       </div>
 
+      <!-- Card 2 -->
       <div class="card">
-        <div class="meta">Sat, Aug 1 · All Day <span class="badge-free">Free</span></div>
-        <div class="title">Denver International Festival</div>
-        <div class="venue">Civic Center Park · Denver</div>
-        <div class="desc">Colorado's largest celebration of global culture — FREE and family-friendly! Features 25+ international food trucks, 25+ cultural performances, live art, beer/wine tasting, and a dedicated Kids Village. The festival donates 10% of proceeds to local nonprofits.</div>
-        <a class="btn" href="https://visitdenver.com/event/denver-international-festival/142276/" target="_blank">Details →</a>
+        <div class="card-meta">Sat–Sun, Aug 8–9 · 10am–5pm · FREE</div>
+        <div class="card-title">Smash Fine Arts Festival</div>
+        <div class="card-venue">📍 Fillmore Plaza, Cherry Creek North, Denver</div>
+        <div class="card-desc">A free outdoor fine arts festival set along the walkable Fillmore Plaza between 1st and 2nd avenues. Browse original paintings, sculpture, photography, jewelry, and mixed-media work from a curated roster of artists — all surrounded by Cherry Creek's great shops and dining.</div>
+        <a class="card-link" href="https://www.smashfineart.com" target="_blank" rel="noopener">Details &amp; Tickets →</a>
       </div>
 
+      <!-- Card 3 -->
       <div class="card">
-        <div class="meta">Thu Jul 31 – Sun Aug 2 <span class="badge-free">Free Entry</span></div>
-        <div class="title">Douglas County Fair & Rodeo</div>
-        <div class="venue">Douglas County Fairgrounds · Castle Rock (30 min south)</div>
-        <div class="desc">The classic Western Colorado experience just 30 minutes from Denver! Free rodeo, mutton bustin' (toddlers riding sheep!), country music concerts, carnival rides, a marketplace, and all the deep-fried fair food you can handle. Runs through Aug. 2.</div>
-        <a class="btn" href="https://douglascountyfair.com" target="_blank">Details →</a>
+        <div class="card-meta">Sat, Aug 8 · Opening Night</div>
+        <div class="card-title">Bright Nights at Four Mile</div>
+        <div class="card-venue">📍 Four Mile Historic Park, Denver</div>
+        <div class="card-desc">Denver's original lantern festival experience returns for 2026 with a brand-new theme, fresh experiences, and stunning new illuminated sculptures throughout the historic park grounds. A magical evening outing perfect for families with young children.</div>
+        <a class="card-link" href="https://www.fourmilepark.org" target="_blank" rel="noopener">Details &amp; Tickets →</a>
       </div>
 
+      <!-- Card 4 -->
       <div class="card">
-        <div class="meta">Sun, Aug 2 · 5–7 PM <span class="badge-free">Free</span></div>
-        <div class="title">City Park Jazz — 40th Anniversary Series</div>
-        <div class="venue">City Park · Denver (near E. 17th Ave & Steele St)</div>
-        <div class="desc">A beloved Denver summer tradition celebrating its landmark 40th season! Free Sunday evening concerts featuring jazz, funk, and Latin music in one of Denver's most iconic parks. Bring a blanket, a picnic, and the whole family.</div>
-        <a class="btn" href="https://cityparkjazz.org" target="_blank">Details →</a>
+        <div class="card-meta">Fri–Sun, Aug 7–9 · Various Times · FREE</div>
+        <div class="card-title">Denver Neighbors United Block Parties</div>
+        <div class="card-venue">📍 Various Neighborhoods, Denver Metro</div>
+        <div class="card-desc">The citywide summer celebration wraps up its final weekend, with neighbors across Denver gathering for block parties, park picnics, and community festivals. A great low-key way to get outside, meet locals, and celebrate what makes your neighborhood special. Check the city site for a map.</div>
+        <a class="card-link" href="https://www.denvergov.org" target="_blank" rel="noopener">Find Your Block Party →</a>
       </div>
 
-      <div class="card">
-        <div class="meta">Fri Jul 31 · Evening</div>
-        <div class="title">Civic Center Night Market: Homegrown Colorado</div>
-        <div class="venue">Civic Center Park · Denver</div>
-        <div class="desc">A uniquely Colorado celebration takes over Civic Center Park on July 31 — the Night Market: Homegrown Colorado edition. Local artisans, Colorado-made food and beverages, live entertainment, and community vibes in the heart of downtown.</div>
-        <a class="btn" href="https://visitdenver.com/events/" target="_blank">Details →</a>
-      </div>
-
-      <div class="card">
-        <div class="meta">Jul 29 – Aug 2 · Evenings</div>
-        <div class="title">The Sound of Music — Broadway at the Buell</div>
-        <div class="venue">Buell Theatre · 1350 Curtis St, Denver</div>
-        <div class="desc">This vibrant and beloved Broadway production of Maria and the von Trapp family runs through Aug. 2 — a perfect family outing. Catch it before it wraps up this weekend!</div>
-        <a class="btn" href="https://www.denvercenter.org" target="_blank">Tickets →</a>
-      </div>
-
-    </div><!-- /card-grid -->
+    </div><!-- /grid -->
 
 
-    <!-- ══════════════════════════════ -->
-    <!-- CATEGORY: SPORTS              -->
-    <!-- ══════════════════════════════ -->
-    <div class="category-header">
+    <!-- ══════════════════════════════════════
+         CATEGORY: SPORTS
+    ══════════════════════════════════════ -->
+    <div class="cat-header">
       <h2>⚾ Sports</h2>
-      <p>Colorado Rockies home series this weekend at Coors Field</p>
+      <p>Rockies, Rapids, Summit FC, and Broncos preseason action</p>
     </div>
 
-    <div class="card-grid">
+    <div class="grid">
 
+      <!-- Card 5 -->
       <div class="card">
-        <div class="meta">Fri, Jul 31 · 6:40 PM</div>
-        <div class="title">Colorado Rockies vs. Kansas City Royals — Game 1</div>
-        <div class="venue">Coors Field · 2001 Blake St, Denver</div>
-        <div class="desc">Kick off the weekend series at the most beautiful ballpark in baseball! The Rockies open a 3-game home stand against the Kansas City Royals on Friday night. Great family atmosphere, classic Denver baseball energy.</div>
-        <a class="btn" href="https://www.mlb.com/rockies/tickets" target="_blank">Tickets →</a>
+        <div class="card-meta">Fri–Sun, Aug 7–9 · 6:40pm</div>
+        <div class="card-title">Colorado Rockies vs. Tampa Bay Rays</div>
+        <div class="card-venue">📍 Coors Field, 2001 Blake St., Denver</div>
+        <div class="card-desc">The Rockies host the Rays for a three-game home series at iconic Coors Field. Grab the family, soak in the summer mountain views, and enjoy America's favorite pastime in one of baseball's most beautiful ballparks. Tickets start from just $11.</div>
+        <a class="card-link" href="https://www.mlb.com/rockies/tickets" target="_blank" rel="noopener">Details &amp; Tickets →</a>
       </div>
 
+      <!-- Card 6 -->
       <div class="card">
-        <div class="meta">Sat, Aug 1 · 6:10 PM</div>
-        <div class="title">Colorado Rockies vs. Kansas City Royals — Game 2</div>
-        <div class="venue">Coors Field · 2001 Blake St, Denver</div>
-        <div class="desc">Saturday night baseball under the Rocky Mountain sky! The middle game of this 3-game series is a perfect family night out. Hot dogs, nachos, and summer baseball — it doesn't get more Colorado than this.</div>
-        <a class="btn" href="https://www.mlb.com/rockies/tickets" target="_blank">Tickets →</a>
+        <div class="card-meta">Sat, Aug 8 · Check Schedule</div>
+        <div class="card-title">Colorado Rapids vs. Sporting Kansas City</div>
+        <div class="card-venue">📍 Dick's Sporting Goods Park, 6000 Victory Way, Commerce City</div>
+        <div class="card-desc">The Rapids take on Sporting Kansas City in a Western Conference MLS clash at Dick's Sporting Goods Park. The stadium offers great sight lines, affordable concessions, and a lively, family-friendly atmosphere just minutes from downtown Denver.</div>
+        <a class="card-link" href="https://www.coloradorapids.com/tickets" target="_blank" rel="noopener">Details &amp; Tickets →</a>
       </div>
 
+      <!-- Card 7 -->
       <div class="card">
-        <div class="meta">Sun, Aug 2 · 1:10 PM</div>
-        <div class="title">Colorado Rockies vs. Kansas City Royals — Faith Day</div>
-        <div class="venue">Coors Field · 2001 Blake St, Denver</div>
-        <div class="desc">Sunday afternoon baseball with a bonus — it's Faith Day at Coors Field! Players available for autographs on the 1st base side starting at 11:40am. Special Faith Day Postgame Concert tickets available. A great family afternoon game!</div>
-        <a class="btn" href="https://www.mlb.com/rockies/tickets" target="_blank">Tickets →</a>
+        <div class="card-meta">Weekend, Aug 7–9 · Check Schedule</div>
+        <div class="card-title">Denver Summit FC vs. North Carolina Courage</div>
+        <div class="card-venue">📍 Centennial Stadium, 13050 E. Peakview Ave., Centennial</div>
+        <div class="card-desc">Denver's professional women's soccer club, Denver Summit FC, faces the North Carolina Courage at Centennial Stadium. A fantastic opportunity to catch elite women's soccer close to home. Tickets start from $29 — a great affordable outing for sports-loving families.</div>
+        <a class="card-link" href="https://www.denversummitfc.com/tickets" target="_blank" rel="noopener">Details &amp; Tickets →</a>
       </div>
 
+      <!-- Card 8 -->
       <div class="card">
-        <div class="meta">Fri–Sun · Jul 31 – Aug 2</div>
-        <div class="title">Colorado Rockies 3-Game Home Series Recap</div>
-        <div class="venue">Coors Field · 2001 Blake St, LoDo Denver</div>
-        <div class="desc">The Kansas City Royals visit Denver for a full 3-game series this weekend! Friday 6:40pm, Saturday 6:10pm, Sunday 1:10pm. Tickets from $14 on Sunday. Coors Field is one of the most family-friendly MLB stadiums in the country — arrive early and enjoy the views!</div>
-        <a class="btn" href="https://www.mlb.com/rockies/schedule" target="_blank">Full Schedule →</a>
+        <div class="card-meta">Preseason · Check Schedule</div>
+        <div class="card-title">Denver Broncos NFL Preseason</div>
+        <div class="card-venue">📍 Empower Field at Mile High, 1701 Bryant St., Denver</div>
+        <div class="card-desc">The Broncos' 2026 NFL preseason is underway with multiple home tune-up games this August. Preseason is the perfect time to experience the Mile High gameday atmosphere with the whole family at a fraction of the regular season price. Check the official schedule for the Aug 7–9 matchup.</div>
+        <a class="card-link" href="https://www.denverbroncos.com/tickets" target="_blank" rel="noopener">Details &amp; Tickets →</a>
       </div>
 
-    </div><!-- /card-grid -->
+    </div><!-- /grid -->
 
 
-    <!-- ══════════════════════════════ -->
-    <!-- CATEGORY: CONCERTS            -->
-    <!-- ══════════════════════════════ -->
-    <div class="category-header">
-      <h2>🎸 Concerts & Live Music</h2>
-      <p>Red Rocks, Ball Arena, Fiddler's Green & beyond</p>
+    <!-- ══════════════════════════════════════
+         CATEGORY: CONCERTS
+    ══════════════════════════════════════ -->
+    <div class="cat-header">
+      <h2>🎸 Concerts</h2>
+      <p>Live music under the Colorado sky — headlined by Red Rocks</p>
     </div>
 
-    <div class="card-grid">
+    <div class="grid">
 
+      <!-- Card 9 -->
       <div class="card">
-        <div class="meta">Fri, Jul 31 · Doors 6 PM</div>
-        <div class="title">Lionel Richie & Earth, Wind & Fire</div>
-        <div class="venue">Ball Arena · 1000 Chopper Circle, Denver</div>
-        <div class="desc">A legendary double-bill of nostalgia! Lionel Richie and Earth, Wind & Fire bring classics like "All Night Long," "Dancing on the Ceiling," and "September" to Ball Arena. One of the most anticipated arena shows of 2026. All ages welcome.</div>
-        <a class="btn" href="https://www.ballarena.com" target="_blank">Tickets →</a>
+        <div class="card-meta">Sat, Aug 8 · Doors at 6pm</div>
+        <div class="card-title">Slightly Stoopid at Red Rocks</div>
+        <div class="card-venue">📍 Red Rocks Amphitheatre, 18300 W Alameda Pkwy, Morrison</div>
+        <div class="card-desc">Reggae-rock legends Slightly Stoopid bring their summer tour to Red Rocks with support from The Movement, Pepper, and Slum Beach Posse featuring DENM, Landon McNamara, and Jesse James Pariah. A high-energy, feel-good night under the iconic sandstone formations.</div>
+        <a class="card-link" href="https://www.axs.com" target="_blank" rel="noopener">Details &amp; Tickets →</a>
       </div>
 
+      <!-- Card 10 -->
       <div class="card">
-        <div class="meta">Fri Jul 31 & Sat Aug 1 · 7 PM</div>
-        <div class="title">Tedeschi Trucks Band with Lukas Nelson</div>
-        <div class="venue">Red Rocks Amphitheatre · Morrison, CO</div>
-        <div class="desc">Two nights of soulful blues-rock at the world's most iconic outdoor venue! The Tedeschi Trucks Band's Future Soul 2026 Tour rolls into Red Rocks with special guest Lukas Nelson. Stunning sunset views + incredible music. Presented by AEG & 97.3 KBCO.</div>
-        <a class="btn" href="https://www.redrocksonline.com/events/" target="_blank">Tickets →</a>
+        <div class="card-meta">Sun, Aug 9 · Doors at 5:30pm</div>
+        <div class="card-title">Motionless In White at Red Rocks</div>
+        <div class="card-venue">📍 Red Rocks Amphitheatre, 18300 W Alameda Pkwy, Morrison</div>
+        <div class="card-desc">Heavy metal powerhouse Motionless In White headlines Red Rocks with a stacked bill featuring Lorna Shore, Fit for a King, and Static Dress. A thunderous Sunday night show set against Red Rocks' breathtaking natural backdrop — a bucket-list concert experience for rock fans.</div>
+        <a class="card-link" href="https://www.axs.com" target="_blank" rel="noopener">Details &amp; Tickets →</a>
       </div>
 
+      <!-- Card 11 -->
       <div class="card">
-        <div class="meta">Fri Jul 31 & Sat Aug 1 · Doors 6 PM</div>
-        <div class="title">Excision — Bass Music Festival</div>
-        <div class="venue">Fiddler's Green Amphitheatre · 6350 Greenwood Plaza Blvd, Englewood</div>
-        <div class="desc">Two nights of massive bass music from one of electronic music's biggest names! Excision brings a production spectacle to Fiddler's Green Amphitheatre in Englewood. Best for teens and adults — expect serious sound systems and mind-blowing visuals.</div>
-        <a class="btn" href="https://www.fiddlersgreenamp.com" target="_blank">Tickets →</a>
+        <div class="card-meta">Aug 6–23, 2026 · Various Times</div>
+        <div class="card-title">Denver Center for the Performing Arts: Summer Season</div>
+        <div class="card-venue">📍 DCPA Kilstrom Theatre, 1101 13th St., Denver</div>
+        <div class="card-desc">The DCPA's summer programming is in full swing through August 23rd. Catch world-class theatre productions at the Kilstrom Theatre in Denver's Arts Complex. An elegant evening option for older kids and adults — check the DCPA calendar for the specific show running this weekend.</div>
+        <a class="card-link" href="https://www.denvercenter.org" target="_blank" rel="noopener">Details &amp; Tickets →</a>
       </div>
 
+      <!-- Card 12 -->
       <div class="card">
-        <div class="meta">Sun, Aug 2 · 7 PM</div>
-        <div class="title">Wynonna Judd & Melissa Etheridge with Colorado Symphony</div>
-        <div class="venue">Red Rocks Amphitheatre · Morrison, CO</div>
-        <div class="venue">Morrison, CO (15 mi from Downtown Denver)</div>
-        <div class="desc">An incredible Sunday night at Red Rocks — country legend Wynonna Judd and rock icon Melissa Etheridge co-headline their Raised on Radio Tour, backed by the Colorado Symphony. A once-in-a-season pairing at the greatest outdoor venue on Earth.</div>
-        <a class="btn" href="https://www.redrocksonline.com/events/" target="_blank">Tickets →</a>
+        <div class="card-meta">Fri, Aug 7 · Evening</div>
+        <div class="card-title">Live Jazz at Dazzle Denver</div>
+        <div class="card-venue">📍 Dazzle, 1512 Curtis St., Denver</div>
+        <div class="card-desc">Denver's premier jazz supper club, Dazzle, continues its lineup of top-tier live jazz performances in a warm, intimate setting. Confirmed to have live programming on Friday August 7th per Denver Arts &amp; Venues. A sophisticated night out — great for families with older music lovers.</div>
+        <a class="card-link" href="https://www.dazzledenver.com" target="_blank" rel="noopener">Details &amp; Tickets →</a>
       </div>
 
-    </div><!-- /card-grid -->
-
-    <!-- Footer -->
-    <div class="footer">
-      <p>Compiled by <a href="https://jeremykanehomes.com/this-weekend-in-denver" target="_blank">JeremyKaneHomes.com</a> · Denver Metro Real Estate &amp; Community Guide</p>
-      <p style="margin-top:6px;">Always verify event details directly with venues. Times and lineups subject to change.</p>
-    </div>
+    </div><!-- /grid -->
 
     <div class="spacer"></div>
 
   </div><!-- /wrap -->
+
 </body>
 </html>
 ```
