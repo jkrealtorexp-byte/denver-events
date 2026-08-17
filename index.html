@@ -5,8 +5,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>What's Happening in Denver This Weekend</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -15,83 +13,69 @@
       background: #162a3d;
       font-family: 'Lato', sans-serif;
       color: #fff;
-      min-height: 100vh;
     }
 
     .wrap {
       max-width: 960px;
       margin: 0 auto;
-      padding: 0 16px;
+      padding: 24px 16px;
     }
 
-    /* ── Header ── */
-    .site-header {
-      background: #0f1e2d;
-      padding: 22px 0 18px;
-      text-align: center;
-      border-bottom: 3px solid #f5821f;
-    }
-    .site-header h1 {
-      font-size: 22px;
-      font-weight: 900;
-      letter-spacing: 0.5px;
-      color: #fff;
-      text-transform: uppercase;
-    }
-    .site-header p {
-      font-size: 12px;
-      color: #8aabcc;
-      margin-top: 4px;
-      letter-spacing: 0.5px;
-    }
-
-    /* ── Date Bar ── */
+    /* Date Bar */
     .date-bar {
       background: #f5821f;
       text-align: center;
-      padding: 10px 16px;
-      font-size: 15px;
-      font-weight: 900;
-      letter-spacing: 1.5px;
+      padding: 14px 20px;
+      border-radius: 4px;
+      margin-bottom: 28px;
+    }
+    .date-bar h1 {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 2px;
       text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .date-bar h2 {
+      font-size: 26px;
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: 1px;
+    }
+
+    /* Category Header */
+    .category-header {
+      border-left: 4px solid #f5821f;
+      padding-left: 12px;
+      margin: 32px 0 16px;
+    }
+    .category-header h3 {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: #f5821f;
+      margin-bottom: 2px;
+    }
+    .category-header h2 {
+      font-size: 20px;
+      font-weight: 900;
       color: #fff;
     }
 
-    /* ── Category Header ── */
-    .category-header {
-      display: flex;
-      align-items: center;
-      margin: 32px 0 14px;
-      gap: 12px;
-    }
-    .category-header h2 {
-      font-size: 13px;
-      font-weight: 900;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: #f5821f;
-      padding-left: 12px;
-      border-left: 4px solid #f5821f;
-    }
-    .category-header::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: #1e3f5a;
-    }
-
-    /* ── Card Grid ── */
+    /* Card Grid */
     .card-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 14px;
     }
 
-    /* ── Event Card ── */
+    /* Event Card */
     .card {
       background: #1a3349;
       border-radius: 4px;
-      padding: 14px;
+      padding: 16px 14px 14px;
       display: flex;
       flex-direction: column;
       gap: 6px;
@@ -99,192 +83,233 @@
     .card-meta {
       font-size: 10px;
       font-weight: 700;
+      letter-spacing: 1.5px;
       text-transform: uppercase;
-      letter-spacing: 1.2px;
       color: #f5821f;
     }
     .card-title {
       font-size: 15px;
       font-weight: 700;
-      color: #fff;
+      color: #ffffff;
       line-height: 1.3;
     }
     .card-venue {
       font-size: 12px;
       color: #8aabcc;
-      line-height: 1.4;
+      font-weight: 400;
     }
     .card-desc {
       font-size: 11px;
       color: #ccddee;
-      line-height: 1.5;
-      flex: 1;
+      line-height: 1.55;
+      flex-grow: 1;
     }
     .card-link {
       display: inline-block;
       margin-top: 8px;
       font-size: 11px;
       font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
       color: #f5821f;
       text-decoration: none;
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-      border-bottom: 1px solid transparent;
-      transition: border-color 0.2s;
     }
     .card-link:hover {
-      border-bottom-color: #f5821f;
+      text-decoration: underline;
+    }
+    .badge-free {
+      display: inline-block;
+      background: #f5821f;
+      color: #fff;
+      font-size: 9px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 2px 6px;
+      border-radius: 2px;
+      margin-left: 6px;
+      vertical-align: middle;
     }
 
-    /* ── Footer Spacer ── */
     .spacer { height: 20px; }
 
-    /* ── Responsive ── */
-    @media (max-width: 600px) {
-      .card-grid { grid-template-columns: 1fr; }
-      .site-header h1 { font-size: 18px; }
+    @media (max-width: 620px) {
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+      .date-bar h2 {
+        font-size: 20px;
+      }
     }
   </style>
 </head>
 <body>
+<div class="wrap">
 
-  <div class="site-header">
-    <div class="wrap">
-      <h1>What's Happening in Denver This Weekend</h1>
-      <p>Your family guide to the Mile High City · jeremykanehomes.com</p>
-    </div>
+  <!-- Date Bar -->
+  <div class="date-bar">
+    <h1>What's Happening in Denver</h1>
+    <h2>Aug 21–23, 2026</h2>
   </div>
 
-  <div class="date-bar">Aug 14 – 16, 2026</div>
+  <!-- FAMILY EVENTS -->
+  <div class="category-header">
+    <h3>Category</h3>
+    <h2>🎡 Family Events</h2>
+  </div>
+  <div class="card-grid">
 
-  <div class="wrap">
+    <div class="card">
+      <div class="card-meta">Fri–Sun · Aug 21–23 <span class="badge-free">Free</span></div>
+      <div class="card-title">Stanley Marketplace 10th Anniversary Weekend</div>
+      <div class="card-venue">Stanley Marketplace · 2501 Dallas St, Aurora</div>
+      <div class="card-desc">Three days of free family fun celebrating a decade of community. Friday brings Live Music in the Field, Saturday is Taste of Stanley with local food vendors, and Sunday wraps with a festive Sunday Social.</div>
+      <a class="card-link" href="https://www.stanleymarketplace.com" target="_blank">Details &amp; Info →</a>
+    </div>
 
-    <!-- ══════════════════════════════════ -->
-    <!--  FAMILY EVENTS                    -->
-    <!-- ══════════════════════════════════ -->
-    <div class="category-header"><h2>🎡 Family Events</h2></div>
-    <div class="card-grid">
+    <div class="card">
+      <div class="card-meta">Fri · Aug 21 · 4:30–8:00 PM <span class="badge-free">Free</span></div>
+      <div class="card-title">Joy Park Free Night</div>
+      <div class="card-venue">Denver Children's Museum · 2121 Children's Museum Dr</div>
+      <div class="card-desc">In collaboration with Denver Parks &amp; Recreation, Joy Park and Adventure Forest open for free. Kids can climb, zip-line, dig, and splash. No reservations needed — just show up! Rain or shine.</div>
+      <a class="card-link" href="https://www.mychildsmuseum.org" target="_blank">Details &amp; Info →</a>
+    </div>
 
-      <div class="card">
-        <div class="card-meta">Fri–Sat · Aug 14–15 · 7:30 PM</div>
-        <div class="card-title">Savannah Bananas vs. Indianapolis Clowns</div>
-        <div class="card-venue">Coors Field · 2001 Blake St, Denver</div>
-        <div class="card-desc">The Savannah Bananas return to Denver for the first time ever! "Banana Ball" is fast-paced entertainment with trick plays, fan catches for outs, and a two-hour time limit. Perfect for all ages.</div>
-        <a class="card-link" href="https://www.savbananas.com/tickets" target="_blank" rel="noopener">Details &amp; Tickets →</a>
-      </div>
+    <div class="card">
+      <div class="card-meta">Thru Aug 23 · Daily</div>
+      <div class="card-title">Spamalot – Final Weekend!</div>
+      <div class="card-venue">Buell Theatre · Denver Performing Arts Complex</div>
+      <div class="card-desc">Last chance to catch this wildly funny Monty Python musical! Based on "Monty Python and the Holy Grail," it features flying cows, killer rabbits and tons of international humor. Older kids will love it.</div>
+      <a class="card-link" href="https://www.denvercenter.org" target="_blank">Details &amp; Tickets →</a>
+    </div>
 
-      <div class="card">
-        <div class="card-meta">Fri–Sun · Aug 14–16 · Ongoing</div>
-        <div class="card-title">Bright Nights at Four Mile Historic Park</div>
-        <div class="card-venue">Four Mile Historic Park · 715 S Forest St, Denver</div>
-        <div class="card-desc">Denver's original lantern festival experience is back with a brand-new 2026 theme, fresh sculptures, and glowing installations. A magical evening outing for the whole family.</div>
-        <a class="card-link" href="https://fourmilepark.org/" target="_blank" rel="noopener">Details &amp; Tickets →</a>
-      </div>
+    <div class="card">
+      <div class="card-meta">Thru Sep 7 · Daily</div>
+      <div class="card-title">Jaume Plensa: A New Humanism</div>
+      <div class="card-venue">Denver Botanic Gardens · 1007 York St</div>
+      <div class="card-desc">The Spanish sculptor's first U.S. retrospective transforms the gardens with large-scale human-form sculptures. A visually stunning weekend outing for the whole family amid Colorado's summer blooms.</div>
+      <a class="card-link" href="https://www.botanicgardens.org" target="_blank">Details &amp; Tickets →</a>
+    </div>
 
-      <div class="card">
-        <div class="card-meta">Fri–Sun · Aug 14–16 · FREE Admission</div>
-        <div class="card-title">Golden Fine Arts Festival</div>
-        <div class="card-venue">Historic Downtown Golden · 10th & Washington St, Golden</div>
-        <div class="card-desc">A prestigious juried art show in the heart of Golden — just 20 minutes from Denver. Free admission, live entertainment, beer &amp; wine gardens, and food vendors. Great family day trip!</div>
-        <a class="card-link" href="https://goldenfineartsdfestival.com/" target="_blank" rel="noopener">Details &amp; Tickets →</a>
-      </div>
+    <div class="card">
+      <div class="card-meta">Thru Nov 8 · Nightly</div>
+      <div class="card-title">Bright Nights at Four Mile</div>
+      <div class="card-venue">Four Mile Historic Park · 715 S. Forest St</div>
+      <div class="card-desc">Denver's original lantern festival experience is back with a brand-new theme, fresh experiences, and stunning new illuminated sculptures. A magical after-dark adventure families return to every year.</div>
+      <a class="card-link" href="https://www.fourmilepark.org" target="_blank">Details &amp; Tickets →</a>
+    </div>
 
-      <div class="card">
-        <div class="card-meta">Sat · Aug 15 · 10 AM – 2 PM · FREE</div>
-        <div class="card-title">Cockpit Demo Day – Wings Over the Rockies</div>
-        <div class="card-venue">Wings Over the Rockies Air &amp; Space Museum · 7711 E Academy Blvd, Denver</div>
-        <div class="card-desc">The second Saturday of each month brings free cockpit demonstrations at this beloved museum, housed in a WWII-era hangar at the former Lowry AFB. Kids love it!</div>
-        <a class="card-link" href="https://wingsmuseum.org/" target="_blank" rel="noopener">Details &amp; Tickets →</a>
-      </div>
+    <div class="card">
+      <div class="card-meta">Thru Nov 7 · Tue–Sun</div>
+      <div class="card-title">Proclaiming Colorado's Black History: Aurora</div>
+      <div class="card-venue">Aurora History Museum · 15051 E. Alameda Pkwy</div>
+      <div class="card-desc">A powerful new exhibition spotlighting Aurora's community leaders, educators, musicians, and culinary artists. An award-winning adaptation from the Museum of Boulder — free and educational for all ages.</div>
+      <a class="card-link" href="https://www.auroramuseum.org" target="_blank">Details &amp; Info →</a>
+    </div>
 
-      <div class="card">
-        <div class="card-meta">Sun · Aug 16 · 6 PM · FREE</div>
-        <div class="card-title">Littleton Symphony Orchestra – American Festival</div>
-        <div class="card-venue">Hudson Gardens · 6115 S Santa Fe Dr, Littleton</div>
-        <div class="card-desc">Pack a picnic and enjoy Copland, Gershwin, and Dvořák under the stars — completely free! Special guest appearances from Littleton Youth Ballet and Castlewood Lion Pipe Band at 6 PM.</div>
-        <a class="card-link" href="https://hudsongardens.org/" target="_blank" rel="noopener">Details &amp; Tickets →</a>
-      </div>
+  </div><!-- /card-grid -->
 
-      <div class="card">
-        <div class="card-meta">Sun · Aug 16 · 1:30 PM</div>
-        <div class="card-title">Concerts on the Fly #3: Mindi Abair &amp; Anthony David</div>
-        <div class="card-venue">Denver International Airport · 8500 Peña Blvd, Denver</div>
-        <div class="card-desc">A unique Denver tradition — live jazz and R&B performances inside DIA's Great Hall. Mindi Abair brings her powerhouse saxophone style, joined by soul artist Anthony David.</div>
-        <a class="card-link" href="https://flydenver.com/" target="_blank" rel="noopener">Details &amp; Tickets →</a>
-      </div>
+  <!-- SPORTS -->
+  <div class="category-header">
+    <h3>Category</h3>
+    <h2>⚾ Sports</h2>
+  </div>
+  <div class="card-grid">
 
-    </div><!-- /card-grid -->
+    <div class="card">
+      <div class="card-meta">Fri · Aug 21 · 6:40 PM</div>
+      <div class="card-title">Colorado Rockies vs. Cleveland Guardians</div>
+      <div class="card-venue">Coors Field · 2001 Blake St, Denver</div>
+      <div class="card-desc">Kick off the weekend with a Friday night Rockies game under the lights at iconic Coors Field. Series continues through the weekend — great family outing with mountain views from every seat.</div>
+      <a class="card-link" href="https://www.mlb.com/rockies" target="_blank">Details &amp; Tickets →</a>
+    </div>
 
+    <div class="card">
+      <div class="card-meta">Fri · Aug 21 · 8:00 PM</div>
+      <div class="card-title">Ball Arena Event – Friday Night</div>
+      <div class="card-venue">Ball Arena · 1000 Chopper Circle, Denver</div>
+      <div class="card-desc">Ball Arena hosts a Friday night event at 8:00 PM to open the weekend. Check the Ball Arena event calendar for full details on this confirmed upcoming show at Denver's premier downtown arena.</div>
+      <a class="card-link" href="https://www.ballarena.com" target="_blank">Details &amp; Tickets →</a>
+    </div>
 
-    <!-- ══════════════════════════════════ -->
-    <!--  SPORTS                           -->
-    <!-- ══════════════════════════════════ -->
-    <div class="category-header"><h2>🏟️ Sports</h2></div>
-    <div class="card-grid">
+    <div class="card">
+      <div class="card-meta">Sat · Aug 22 · 6:45 PM</div>
+      <div class="card-title">Ball Arena Event – Saturday Night</div>
+      <div class="card-venue">Ball Arena · 1000 Chopper Circle, Denver</div>
+      <div class="card-desc">Ball Arena has a Saturday evening event at 6:45 PM. Visit the arena's official site for lineup details. A great excuse for a downtown Denver night out with the family or friends.</div>
+      <a class="card-link" href="https://www.ballarena.com" target="_blank">Details &amp; Tickets →</a>
+    </div>
 
-      <div class="card">
-        <div class="card-meta">Fri · Aug 14 · 7:30 PM</div>
-        <div class="card-title">Zach Bryan – Night 2 at Mile High</div>
-        <div class="card-venue">Empower Field at Mile High · 1701 Bryant St, Denver</div>
-        <div class="card-desc">The red-hot country singer-songwriter wraps his two-night Denver stand at the city's largest venue. Ryan Bingham &amp; the Texas Gentlemen and Fey Fili open. A massive stadium event.</div>
-        <a class="card-link" href="https://www.axs.com/" target="_blank" rel="noopener">Details &amp; Tickets →</a>
-      </div>
+    <div class="card">
+      <div class="card-meta">Sun · Aug 23 · 6:00 PM</div>
+      <div class="card-title">Avenged Sevenfold &amp; Good Charlotte</div>
+      <div class="card-venue">Ball Arena · 1000 Chopper Circle, Denver</div>
+      <div class="card-desc">Heavy metal meets punk rock for an epic Sunday night at Ball Arena. Avenged Sevenfold and Good Charlotte share the stage in what's set to be one of the loudest shows of the summer. (Teen-friendly.)</div>
+      <a class="card-link" href="https://www.ballarena.com" target="_blank">Details &amp; Tickets →</a>
+    </div>
 
-      <div class="card">
-        <div class="card-meta">Fri–Sat · Aug 14–15 · 1 PM &amp; 7:30 PM</div>
-        <div class="card-title">Savannah Bananas – "Banana Ball" Baseball</div>
-        <div class="card-venue">Coors Field · 2001 Blake St, Denver</div>
-        <div class="card-desc">Part sport, part spectacle — the Indianapolis Clowns take on the Savannah Bananas in this viral baseball touring show. Games won by points, trick plays, and non-stop crowd interaction.</div>
-        <a class="card-link" href="https://www.savbananas.com/tickets" target="_blank" rel="noopener">Details &amp; Tickets →</a>
-      </div>
+  </div><!-- /card-grid -->
 
-    </div><!-- /card-grid -->
+  <!-- CONCERTS -->
+  <div class="category-header">
+    <h3>Category</h3>
+    <h2>🎸 Concerts</h2>
+  </div>
+  <div class="card-grid">
 
+    <div class="card">
+      <div class="card-meta">Sat · Aug 22 · 7:00 PM</div>
+      <div class="card-title">Reggae on the Rocks</div>
+      <div class="card-venue">Red Rocks Amphitheatre · Morrison, CO</div>
+      <div class="card-desc">One of Red Rocks' most beloved annual traditions! Rebelution, MAOLI, Skip Marley, Third World, Etana, and Judge Roughneck all share the stage. Positive vibes under the stars at the world's greatest outdoor venue.</div>
+      <a class="card-link" href="https://www.redrocksonline.com" target="_blank">Details &amp; Tickets →</a>
+    </div>
 
-    <!-- ══════════════════════════════════ -->
-    <!--  CONCERTS                         -->
-    <!-- ══════════════════════════════════ -->
-    <div class="category-header"><h2>🎸 Concerts</h2></div>
-    <div class="card-grid">
+    <div class="card">
+      <div class="card-meta">Sat · Aug 22 · 7:30 PM</div>
+      <div class="card-title">Toto, Christopher Cross &amp; The Romantics</div>
+      <div class="card-venue">Ball Arena · 1000 Chopper Circle, Denver</div>
+      <div class="card-desc">A triple-bill of late-1970s powerhouses that shaped an era. Toto, Christopher Cross, and The Romantics bring classic hits to Ball Arena for a nostalgia-packed Saturday night. Great for parents and older kids alike.</div>
+      <a class="card-link" href="https://www.ballarena.com" target="_blank">Details &amp; Tickets →</a>
+    </div>
 
-      <div class="card">
-        <div class="card-meta">Fri · Aug 14 · 7 PM</div>
-        <div class="card-title">Mt. Joy – Night 2 at Red Rocks</div>
-        <div class="card-venue">Red Rocks Amphitheatre · 18300 W Alameda Pkwy, Morrison</div>
-        <div class="card-desc">Indie-folk favorite Mt. Joy closes their two-night Red Rocks run with openers Leif Vollebekk and Arcy Drive. One of the most beloved bands at one of the world's greatest venues.</div>
-        <a class="card-link" href="https://www.axs.com/" target="_blank" rel="noopener">Details &amp; Tickets →</a>
-      </div>
+    <div class="card">
+      <div class="card-meta">Sun · Aug 23 · 7:00 PM</div>
+      <div class="card-title">Joe Bonamassa</div>
+      <div class="card-venue">Red Rocks Amphitheatre · Morrison, CO</div>
+      <div class="card-desc">Guitar virtuoso Joe Bonamassa brings his blues-rock mastery to the iconic Red Rocks stage on Sunday evening. Known for electrifying live performances, this is a must for music lovers of all ages.</div>
+      <a class="card-link" href="https://www.redrocksonline.com" target="_blank">Details &amp; Tickets →</a>
+    </div>
 
-      <div class="card">
-        <div class="card-meta">Sat · Aug 15 · 7 PM</div>
-        <div class="card-title">LCD Soundsystem w/ Feist &amp; Victoryland – Night 1</div>
-        <div class="card-venue">Red Rocks Amphitheatre · 18300 W Alameda Pkwy, Morrison</div>
-        <div class="card-desc">Legendary dance-punk act LCD Soundsystem opens a two-night Red Rocks stand with indie icon Feist and up-and-comers Victoryland in support. A can't-miss night under the stars.</div>
-        <a class="card-link" href="https://www.axs.com/" target="_blank" rel="noopener">Details &amp; Tickets →</a>
-      </div>
+    <div class="card">
+      <div class="card-meta">Sat · Aug 22 · Evening</div>
+      <div class="card-title">Candlelight: Pink Floyd String Quartet Tribute</div>
+      <div class="card-venue">Trinity United Methodist Church · 1820 Broadway, Denver</div>
+      <div class="card-desc">Experience Pink Floyd's greatest songs reimagined for string quartet, performed in the candlelit sanctuary of Trinity United Methodist Church. An intimate and atmospheric evening unlike any other.</div>
+      <a class="card-link" href="https://feverup.com/denver" target="_blank">Details &amp; Tickets →</a>
+    </div>
 
-      <div class="card">
-        <div class="card-meta">Sun · Aug 16 · 7 PM</div>
-        <div class="card-title">LCD Soundsystem w/ Feist &amp; Victoryland – Night 2</div>
-        <div class="card-venue">Red Rocks Amphitheatre · 18300 W Alameda Pkwy, Morrison</div>
-        <div class="card-desc">Night two of LCD Soundsystem's landmark Red Rocks weekend. If you missed Saturday, Sunday is your second chance for an electrifying evening of art-rock anthems at an iconic outdoor stage.</div>
-        <a class="card-link" href="https://www.axs.com/" target="_blank" rel="noopener">Details &amp; Tickets →</a>
-      </div>
+    <div class="card">
+      <div class="card-meta">Fri · Aug 21 · 8:00 PM</div>
+      <div class="card-title">Jorge Medina – Legendario Tour</div>
+      <div class="card-venue">Bellco Theatre · 700 14th St, Denver</div>
+      <div class="card-desc">Regional Mexican star Jorge Medina brings his Legendario Tour to the Bellco Theatre for a passionate, high-energy Friday night performance. One of the biggest regional Mexican acts of the moment.</div>
+      <a class="card-link" href="https://www.bellcotheatre.com" target="_blank">Details &amp; Tickets →</a>
+    </div>
 
-      <div class="card">
-        <div class="card-meta">Fri–Sun · Aug 14–16 · Eves</div>
-        <div class="card-title">Spamalot – Monty Python Musical</div>
-        <div class="card-venue">Buell Theatre · 1350 Curtis St, Denver</div>
-        <div class="card-desc">Based on the classic film "Monty Python and the Holy Grail," this hilarious live musical features flying cows, killer rabbits, and tons of absurdist humor. Great for older kids and adults.</div>
-        <a class="card-link" href="https://www.denvercenter.org/" target="_blank" rel="noopener">Details &amp; Tickets →</a>
-      </div>
+    <div class="card">
+      <div class="card-meta">Sat · Aug 22 · Afternoon</div>
+      <div class="card-title">Belgian Brew Fest at Bruz Beers</div>
+      <div class="card-venue">Bruz Beers · 1675 W. 67th Ave, Denver</div>
+      <div class="card-desc">Bruz Beers, Denver's Belgian-focused brewery, holds its annual Belgian Brew Fest with a full lineup of specialty Belgian-style ales, food pairings, and a festive atmosphere. Adults-focused but family-welcoming.</div>
+      <a class="card-link" href="https://www.bruzbeers.com" target="_blank">Details &amp; Tickets →</a>
+    </div>
 
-    </div><!-- /card-grid -->
-
-  </div><!-- /wrap -->
+  </div><!-- /card-grid -->
 
   <div class="spacer"></div>
 
+</div><!-- /wrap -->
 </body>
 </html>
 ```
