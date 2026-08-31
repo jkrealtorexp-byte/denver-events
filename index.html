@@ -10,19 +10,17 @@
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html, body {
       background: #162a3d;
       font-family: 'Lato', sans-serif;
-      color: #ffffff;
+      color: #fff;
+      min-height: 100vh;
     }
-
     .wrap {
       max-width: 960px;
       margin: 0 auto;
       padding: 24px 16px;
     }
-
     /* ── Header ── */
     .site-header {
       text-align: center;
@@ -31,57 +29,49 @@
     .site-header h1 {
       font-size: 26px;
       font-weight: 900;
-      color: #ffffff;
+      color: #fff;
       letter-spacing: 0.5px;
+      line-height: 1.2;
     }
-    .site-header p.subtitle {
-      font-size: 13px;
-      color: #8aabcc;
-      margin-top: 4px;
-    }
-
-    /* ── Date Bar ── */
+    /* ── Orange date bar ── */
     .date-bar {
       background: #f5821f;
       text-align: center;
       padding: 10px 16px;
       border-radius: 4px;
-      margin-bottom: 28px;
-      font-size: 16px;
+      margin: 14px 0 28px;
+      font-size: 17px;
       font-weight: 700;
       letter-spacing: 1px;
-      color: #ffffff;
+      color: #fff;
       text-transform: uppercase;
     }
-
-    /* ── Category Header ── */
-    .category-header {
-      border-left: 4px solid #f5821f;
+    /* ── Category header ── */
+    .cat-header {
+      border-left: 5px solid #f5821f;
       padding-left: 12px;
-      margin: 28px 0 16px;
+      margin: 30px 0 14px;
     }
-    .category-header h2 {
+    .cat-header h2 {
       font-size: 13px;
-      font-weight: 700;
+      font-weight: 900;
       text-transform: uppercase;
-      letter-spacing: 1.5px;
+      letter-spacing: 2px;
       color: #f5821f;
     }
-    .category-header p {
+    .cat-header p {
       font-size: 11px;
       color: #8aabcc;
       margin-top: 2px;
     }
-
-    /* ── Card Grid ── */
+    /* ── Card grid ── */
     .card-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(2, 1fr);
       gap: 14px;
     }
-
-    /* ── Event Card ── */
-    .event-card {
+    /* ── Event card ── */
+    .card {
       background: #1a3349;
       border-radius: 4px;
       padding: 14px;
@@ -89,13 +79,12 @@
       flex-direction: column;
       gap: 5px;
     }
-
     .card-meta {
       font-size: 10px;
       font-weight: 700;
-      color: #f5821f;
       text-transform: uppercase;
-      letter-spacing: 0.8px;
+      letter-spacing: 1.2px;
+      color: #f5821f;
     }
     .card-title {
       font-size: 15px;
@@ -106,213 +95,203 @@
     .card-venue {
       font-size: 12px;
       color: #8aabcc;
+      font-weight: 400;
     }
     .card-desc {
       font-size: 11px;
       color: #ccddee;
       line-height: 1.5;
-      flex: 1;
+      flex-grow: 1;
     }
     .card-link {
-      margin-top: 8px;
       display: inline-block;
+      margin-top: 8px;
       font-size: 11px;
       font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
       color: #f5821f;
       text-decoration: none;
-      text-transform: uppercase;
-      letter-spacing: 0.6px;
     }
-    .card-link:hover {
-      text-decoration: underline;
-    }
-
-    /* ── Footer Spacer ── */
-    .spacer { height: 20px; }
-
-    /* ── Footer ── */
-    .site-footer {
-      text-align: center;
-      padding: 16px 0 8px;
-      border-top: 1px solid #1e3f58;
-    }
-    .site-footer a {
-      display: inline-block;
-      background: #f5821f;
-      color: #ffffff;
-      font-size: 13px;
-      font-weight: 700;
-      padding: 11px 28px;
-      border-radius: 4px;
-      text-decoration: none;
-      letter-spacing: 0.5px;
-    }
-    .site-footer a:hover { opacity: 0.88; }
-    .site-footer p {
-      font-size: 11px;
-      color: #8aabcc;
-      margin-top: 10px;
-    }
-
+    .card-link:hover { text-decoration: underline; }
     /* ── Responsive ── */
-    @media (max-width: 620px) {
+    @media (max-width: 600px) {
       .card-grid { grid-template-columns: 1fr; }
       .site-header h1 { font-size: 20px; }
     }
+    /* ── Bottom spacer ── */
+    .spacer { height: 20px; }
+    /* ── Footer ── */
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      padding: 16px;
+      font-size: 11px;
+      color: #4a6a88;
+    }
+    .footer a { color: #f5821f; text-decoration: none; }
+    .footer a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
-<div class="wrap">
+  <div class="wrap">
 
-  <!-- Header -->
-  <div class="site-header">
-    <h1>What's Happening in Denver This Weekend</h1>
-    <p class="subtitle">Curated picks for Denver metro families &mdash; brought to you by Jeremy Kane Homes</p>
-  </div>
-
-  <!-- Date Bar -->
-  <div class="date-bar">&#128197; Aug 28 &ndash; 30, 2026</div>
-
-  <!-- ═══════════════════════════════════════
-       CATEGORY: FAMILY EVENTS
-  ════════════════════════════════════════ -->
-  <div class="category-header">
-    <h2>&#128106; Family Events</h2>
-    <p>Kid-friendly fun across the Denver metro this weekend</p>
-  </div>
-
-  <div class="card-grid">
-
-    <!-- Card 1 -->
-    <div class="event-card">
-      <div class="card-meta">Sat &amp; Sun &bull; Aug 29–30 &bull; All Ages</div>
-      <div class="card-title">Colorado Dragon Boat Festival</div>
-      <div class="card-venue">&#128205; Sloan's Lake Park, Denver</div>
-      <div class="card-desc">Honor Asian culture with thrilling dragon boat races, live music, international food vendors, arts &amp; crafts, and family-friendly entertainment along the shores of Sloan's Lake. One of Denver's most beloved free summer festivals!</div>
-      <a class="card-link" href="https://www.cdbf.org/" target="_blank">Details &amp; Tickets &rarr;</a>
+    <!-- Header -->
+    <div class="site-header">
+      <h1>What's Happening in Denver This Weekend</h1>
     </div>
 
-    <!-- Card 2 -->
-    <div class="event-card">
-      <div class="card-meta">Fri–Sat &bull; Aug 28–29 &bull; Overnight</div>
-      <div class="card-title">Downtown Aquarium Family Sleepover</div>
-      <div class="card-venue">&#128205; Downtown Aquarium, 700 Water St., Denver</div>
-      <div class="card-desc">An unforgettable overnight adventure inside the aquarium! Explore exhibits after hours, learn about ocean animals and their habitats, play themed games, and wake up surrounded by the wonders of the deep. A truly one-of-a-kind family memory.</div>
-      <a class="card-link" href="https://www.aquariumrestaurants.com/downtownaquariumdenver/" target="_blank">Details &amp; Tickets &rarr;</a>
+    <!-- Orange Date Bar -->
+    <div class="date-bar">Labor Day Weekend &nbsp;·&nbsp; Sep 4 – 6, 2026</div>
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- CATEGORY: FAMILY EVENTS                    -->
+    <!-- ══════════════════════════════════════════ -->
+    <div class="cat-header">
+      <h2>🎡 Family Events</h2>
+      <p>Kid-friendly fun across the Denver metro this weekend</p>
+    </div>
+    <div class="card-grid">
+
+      <div class="card">
+        <div class="card-meta">Fri Sep 4 · FREE</div>
+        <div class="card-title">First Friday Art Walk</div>
+        <div class="card-venue">Art District on Santa Fe &amp; RiNo ArtPark · Denver</div>
+        <div class="card-desc">Food trucks, local artisan vendors, live music, and gallery shows light up multiple Denver arts districts on the first Friday of September. Perfect for all ages — park once and stroll.</div>
+        <a class="card-link" href="https://www.artdistrictonsantafe.com/" target="_blank" rel="noopener">Details →</a>
+      </div>
+
+      <div class="card">
+        <div class="card-meta">Sat Sep 5 · FREE</div>
+        <div class="card-title">Walk the Chalk — Sidewalk Art Festival</div>
+        <div class="card-venue">Historic Downtown Littleton · Main Street, Littleton</div>
+        <div class="card-desc">Main Street transforms into a giant outdoor art gallery with professional and amateur chalk artists, live music, and dedicated kid-friendly chalk stations — all at no cost to attend.</div>
+        <a class="card-link" href="https://www.littletongov.org/" target="_blank" rel="noopener">Details →</a>
+      </div>
+
+      <div class="card">
+        <div class="card-meta">Sun Sep 6 · 11am–3pm · FREE</div>
+        <div class="card-title">Ritmo &amp; Raíces: Latin American Heritage Celebration</div>
+        <div class="card-venue">Denver Union Station · 1701 Wynkoop St, Denver</div>
+        <div class="card-desc">Kick off Hispanic Heritage Month at Union Station with live cultural performances, music, and traditional dance. Hosted by the Mexican Cultural Center — free admission, Latin American food available for purchase.</div>
+        <a class="card-link" href="https://www.unionstationindenver.com/" target="_blank" rel="noopener">Details →</a>
+      </div>
+
+      <div class="card">
+        <div class="card-meta">Thru Sep 7 · Daily</div>
+        <div class="card-title">Colorado State Fair</div>
+        <div class="card-venue">Colorado State Fairgrounds · Pueblo, CO (day-trip!)</div>
+        <div class="card-desc">11 days of fair rides, livestock shows, live concerts, carnival food, and family fun wrapping up on Labor Day, Sept. 7. A beloved Colorado tradition — don't miss the final weekend!</div>
+        <a class="card-link" href="https://coloradostatefair.com/" target="_blank" rel="noopener">Details &amp; Tickets →</a>
+      </div>
+
+      <div class="card">
+        <div class="card-meta">Thru Sep 7 · Tues–Sun</div>
+        <div class="card-title">Jaume Plensa: A New Humanism</div>
+        <div class="card-venue">Denver Botanic Gardens · 1007 York St, Denver</div>
+        <div class="card-desc">Explore towering portrait sculptures and iconic seated figures by Jaume Plensa in a stunning outdoor setting. The first-ever U.S. retrospective of the internationally acclaimed sculptor's work.</div>
+        <a class="card-link" href="https://www.botanicgardens.org/" target="_blank" rel="noopener">Details &amp; Tickets →</a>
+      </div>
+
+      <div class="card">
+        <div class="card-meta">Sun Sep 6 · 2pm</div>
+        <div class="card-title">Denver Film CO 150 Series: Butch Cassidy &amp; the Sundance Kid</div>
+        <div class="card-venue">MCA Denver Holiday Theater · 1485 Delgany St, Denver</div>
+        <div class="card-desc">Denver Film kicks off its Colorado-made classics series with the legendary western film — a perfect family Sunday matinee to celebrate Colorado's 150th anniversary as the Centennial State.</div>
+        <a class="card-link" href="https://denverfilm.org/" target="_blank" rel="noopener">Details &amp; Tickets →</a>
+      </div>
+
+    </div><!-- /card-grid -->
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- CATEGORY: SPORTS                           -->
+    <!-- ══════════════════════════════════════════ -->
+    <div class="cat-header">
+      <h2>⚾ Sports</h2>
+      <p>Denver pro sports action this Labor Day weekend</p>
+    </div>
+    <div class="card-grid">
+
+      <div class="card">
+        <div class="card-meta">Fri Sep 4 · 6:40 PM</div>
+        <div class="card-title">Colorado Rockies vs. St. Louis Cardinals</div>
+        <div class="card-venue">Coors Field · 2001 Blake St, Denver (LoDo)</div>
+        <div class="card-desc">Opening game of a 3-game home series between the Rockies and Cardinals. City Connect Friday — the Rox wear their Nike MLB City Connect uniforms for every Friday home game in 2026.</div>
+        <a class="card-link" href="https://www.mlb.com/rockies/tickets" target="_blank" rel="noopener">Get Tickets →</a>
+      </div>
+
+      <div class="card">
+        <div class="card-meta">Sat Sep 5 · Afternoon TBD</div>
+        <div class="card-title">Colorado Rockies vs. St. Louis Cardinals — Game 2</div>
+        <div class="card-venue">Coors Field · 2001 Blake St, Denver (LoDo)</div>
+        <div class="card-desc">Game 2 of the Cardinals series at Coors Field. Weekend afternoon games are family-friendly — arrive early for great pre-game views of the Rockies from the upper decks.</div>
+        <a class="card-link" href="https://www.mlb.com/rockies/tickets" target="_blank" rel="noopener">Get Tickets →</a>
+      </div>
+
+      <div class="card">
+        <div class="card-meta">Sun Sep 6 · Afternoon TBD</div>
+        <div class="card-title">Colorado Rockies vs. St. Louis Cardinals — Game 3</div>
+        <div class="card-venue">Coors Field · 2001 Blake St, Denver (LoDo)</div>
+        <div class="card-desc">Series finale on a Labor Day Sunday. Rockies Sunday Family Days often include kids running the bases after the final out — check the promotions calendar before you go!</div>
+        <a class="card-link" href="https://www.mlb.com/rockies/tickets" target="_blank" rel="noopener">Get Tickets →</a>
+      </div>
+
+    </div><!-- /card-grid -->
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- CATEGORY: CONCERTS                         -->
+    <!-- ══════════════════════════════════════════ -->
+    <div class="cat-header">
+      <h2>🎵 Concerts &amp; Live Music</h2>
+      <p>From jam-band epics to Latin rock nights — something for every music fan</p>
+    </div>
+    <div class="card-grid">
+
+      <div class="card">
+        <div class="card-meta">Fri Sep 4 – Sun Sep 6 · 3 Nights</div>
+        <div class="card-title">Phish — Labor Day Run at Dick's</div>
+        <div class="card-venue">Dick's Sporting Goods Park · 6000 Victory Way, Commerce City</div>
+        <div class="card-desc">Phish returns for their legendary annual Labor Day three-night run at Dick's — part of Summer Tour '26. Each night is completely different. One of the biggest annual music traditions in Colorado.</div>
+        <a class="card-link" href="https://tickets.phish.com/" target="_blank" rel="noopener">Get Tickets →</a>
+      </div>
+
+      <div class="card">
+        <div class="card-meta">Fri Sep 4 &amp; Sat Sep 5 · 2 Nights</div>
+        <div class="card-title">Maná — Two Nights at Red Rocks</div>
+        <div class="card-venue">Red Rocks Amphitheatre · 18300 W Alameda Pkwy, Morrison</div>
+        <div class="card-desc">The legendary Mexican rock band Maná returns to Red Rocks for two consecutive nights — a cross-generational icon performing at one of the world's most iconic venues. Don't miss it.</div>
+        <a class="card-link" href="https://www.redrocksonline.com/events/" target="_blank" rel="noopener">Get Tickets →</a>
+      </div>
+
+      <div class="card">
+        <div class="card-meta">Sat Sep 5 · FREE</div>
+        <div class="card-title">Mo Lowda &amp; the Humble — Free Levitt Pavilion Show</div>
+        <div class="card-venue">Levitt Pavilion Denver · Ruby Hill Park, Denver</div>
+        <div class="card-desc">Indie-rock favorites Mo Lowda and the Humble take the Levitt Pavilion stage for a free outdoor concert at Ruby Hill Park. Bring a blanket, grab food nearby, and enjoy a perfect Colorado evening.</div>
+        <a class="card-link" href="https://levittdenver.org/" target="_blank" rel="noopener">Details →</a>
+      </div>
+
+      <div class="card">
+        <div class="card-meta">Fri Sep 4 · 6:00 PM</div>
+        <div class="card-title">Candlelight: Tribute to Adele</div>
+        <div class="card-venue">Kirk of Highland · 3011 Vallejo St, Denver</div>
+        <div class="card-desc">An intimate candlelit concert experience featuring Adele's most beloved songs performed live in the stunning Kirk of Highland venue. A unique, immersive evening for music lovers.</div>
+        <a class="card-link" href="https://feverup.com/denver/candlelight" target="_blank" rel="noopener">Get Tickets →</a>
+      </div>
+
+    </div><!-- /card-grid -->
+
+    <div class="spacer"></div>
+
+    <div class="footer">
+      Curated for Denver metro families &nbsp;·&nbsp;
+      <a href="https://jeremykanehomes.com/this-weekend-in-denver" target="_blank" rel="noopener">jeremykanehomes.com</a>
+      &nbsp;·&nbsp; Always verify dates &amp; times at the official event websites before attending.
     </div>
 
-    <!-- Card 3 -->
-    <div class="event-card">
-      <div class="card-meta">Wed–Sun &bull; Aug 26–29 &bull; Multi-Day</div>
-      <div class="card-title">Denver Food + Wine Festival</div>
-      <div class="card-venue">&#128205; Downtown Denver</div>
-      <div class="card-desc">A multi-day extravaganza of food, wine, and spirits featuring top local and national chefs, sommelier-led tastings, cooking demos, and Grand Tasting events. The weekend dates (Aug 28–29) offer the biggest sessions of the festival. Foodies rejoice!</div>
-      <a class="card-link" href="https://denverwinefest.com/" target="_blank">Details &amp; Tickets &rarr;</a>
-    </div>
+    <div class="spacer"></div>
 
-    <!-- Card 4 -->
-    <div class="event-card">
-      <div class="card-meta">Sat &bull; Aug 29 &bull; 7:00 AM &bull; All Ages</div>
-      <div class="card-title">Yoga on the Rocks</div>
-      <div class="card-venue">&#128205; Red Rocks Amphitheatre, Morrison</div>
-      <div class="card-desc">Start your Saturday morning with an all-levels flow yoga session set against the stunning red sandstone formations of Red Rocks. Bring your mat, enjoy the cool morning air, and soak in the views before the weekend crowds arrive. Truly one of Denver's bucket-list experiences.</div>
-      <a class="card-link" href="https://www.redrocksonline.com/" target="_blank">Details &amp; Tickets &rarr;</a>
-    </div>
-
-  </div><!-- /.card-grid -->
-
-
-  <!-- ═══════════════════════════════════════
-       CATEGORY: SPORTS
-  ════════════════════════════════════════ -->
-  <div class="category-header">
-    <h2>&#127944; Sports</h2>
-    <p>Cheer on your favorite Denver teams this weekend</p>
-  </div>
-
-  <div class="card-grid">
-
-    <!-- Card 5 -->
-    <div class="event-card">
-      <div class="card-meta">Fri &bull; Aug 28 &bull; 7:00 PM &bull; NFL Preseason</div>
-      <div class="card-title">Denver Broncos vs. Minnesota Vikings</div>
-      <div class="card-venue">&#128205; Empower Field at Mile High, Denver</div>
-      <div class="card-desc">NFL Preseason Game 2 — get your first look at the 2026 Broncos at home! A great chance to see new rosters in action, enjoy stadium energy, and catch affordable preseason pricing before the regular season kicks off. Perfect for families and first-time NFL attendees.</div>
-      <a class="card-link" href="https://www.ticketmaster.com/event/preseason-broncos-vikings-2026" target="_blank">Details &amp; Tickets &rarr;</a>
-    </div>
-
-    <!-- Card 6 -->
-    <div class="event-card">
-      <div class="card-meta">Sat &bull; Aug 29 &bull; 7:30 PM &bull; MLS Soccer</div>
-      <div class="card-title">Colorado Rapids vs. Real Salt Lake</div>
-      <div class="card-venue">&#128205; DICK'S Sporting Goods Park, Commerce City</div>
-      <div class="card-desc">An intense Rocky Mountain Cup rivalry match between the Colorado Rapids and Real Salt Lake. This heated MLS rivalry always delivers passion, energy, and a raucous atmosphere. DICK'S Sporting Goods Park is a fantastic family-friendly stadium with great sightlines.</div>
-      <a class="card-link" href="https://www.ticketmaster.com/colorado-rapids-tickets/artist/805975" target="_blank">Details &amp; Tickets &rarr;</a>
-    </div>
-
-  </div><!-- /.card-grid -->
-
-
-  <!-- ═══════════════════════════════════════
-       CATEGORY: CONCERTS
-  ════════════════════════════════════════ -->
-  <div class="category-header">
-    <h2>&#127925; Concerts &amp; Live Music</h2>
-    <p>From Red Rocks to Ball Arena — Denver's music scene is on fire</p>
-  </div>
-
-  <div class="card-grid">
-
-    <!-- Card 7 -->
-    <div class="event-card">
-      <div class="card-meta">Fri &bull; Aug 28 &bull; 7:30 PM &bull; Red Rocks</div>
-      <div class="card-title">An Evening With Goose</div>
-      <div class="card-venue">&#128205; Red Rocks Amphitheatre, Morrison</div>
-      <div class="card-desc">Jam-rock favorites Goose take over Red Rocks for a two-night run (Aug 27–28). Known for their sprawling, improvisation-heavy sets and devoted fanbase, this is a can't-miss night of live music under the Colorado stars. Night two of the run — expect a completely unique set!</div>
-      <a class="card-link" href="https://www.redrocksonline.com/" target="_blank">Details &amp; Tickets &rarr;</a>
-    </div>
-
-    <!-- Card 8 -->
-    <div class="event-card">
-      <div class="card-meta">Fri &bull; Aug 28 &bull; 7:00 PM &bull; Ball Arena</div>
-      <div class="card-title">Chicago &amp; Styx – The Windy Cities Tour</div>
-      <div class="card-venue">&#128205; Ball Arena, Denver</div>
-      <div class="card-desc">Two of rock's most celebrated bands — Chicago and Styx — share one legendary stage at Ball Arena. With decades of combined hits spanning classic rock, pop, and progressive rock, this is a bucket-list concert experience for any music lover in the family.</div>
-      <a class="card-link" href="https://www.ballarena.com/" target="_blank">Details &amp; Tickets &rarr;</a>
-    </div>
-
-    <!-- Card 9 -->
-    <div class="event-card">
-      <div class="card-meta">Sat &bull; Aug 29 &bull; 7:30 PM &bull; Red Rocks</div>
-      <div class="card-title">Bryson Tiller – The Neo Trapsoul Tour</div>
-      <div class="card-venue">&#128205; Red Rocks Amphitheatre, Morrison</div>
-      <div class="card-desc">R&B star Bryson Tiller brings his signature Neo Trapsoul sound to the iconic Red Rocks stage. Famous for soulful, atmospheric productions and heartfelt performances, this is an incredible Saturday night show for R&B fans of all ages — made even better by Red Rocks' unmatched natural beauty.</div>
-      <a class="card-link" href="https://www.redrocksonline.com/" target="_blank">Details &amp; Tickets &rarr;</a>
-    </div>
-
-    <!-- Card 10 -->
-    <div class="event-card">
-      <div class="card-meta">Fri–Sun &bull; Aug 28–30 &bull; Free Admission</div>
-      <div class="card-title">Levitt Pavilion Free Concerts</div>
-      <div class="card-venue">&#128205; Levitt Pavilion Denver, 1380 W. Florida Ave.</div>
-      <div class="card-desc">Levitt Pavilion hosts free outdoor concerts all summer long — and this weekend is no exception! Bring a blanket, grab food from nearby trucks, and enjoy live performances in a relaxed, family-welcoming park setting. General admission is always free. Check the schedule for this weekend's artists.</div>
-      <a class="card-link" href="https://levittdenver.org/" target="_blank">Details &amp; FREE Tickets &rarr;</a>
-    </div>
-
-  </div><!-- /.card-grid -->
-
-  <!-- Footer Spacer -->
-  <div class="spacer"></div>
-
-  <!-- CTA Footer -->
-  <div class="site-footer">
-    <a href="https://jeremykanehomes.com/this-weekend-in-denver" target="_blank">See Full Details &amp; Tickets &rarr;</a>
-    <p>Brought to you by <strong>Jeremy Kane Homes</strong> &bull; Your Denver Metro Real Estate Expert</p>
-  </div>
-
-  <div class="spacer"></div>
-
-</div><!-- /.wrap -->
+  </div><!-- /wrap -->
 </body>
 </html>
 ```
