@@ -14,290 +14,357 @@
     html, body {
       background: #162a3d;
       font-family: 'Lato', sans-serif;
-      color: #fff;
+      color: #ffffff;
+      min-height: 100vh;
     }
 
     .wrap {
       max-width: 960px;
       margin: 0 auto;
-      padding: 24px 16px;
+      padding: 24px 16px 20px;
     }
 
-    /* Date Bar */
+    /* ── Header ── */
+    .site-header {
+      text-align: center;
+      margin-bottom: 6px;
+    }
+    .site-header h1 {
+      font-size: 22px;
+      font-weight: 900;
+      letter-spacing: 0.5px;
+      color: #ffffff;
+      text-transform: uppercase;
+    }
+    .site-header p.tagline {
+      font-size: 12px;
+      color: #8aabcc;
+      margin-top: 4px;
+      letter-spacing: 0.5px;
+    }
+
+    /* ── Date Bar ── */
     .date-bar {
       background: #f5821f;
-      text-align: center;
-      padding: 14px 20px;
       border-radius: 4px;
-      margin-bottom: 28px;
+      text-align: center;
+      padding: 10px 16px;
+      margin: 14px 0 26px;
     }
-    .date-bar h1 {
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: #fff;
-      margin-bottom: 4px;
-    }
-    .date-bar p {
-      font-size: 26px;
+    .date-bar span {
+      font-size: 16px;
       font-weight: 900;
-      color: #fff;
-      letter-spacing: 1px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #ffffff;
     }
 
-    /* Category Header */
+    /* ── Category Header ── */
     .category-header {
       border-left: 4px solid #f5821f;
       padding-left: 12px;
-      margin: 28px 0 16px;
+      margin: 28px 0 14px;
     }
     .category-header h2 {
-      font-size: 16px;
+      font-size: 13px;
       font-weight: 900;
-      text-transform: uppercase;
       letter-spacing: 2px;
-      color: #fff;
+      text-transform: uppercase;
+      color: #f5821f;
+    }
+    .category-header p {
+      font-size: 11px;
+      color: #8aabcc;
+      margin-top: 2px;
     }
 
-    /* Grid */
+    /* ── Card Grid ── */
     .card-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 14px;
     }
 
-    /* Card */
+    /* ── Event Card ── */
     .card {
       background: #1a3349;
       border-radius: 4px;
       padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
     }
-    .card-meta {
+    .card .meta {
       font-size: 10px;
       font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1.2px;
       color: #f5821f;
-      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
-    .card-title {
+    .card .meta .badge-free {
+      background: #f5821f;
+      color: #ffffff;
+      font-size: 9px;
+      font-weight: 900;
+      padding: 1px 5px;
+      border-radius: 2px;
+      margin-left: 6px;
+      letter-spacing: 0.5px;
+    }
+    .card .title {
       font-size: 15px;
       font-weight: 700;
-      color: #fff;
-      margin-bottom: 5px;
+      color: #ffffff;
       line-height: 1.3;
     }
-    .card-venue {
+    .card .venue {
       font-size: 12px;
       color: #8aabcc;
-      margin-bottom: 7px;
     }
-    .card-desc {
+    .card .desc {
       font-size: 11px;
       color: #ccddee;
       line-height: 1.5;
-      margin-bottom: 10px;
+      flex: 1;
     }
-    .card-link {
+    .card .card-link {
       display: inline-block;
+      margin-top: 8px;
       font-size: 11px;
       font-weight: 700;
       color: #f5821f;
       text-decoration: none;
       text-transform: uppercase;
       letter-spacing: 0.8px;
-      border-bottom: 1px solid rgba(245,130,31,0.4);
-      padding-bottom: 1px;
     }
-    .card-link:hover { color: #ffa04d; border-color: #ffa04d; }
+    .card .card-link:hover {
+      text-decoration: underline;
+    }
 
-    .badge-free {
-      display: inline-block;
-      background: #f5821f;
-      color: #fff;
-      font-size: 9px;
-      font-weight: 900;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      padding: 2px 6px;
-      border-radius: 2px;
-      margin-left: 6px;
-      vertical-align: middle;
+    /* ── Footer ── */
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      padding-top: 16px;
+      border-top: 1px solid #1a3349;
+    }
+    .footer p {
+      font-size: 11px;
+      color: #8aabcc;
+    }
+    .footer a {
+      color: #f5821f;
+      text-decoration: none;
+      font-weight: 700;
     }
 
     .spacer { height: 20px; }
 
+    /* ── Responsive ── */
     @media (max-width: 600px) {
-      .card-grid { grid-template-columns: 1fr; }
-      .date-bar p { font-size: 20px; }
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+      .site-header h1 { font-size: 18px; }
+      .date-bar span { font-size: 14px; }
     }
   </style>
 </head>
 <body>
-  <div class="wrap">
+<div class="wrap">
 
-    <!-- Date Bar -->
-    <div class="date-bar">
-      <h1>What's Happening in Denver This Weekend</h1>
-      <p>Sep 11–13, 2026</p>
+  <!-- Header -->
+  <div class="site-header">
+    <h1>What's Happening in Denver This Weekend</h1>
+    <p class="tagline">Your Denver Metro Family Event Guide · jeremykanehomes.com</p>
+  </div>
+
+  <!-- Date Bar -->
+  <div class="date-bar">
+    <span>📅 Sep 18 – 20, 2026</span>
+  </div>
+
+  <!-- ════════════════════════════════════════ -->
+  <!--  CATEGORY: FAMILY EVENTS                -->
+  <!-- ════════════════════════════════════════ -->
+  <div class="category-header">
+    <h2>🎡 Family Events</h2>
+    <p>Fun for kids and parents across the Denver metro</p>
+  </div>
+
+  <div class="card-grid">
+
+    <!-- Card 1 -->
+    <div class="card">
+      <div class="meta">Fri–Sun · Sep 18–20 <span class="badge-free">FREE</span></div>
+      <div class="title">Denver Oktoberfest (Weekend 1)</div>
+      <div class="venue">📍 Larimer Street (20th & 21st), Ballpark District</div>
+      <div class="desc">The 56th annual Denver Oktoberfest — the longest-running Oktoberfest in the US — takes over Larimer Street. Enjoy keg bowling, stein-hoisting, German food, live polka music, and the fan-favorite Long Dog Derby. Free general admission, VIP upgrades available.</div>
+      <a class="card-link" href="https://www.denverokotberfest.com" target="_blank">Details & Tickets →</a>
     </div>
 
-    <!-- ===== FAMILY EVENTS ===== -->
-    <div class="category-header">
-      <h2>👨‍👩‍👧 Family Events</h2>
+    <!-- Card 2 -->
+    <div class="card">
+      <div class="meta">Sat–Sun · Sep 19–20</div>
+      <div class="title">Day Out With Thomas: Let's Rock, Let's Roll</div>
+      <div class="venue">📍 Colorado Railroad Museum, Golden</div>
+      <div class="desc">Thomas the Tank Engine rolls into Golden for a full weekend of family fun. Ride along with Thomas, explore train exhibits, meet Sir Topham Hatt, and enjoy activities for all ages. One of three weekends — don't miss it!</div>
+      <a class="card-link" href="https://denver.kidsoutandabout.com/" target="_blank">Details & Tickets →</a>
     </div>
-    <div class="card-grid">
 
-      <div class="card">
-        <div class="card-meta">Sep 11–13 · 8:00 AM – 6:00 PM</div>
-        <div class="card-title">Denver Family Craft Fair</div>
-        <div class="card-venue">Washington Park, Denver</div>
-        <div class="card-desc">A vibrant outdoor weekend market celebrating creativity and craftsmanship. Enjoy DIY projects, local makers, and family-friendly activities in one of Denver's most beloved parks.</div>
-        <a href="https://www.eventbrite.com/e/denver-family-craft-fair-tickets-1994661855304" class="card-link" target="_blank">Details &amp; Tickets →</a>
-      </div>
-
-      <div class="card">
-        <div class="card-meta">Sep 11–13 · 10:00 AM – 6:00 PM</div>
-        <div class="card-title">Colorado Minerals, Fossils &amp; Gems Show</div>
-        <div class="card-venue">Denver Coliseum, Denver</div>
-        <div class="card-desc">Over 100,000 sq ft of glimmering gems, ancient fossils, dazzling crystals, and minerals from around the world. One of the largest shows of its kind — perfect for curious kids and collectors alike.</div>
-        <a href="https://denver.kidsoutandabout.com/content/2026-colorado-mineral-fossil-gem-and-jewelry-show" class="card-link" target="_blank">Details &amp; Tickets →</a>
-      </div>
-
-      <div class="card">
-        <div class="card-meta">Sep 11–13 · 9:30 AM Queue Opens <span class="badge-free">Free</span></div>
-        <div class="card-title">LEGO Formula 1 Activation at Union Station</div>
-        <div class="card-venue">Union Station, 1701 Wynkoop St., Denver</div>
-        <div class="card-desc">An immersive LEGO pop-up with build, race, and explore zones. Scan a QR code at 9:30 a.m. to join a digital queue — no waiting in line! Best for kids ages 6–12.</div>
-        <a href="https://www.westword.com/arts-culture/free-things-to-do-denver-aug-31-sept-6-2026-40927840/" class="card-link" target="_blank">Details →</a>
-      </div>
-
-      <div class="card">
-        <div class="card-meta">Sat Sep 12 · Noon &amp; 2:00 PM <span class="badge-free">Free</span></div>
-        <div class="card-title">Shakespeare in the Parking Lot</div>
-        <div class="card-venue">Orchard Town Center, 14697 Delaware St., Westminster</div>
-        <div class="card-desc">Free outdoor abridged performances of "Romeo and Juliet" at noon and "A Midsummer Night's Dream" at 2 p.m., in partnership with Denver Center for the Performing Arts. Bring a lawn chair!</div>
-        <a href="https://www.westword.com/arts-culture/free-things-to-do-denver-aug-31-sept-6-2026-40927840/" class="card-link" target="_blank">Details →</a>
-      </div>
-
-      <div class="card">
-        <div class="card-meta">Sun Sep 13 · 10:00 AM <span class="badge-free">Free</span></div>
-        <div class="card-title">K9 Frisbee Worldwide Championship — Colorado Regional</div>
-        <div class="card-venue">Thornton Community Park, 2145 E. 95th Ave., Thornton</div>
-        <div class="card-desc">Cheer on dogs and handlers competing in three 60-second rounds of scoring catches. Open to all ages — a fun, free way to spend a Sunday morning with the family!</div>
-        <a href="https://www.westword.com/arts-culture/free-things-to-do-denver-aug-31-sept-6-2026-40927840/" class="card-link" target="_blank">Details →</a>
-      </div>
-
-      <div class="card">
-        <div class="card-meta">Sun Sep 13 · 11:00 AM <span class="badge-free">Free</span></div>
-        <div class="card-title">2026 Denver Zine Fest</div>
-        <div class="card-venue">Denver, CO (Venue TBA)</div>
-        <div class="card-desc">Celebrate independent publishing, art, and creativity at this beloved annual community event. All ages welcome — browse zines, meet local creators, and discover DIY art culture.</div>
-        <a href="https://www.westword.com/arts-culture/free-things-to-do-denver-aug-31-sept-6-2026-40927840/" class="card-link" target="_blank">Details →</a>
-      </div>
-
-    </div><!-- /card-grid -->
-
-    <!-- ===== SPORTS ===== -->
-    <div class="category-header">
-      <h2>🏆 Sports</h2>
+    <!-- Card 3 -->
+    <div class="card">
+      <div class="meta">Fri–Sun · Sep 18–20</div>
+      <div class="title">Chatfield Farms Corn Maze Opens</div>
+      <div class="venue">📍 Denver Botanic Gardens at Chatfield, Littleton</div>
+      <div class="desc">The beloved eight-acre corn maze at Chatfield Gardens kicks off its seasonal run this weekend. Wind your way through the towering stalks, enjoy fall farm activities, and take in the gorgeous Rocky Mountain backdrop. Open weekends through November 1.</div>
+      <a class="card-link" href="https://www.botanicgardens.org/chatfield-farms" target="_blank">Details & Tickets →</a>
     </div>
-    <div class="card-grid">
 
-      <div class="card">
-        <div class="card-meta">Thu–Sun Sep 11–13 · Game Times Vary</div>
-        <div class="card-title">Colorado Rockies — Home Series at Coors Field</div>
-        <div class="card-venue">Coors Field, 2001 Blake St., Denver</div>
-        <div class="card-desc">The Rockies are at home this weekend at Coors Field. Catch MLB action in one of baseball's most iconic stadiums with views of the Rocky Mountains. Great for families!</div>
-        <a href="https://www.mlb.com/rockies/schedule" class="card-link" target="_blank">Details &amp; Tickets →</a>
-      </div>
-
-      <div class="card">
-        <div class="card-meta">Sat Sep 12 · Evening Kickoff</div>
-        <div class="card-title">Colorado Rapids — Home Match</div>
-        <div class="card-venue">Dick's Sporting Goods Park, 6000 Victory Way, Commerce City</div>
-        <div class="card-desc">The Rapids host a home MLS match this Saturday evening at Dick's Sporting Goods Park. Family-friendly atmosphere with plenty of energy — one of the best live soccer experiences in Colorado.</div>
-        <a href="https://www.coloradorapids.com/tickets" class="card-link" target="_blank">Details &amp; Tickets →</a>
-      </div>
-
-      <div class="card">
-        <div class="card-meta">Sat Sep 12 · TBD</div>
-        <div class="card-title">Colorado Buffaloes Football</div>
-        <div class="card-venue">Folsom Field, Boulder, CO</div>
-        <div class="card-desc">The CU Buffs take the field at historic Folsom Field in Boulder this Saturday. A short trip from Denver and a classic Colorado college football experience the whole family can enjoy.</div>
-        <a href="https://cubuffs.com/sports/football/schedule" class="card-link" target="_blank">Details &amp; Tickets →</a>
-      </div>
-
-      <div class="card">
-        <div class="card-meta">Fri Sep 11 · All Day</div>
-        <div class="card-title">24 Hours of Lemons — Colorado</div>
-        <div class="card-venue">High Plains Raceway, Deer Trail, CO</div>
-        <div class="card-desc">Grassroots endurance racing returns to High Plains Raceway this weekend. Watch teams race budget clunker cars in one of motorsport's most hilariously fun events — great spectator fun for all ages.</div>
-        <a href="https://www.24hoursoflemons.com/" class="card-link" target="_blank">Details →</a>
-      </div>
-
-    </div><!-- /card-grid -->
-
-    <!-- ===== CONCERTS ===== -->
-    <div class="category-header">
-      <h2>🎵 Concerts &amp; Live Music</h2>
+    <!-- Card 4 -->
+    <div class="card">
+      <div class="meta">Fri–Sun · Sep 18–Nov 1</div>
+      <div class="title">Hudson Gardens Illuminated Displays</div>
+      <div class="venue">📍 Hudson Gardens, Littleton</div>
+      <div class="desc">Over 7,000 hand-carved illuminated displays transform Hudson Gardens' riverfront botanical trails into glowing themed wonderlands featuring dragons, sea creatures, and pop-culture icons. A magical fall evening outing perfect for the whole family.</div>
+      <a class="card-link" href="https://www.hudsongardens.org" target="_blank">Details & Tickets →</a>
     </div>
-    <div class="card-grid">
 
-      <div class="card">
-        <div class="card-meta">Fri–Sat Sep 11–12 · 4:00 PM</div>
-        <div class="card-title">Global Dance Festival 2026</div>
-        <div class="card-venue">National Western Center, Denver</div>
-        <div class="card-desc">Colorado's longest-running electronic music festival returns for a two-day spectacular. One of the most expansive lineups in the festival's history — featuring multiple stages of EDM, house, and more.</div>
-        <a href="https://globaldancefestival.com/" class="card-link" target="_blank">Details &amp; Tickets →</a>
-      </div>
+    <!-- Card 5 -->
+    <div class="card">
+      <div class="meta">Thu · Sep 18 · 10 AM <span class="badge-free">FREE</span></div>
+      <div class="title">Fall Cider Pressing at Heritage Lakewood Belmar Park</div>
+      <div class="venue">📍 Heritage Lakewood Belmar Park, Lakewood</div>
+      <div class="desc">Celebrate the harvest season with a hands-on fall cider pressing using old-fashioned hand-cranked presses on the museum grounds. A charming, free family-friendly activity that brings Colorado's agricultural heritage to life.</div>
+      <a class="card-link" href="https://www.heritagelakewood.org" target="_blank">Details & Tickets →</a>
+    </div>
 
-      <div class="card">
-        <div class="card-meta">Fri Sep 11 · 7:30 PM</div>
-        <div class="card-title">Tame Impala — Deadbeat Tour</div>
-        <div class="card-venue">Ball Arena, Denver</div>
-        <div class="card-desc">Psychedelic rock giants Tame Impala bring the Deadbeat Tour to Ball Arena with special guest Dominic Fike. One of the biggest concert events of the fall in Denver.</div>
-        <a href="https://www.ballarena.com/" class="card-link" target="_blank">Details &amp; Tickets →</a>
-      </div>
+    <!-- Card 6 -->
+    <div class="card">
+      <div class="meta">Sat · Sep 19 · Noon <span class="badge-free">FREE</span></div>
+      <div class="title">BARKtember Fest at Belmar</div>
+      <div class="venue">📍 Belmar Plaza, Lakewood</div>
+      <div class="desc">Belmar's dog-themed BARKtember Fest takes over the Lakewood plaza from noon with pet makers, rescue organizations, and dog-friendly fun for the whole family. Bring your four-legged family member and enjoy a festive afternoon outdoors.</div>
+      <a class="card-link" href="https://belmarcolorado.com" target="_blank">Details & Tickets →</a>
+    </div>
 
-      <div class="card">
-        <div class="card-meta">Sat Sep 12 · 7:30 PM</div>
-        <div class="card-title">Brandi Carlile — Red Rocks</div>
-        <div class="card-venue">Red Rocks Amphitheatre, Morrison</div>
-        <div class="card-desc">Grammy-winning singer-songwriter Brandi Carlile performs at the iconic Red Rocks Amphitheatre — one of the hottest tickets of the fall 2026 season. An unforgettable night under the Colorado stars.</div>
-        <a href="https://www.axs.com/" class="card-link" target="_blank">Details &amp; Tickets →</a>
-      </div>
+  </div><!-- /card-grid family -->
 
-      <div class="card">
-        <div class="card-meta">Sat Sep 12 · 5:00 PM <span class="badge-free">Free</span></div>
-        <div class="card-title">Cool Vibes Reggae Fest ft. The Wailers</div>
-        <div class="card-venue">Levitt Pavilion Denver, Ruby Hill Park</div>
-        <div class="card-desc">Levitt Pavilion's free summer concert series closes out strong with a reggae fest featuring legendary band The Wailers. Bring a blanket, the kids, and enjoy free live music in a beautiful park setting.</div>
-        <a href="https://levittdenver.org/" class="card-link" target="_blank">Details →</a>
-      </div>
 
-      <div class="card">
-        <div class="card-meta">Sat Sep 12 · 8:00 PM</div>
-        <div class="card-title">Brandon Flowers</div>
-        <div class="card-venue">Ogden Theatre, Denver</div>
-        <div class="card-desc">The Killers frontman Brandon Flowers performs solo at the storied Ogden Theatre. An intimate evening of rock with one of the genre's most charismatic performers — a great date-night show.</div>
-        <a href="https://www.ogdentheatre.com/" class="card-link" target="_blank">Details &amp; Tickets →</a>
-      </div>
+  <!-- ════════════════════════════════════════ -->
+  <!--  CATEGORY: SPORTS                       -->
+  <!-- ════════════════════════════════════════ -->
+  <div class="category-header">
+    <h2>🏟️ Sports</h2>
+    <p>Rockies, Broncos & more — live action in Denver metro</p>
+  </div>
 
-      <div class="card">
-        <div class="card-meta">Sat Sep 12 · 8:00 PM</div>
-        <div class="card-title">Rob Zombie &amp; Marilyn Manson</div>
-        <div class="card-venue">Fiddler's Green Amphitheatre, Greenwood Village</div>
-        <div class="card-desc">A massive hard rock double bill with Rob Zombie and Marilyn Manson at Fiddler's Green. Also featuring The HU and Orgy — all ages welcome for a high-energy outdoor rock extravaganza.</div>
-        <a href="https://www.fiddlersgreenamp.com/" class="card-link" target="_blank">Details &amp; Tickets →</a>
-      </div>
+  <div class="card-grid">
 
-    </div><!-- /card-grid -->
+    <!-- Card 7 -->
+    <div class="card">
+      <div class="meta">Fri · Sep 18 · 6:10 PM</div>
+      <div class="title">Colorado Rockies vs. Seattle Mariners</div>
+      <div class="venue">📍 Coors Field, Downtown Denver</div>
+      <div class="desc">The Rockies host the Seattle Mariners for a Friday night home game at Coors Field. Grab a hot dog, enjoy the mountain views beyond left field, and cheer on the home team under the downtown Denver skyline. Tickets from $22.</div>
+      <a class="card-link" href="https://www.mlb.com/rockies/tickets" target="_blank">Details & Tickets →</a>
+    </div>
 
-    <div class="spacer"></div>
+    <!-- Card 8 -->
+    <div class="card">
+      <div class="meta">Sun · Sep 20</div>
+      <div class="title">Denver Broncos vs. Jacksonville Jaguars</div>
+      <div class="venue">📍 Empower Field at Mile High, Denver</div>
+      <div class="desc">The Broncos welcome the Jacksonville Jaguars for a home Sunday showdown at Mile High. Experience one of Denver's most exciting sports traditions — big orange crowds, tailgating, and the roar of 76,000 fans. A classic Denver football experience for the whole family.</div>
+      <a class="card-link" href="https://www.denverbroncos.com/tickets/" target="_blank">Details & Tickets →</a>
+    </div>
 
-  </div><!-- /wrap -->
+    <!-- Card 9 -->
+    <div class="card">
+      <div class="meta">Sat · Sep 19</div>
+      <div class="title">Colorado Rockies vs. Seattle Mariners</div>
+      <div class="venue">📍 Coors Field, Downtown Denver</div>
+      <div class="desc">The Mariners series continues Saturday at Coors Field. A great family afternoon or evening at one of baseball's most scenic parks. Enjoy the Rooftop bar and open-air views of the Rockies in the background during the final weeks of the home season.</div>
+      <a class="card-link" href="https://www.mlb.com/rockies/tickets" target="_blank">Details & Tickets →</a>
+    </div>
+
+    <!-- Card 10 -->
+    <div class="card">
+      <div class="meta">Sun · Sep 20</div>
+      <div class="title">Colorado Rockies vs. Seattle Mariners</div>
+      <div class="venue">📍 Coors Field, Downtown Denver</div>
+      <div class="desc">Cap off the weekend with the final game of the Mariners series. Sunday afternoon baseball at Coors Field is a Denver tradition — perfect for families looking for an affordable, fun outing to close out the weekend. Tickets from $22.</div>
+      <a class="card-link" href="https://www.mlb.com/rockies/tickets" target="_blank">Details & Tickets →</a>
+    </div>
+
+  </div><!-- /card-grid sports -->
+
+
+  <!-- ════════════════════════════════════════ -->
+  <!--  CATEGORY: CONCERTS                     -->
+  <!-- ════════════════════════════════════════ -->
+  <div class="category-header">
+    <h2>🎸 Concerts</h2>
+    <p>Live music at Red Rocks, Ball Arena & Levitt Pavilion</p>
+  </div>
+
+  <div class="card-grid">
+
+    <!-- Card 11 -->
+    <div class="card">
+      <div class="meta">Thu · Sep 18 · 7:30 PM</div>
+      <div class="title">Lily Allen – West End Girl Album Show</div>
+      <div class="venue">📍 Red Rocks Amphitheatre, Morrison</div>
+      <div class="desc">Lily Allen performs her celebrated album "West End Girl" live under the stars at Red Rocks. An iconic British pop act in one of the world's most breathtaking venues — a bucket-list concert night for fans and first-timers alike. All ages welcome.</div>
+      <a class="card-link" href="https://www.redrocksonline.com/events/" target="_blank">Details & Tickets →</a>
+    </div>
+
+    <!-- Card 12 -->
+    <div class="card">
+      <div class="meta">Fri · Sep 18 · 7 PM <span class="badge-free">FREE</span></div>
+      <div class="title">La Santa Cecilia – Free Levitt Pavilion Season Closer</div>
+      <div class="venue">📍 Levitt Pavilion Denver, Ruby Hill Park</div>
+      <div class="desc">Grammy-winning band La Santa Cecilia headlines the free Levitt Pavilion season finale. Celebrate the end of summer with award-winning Latin music under the open sky at Ruby Hill Park — bring a blanket, a picnic, and the whole family. Totally free.</div>
+      <a class="card-link" href="https://levittdenver.org" target="_blank">Details & Tickets →</a>
+    </div>
+
+    <!-- Card 13 -->
+    <div class="card">
+      <div class="meta">Fri–Sat · Sep 18–19</div>
+      <div class="title">Billy Strings – Two-Night Run at Ball Arena</div>
+      <div class="venue">📍 Ball Arena, Downtown Denver</div>
+      <div class="desc">Grammy-winning bluegrass phenom Billy Strings plays back-to-back nights at Ball Arena, part of a three-night Denver stand. Known for his lightning-fast picking and genre-defying sets, this is one of the hottest tickets of the fall music season. Don't sleep on it.</div>
+      <a class="card-link" href="https://www.ballarenandenver.com" target="_blank">Details & Tickets →</a>
+    </div>
+
+    <!-- Card 14 -->
+    <div class="card">
+      <div class="meta">Sat · Sep 19</div>
+      <div class="title">Atmosphere w/ 3OH!3, Slick Rick & Z-Trip</div>
+      <div class="venue">📍 Red Rocks Amphitheatre, Morrison</div>
+      <div class="desc">Hip-hop legends Atmosphere headline a stacked night at Red Rocks alongside Denver's own 3OH!3, old-school icon Slick Rick, DJ Z-Trip, R.A. the Rugged Man, DJ Lala, and special guest Everlast. A legendary hip-hop lineup at the world's best outdoor stage.</div>
+      <a class="card-link" href="https://www.redrocksonline.com/events/" target="_blank">Details & Tickets →</a>
+    </div>
+
+    <!-- Card 15 -->
+    <div class="card">
+      <div class="meta">Sun · Sep 20</div>
+      <div class="title">Andrea Bocelli at Red Rocks (Night 1 of 2)</div>
+      <div class="venue">📍 Red Rocks Amphitheatre, Morrison</div>
+      <div class="desc">World-renowned tenor Andrea Bocelli opens a two-night stand at Red Rocks, one of the most coveted concert experiences in Denver. An unforgettable classical evening beneath the stars with sweeping red sandstone formations as your backdrop. Limited tickets remain.</div>
+      <a class="card-link" href="https://www.redrocksonline.com/events/" target="_blank">Details & Tickets →</a>
+    </div>
+
+  </div><!-- /card-grid concerts -->
+
+  <!-- Footer -->
+  <div class="footer">
+    <p>Curated for Denver metro families by <a href="https://jeremykanehomes.com/this-weekend-in-denver" target="_blank">jeremykanehomes.com</a> · Questions? Reach out anytime.</p>
+  </div>
+
+  <div class="spacer"></div>
+
+</div><!-- /wrap -->
 </body>
 </html>
 ```
