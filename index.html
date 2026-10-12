@@ -14,121 +14,105 @@
     html, body {
       background: #162a3d;
       font-family: 'Lato', sans-serif;
-      color: #ffffff;
+      color: #fff;
       min-height: 100vh;
     }
 
     .wrap {
       max-width: 960px;
       margin: 0 auto;
-      padding: 0 16px;
+      padding: 24px 16px 20px;
     }
 
-    /* ── Header ── */
-    .site-header {
-      background: #0f1e2c;
-      padding: 18px 0 14px;
-      text-align: center;
-      border-bottom: 3px solid #f5821f;
-    }
-    .site-header h1 {
+    /* Site header */
+    .site-title {
       font-size: 22px;
       font-weight: 900;
+      color: #fff;
       letter-spacing: 0.5px;
-      color: #ffffff;
-      text-transform: uppercase;
+      margin-bottom: 4px;
     }
-    .site-header p {
+    .site-subtitle {
       font-size: 12px;
       color: #8aabcc;
-      margin-top: 4px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
+      margin-bottom: 18px;
+      letter-spacing: 0.5px;
     }
 
-    /* ── Date Bar ── */
+    /* Orange date bar */
     .date-bar {
       background: #f5821f;
-      text-align: center;
-      padding: 10px 0;
-    }
-    .date-bar span {
+      border-radius: 4px;
+      padding: 10px 18px;
       font-size: 15px;
-      font-weight: 900;
-      color: #ffffff;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-    }
-
-    /* ── Category Header ── */
-    .cat-header {
-      display: flex;
-      align-items: center;
-      margin: 28px 0 14px;
-    }
-    .cat-header::before {
-      content: '';
-      display: inline-block;
-      width: 5px;
-      height: 26px;
-      background: #f5821f;
-      border-radius: 2px;
-      margin-right: 12px;
-      flex-shrink: 0;
-    }
-    .cat-header h2 {
-      font-size: 16px;
-      font-weight: 900;
-      color: #ffffff;
-      text-transform: uppercase;
+      font-weight: 700;
+      color: #fff;
       letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+      display: inline-block;
     }
 
-    /* ── Grid ── */
-    .grid {
+    /* Category headers */
+    .category-header {
+      border-left: 4px solid #f5821f;
+      padding-left: 12px;
+      margin: 28px 0 14px;
+      font-size: 13px;
+      font-weight: 900;
+      color: #f5821f;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    /* 2-column grid */
+    .card-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 14px;
-      margin-bottom: 4px;
     }
 
-    /* ── Card ── */
+    /* Event card */
     .card {
       background: #1a3349;
       border-radius: 4px;
-      padding: 14px 16px;
+      padding: 14px;
       display: flex;
       flex-direction: column;
-      gap: 5px;
+      gap: 6px;
     }
-    .card .meta {
+
+    .card-meta {
       font-size: 10px;
       font-weight: 700;
       color: #f5821f;
       text-transform: uppercase;
       letter-spacing: 1px;
     }
-    .card .title {
+
+    .card-title {
       font-size: 15px;
       font-weight: 700;
       color: #ffffff;
       line-height: 1.3;
     }
-    .card .venue {
+
+    .card-venue {
       font-size: 12px;
       color: #8aabcc;
       line-height: 1.4;
     }
-    .card .desc {
+
+    .card-desc {
       font-size: 11px;
       color: #ccddee;
       line-height: 1.5;
-      margin-top: 2px;
       flex: 1;
     }
-    .card .cta {
+
+    .card-link {
       display: inline-block;
-      margin-top: 8px;
+      margin-top: 6px;
       font-size: 11px;
       font-weight: 700;
       color: #f5821f;
@@ -136,207 +120,199 @@
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
-    .card .cta:hover { text-decoration: underline; }
+    .card-link:hover { text-decoration: underline; }
 
-    /* ── Spacer ── */
-    .spacer { height: 20px; }
+    /* Bottom spacer */
+    .bottom-spacer { height: 20px; }
 
-    /* ── Responsive ── */
-    @media (max-width: 620px) {
-      .grid { grid-template-columns: 1fr; }
-      .site-header h1 { font-size: 17px; }
+    /* Responsive */
+    @media (max-width: 600px) {
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+      .site-title { font-size: 18px; }
     }
   </style>
 </head>
 <body>
-
-  <div class="site-header">
-    <div class="wrap">
-      <h1>What's Happening in Denver This Weekend</h1>
-      <p>Your Mile High Family Guide</p>
-    </div>
-  </div>
-
-  <div class="date-bar">
-    <span>Oct 9–11, 2026</span>
-  </div>
-
   <div class="wrap">
 
-    <!-- ══════════════════════════════════════
-         FAMILY EVENTS
-    ══════════════════════════════════════ -->
-    <div class="cat-header"><h2>🎃 Family Events</h2></div>
-    <div class="grid">
+    <div class="site-title">What's Happening in Denver This Weekend</div>
+    <div class="site-subtitle">Your family guide to the Mile High City · jeremykanehomes.com</div>
+
+    <div class="date-bar">🗓 Oct 16 – 18, 2026</div>
+
+    <!-- ═══════════════════════════════════ -->
+    <!--  FAMILY EVENTS                      -->
+    <!-- ═══════════════════════════════════ -->
+    <div class="category-header">🎃 Family Events</div>
+    <div class="card-grid">
 
       <div class="card">
-        <div class="meta">Fri–Sun · Oct 9–11 · 9 AM – 4 PM · $22 / $14 Youth</div>
-        <div class="title">Pumpkin Festival at Chatfield Farms</div>
-        <div class="venue">Denver Botanic Gardens – Chatfield Farms, 8500 W. Deer Creek Canyon Rd, Littleton</div>
-        <div class="desc">A 10-acre pumpkin patch, corn maze, wagon rides, antique tractor exhibit, live entertainment, food & drink. Tickets must be purchased online in advance — none sold on-site.</div>
-        <a class="cta" href="https://www.botanicgardens.org/chatfield-farms/events/pumpkin-festival" target="_blank">Details &amp; Tickets →</a>
+        <div class="card-meta">Oct 16–18 · 4:30–9:00 PM</div>
+        <div class="card-title">Boo at the Zoo</div>
+        <div class="card-venue">Denver Zoo Conservation Alliance</div>
+        <div class="card-desc">Trick-or-treat stations and Halloween programming across the zoo grounds after dark. One of Denver's most beloved fall family traditions — runs select evenings all month.</div>
+        <a class="card-link" href="https://denverzoo.org" target="_blank">Details &amp; Tickets →</a>
       </div>
 
       <div class="card">
-        <div class="meta">Fri–Sun · Oct 9–11 · 4:30 – 9 PM · Ticketed</div>
-        <div class="title">Boo at the Zoo</div>
-        <div class="venue">Denver Zoo, 2300 Steele St, Denver</div>
-        <div class="desc">Trick-or-treat stations, mysterious cryptid creatures, costumed characters and evening animal viewing spread across 80 zoo acres. A family Halloween classic — tickets online at denverzoo.org.</div>
-        <a class="cta" href="https://denverzoo.org/events/boo-at-the-zoo" target="_blank">Details &amp; Tickets →</a>
+        <div class="card-meta">Oct 17–18 · 10 AM–4 PM</div>
+        <div class="card-title">Pumpkin Harvest Festival</div>
+        <div class="card-venue">Four Mile Historic Park, 715 S. Forest St., Denver</div>
+        <div class="card-desc">All ages welcome! Features a pumpkin patch, historic blacksmithing and beekeeping demonstrations, craft stations and seasonal treats. $20–$47, youth ages 3–17 discounted.</div>
+        <a class="card-link" href="https://fourmilepark.org" target="_blank">Details &amp; Tickets →</a>
       </div>
 
       <div class="card">
-        <div class="meta">Fri–Sun · Oct 9–11 · Fri 9–5, Sat 10–7, Sun 10–5 · $33.96 / Free Under 13</div>
-        <div class="title">áyA Con — Colorado's Indigenous Comic &amp; Art Festival</div>
-        <div class="venue">CoBank Arena / National Western Center, 4850 National Western Dr, Denver</div>
-        <div class="desc">An electrifying weekend of Indigenous futurism — comics, fashion runway shows, cultural storytelling, and community art. Full weekend passes $33.96; youth under 13 free. createaya.org</div>
-        <a class="cta" href="https://createaya.org" target="_blank">Details &amp; Tickets →</a>
+        <div class="card-meta">Oct 15–18 · 5:30–9:00 PM</div>
+        <div class="card-title">Glow at the Gardens</div>
+        <div class="card-venue">Denver Botanic Garden – York Street, 1007 York St.</div>
+        <div class="card-desc">Denver's most luminous fall celebration — an illuminated path with live performers, enchanted landscapes and hand-carved pumpkin displays around every bend. Spooky, silly and spirited!</div>
+        <a class="card-link" href="https://botanicgardens.org" target="_blank">Details &amp; Tickets →</a>
       </div>
 
       <div class="card">
-        <div class="meta">Sat · Oct 10 · 9 AM – 8 PM · FREE</div>
-        <div class="title">One Day Fall Festival</div>
-        <div class="venue">Colorado UpLift, 1500 S. Dayton St, Aurora</div>
-        <div class="desc">Partner churches across the metro come together for fitness classes, sports tournaments, family activities, and an evening concert featuring national artists. Totally free all day long.</div>
-        <a class="cta" href="https://onedaydenver.org" target="_blank">Details →</a>
+        <div class="card-meta">Oct 17–18 · 10 AM–5 PM · FREE</div>
+        <div class="card-title">Jackalope Indie Artisan Fair</div>
+        <div class="card-venue">Olde Town Arvada</div>
+        <div class="card-desc">Over 100 local artisans showcasing housewares, accessories, apparel, paper goods, art and more. Free admission, all ages, great for a weekend stroll with the family.</div>
+        <a class="card-link" href="https://jackalopeartfair.com" target="_blank">Details &amp; Tickets →</a>
       </div>
 
       <div class="card">
-        <div class="meta">Sat · Oct 10 · 2 – 6 PM · FREE</div>
-        <div class="title">Heritage Harvest at Larimer Square</div>
-        <div class="venue">Larimer Square, 1430 Larimer St, Denver</div>
-        <div class="desc">Celebrate fall with pumpkins, photo ops, seasonal bites and cider, live bluegrass music, author talks, craft workshops, artisan vendors and more — all free on one of Denver's most beautiful blocks.</div>
-        <a class="cta" href="https://larimersquare.com" target="_blank">Details →</a>
+        <div class="card-meta">Oct 16–18 · All Weekend</div>
+        <div class="card-title">Oktoberfest – The Denver Wiesn</div>
+        <div class="card-venue">Downtown Denver</div>
+        <div class="card-desc">Authentic Bavarian tradition meets Colorado fun! Hosted by the Bavarian Guild, this weekend brings the spirit of Munich's legendary festival to the Rocky Mountains with food, beer and music.</div>
+        <a class="card-link" href="https://visitdenver.com" target="_blank">Details &amp; Tickets →</a>
       </div>
 
       <div class="card">
-        <div class="meta">Sat · Oct 10 · 11 AM – 7 PM · FREE</div>
-        <div class="title">The Blue Book Festival</div>
-        <div class="venue">Larimer Square, 1413 Larimer St (Little Blue Pigeon Books), Denver</div>
-        <div class="desc">Free author meet-and-greets, readings, panels, and book signings throughout Larimer Square. Ticketed talks with special guests Jenny Lawson and Alexis Nikole Nelson also available.</div>
-        <a class="cta" href="https://larimersquare.com" target="_blank">Details →</a>
+        <div class="card-meta">Opens Oct 16 · FREE</div>
+        <div class="card-title">New Exhibition Opens at History Colorado Center</div>
+        <div class="card-venue">History Colorado Center, 1200 N. Broadway</div>
+        <div class="card-desc">A new exhibition exploring Denver's mid-century history opens Friday. Also on view through Oct. 18: "The Moments That Made US" — 40+ artifacts that shaped the nation. Free with admission.</div>
+        <a class="card-link" href="https://historycolorado.org" target="_blank">Details &amp; Tickets →</a>
       </div>
 
       <div class="card">
-        <div class="meta">Sat · Oct 10 – Sun Oct 11 · 10 AM – 11 PM · FREE Entry / Ticketed Tasting</div>
-        <div class="title">Premier League Mornings Live Fan Fest</div>
-        <div class="venue">Denver Union Station, 1701 Wynkoop St, Denver</div>
-        <div class="desc">The 13th Premier League Mornings Live Fan Fest comes to Denver — live match broadcasts on big screens, meet-and-greets with talent, fan activities and more. Great for soccer-loving families.</div>
-        <a class="cta" href="https://visitdenver.com" target="_blank">Details →</a>
+        <div class="card-meta">Oct 16 · Fri 12–6 PM · FREE</div>
+        <div class="card-title">Denver Home &amp; Remodeling Expo</div>
+        <div class="card-venue">National Western Center (Livestock Center), 4655 Humboldt St.</div>
+        <div class="card-desc">Free admission for all! Hands-on demonstrations, expert advice and local &amp; national vendors showcasing the latest home improvement products and services. Family-friendly and free to enter.</div>
+        <a class="card-link" href="https://eventbrite.com" target="_blank">Details →</a>
       </div>
 
       <div class="card">
-        <div class="meta">Sun · Oct 11 · 7 AM Start · Ticketed</div>
-        <div class="title">Run the Rocks 2026</div>
-        <div class="venue">Red Rocks Park &amp; Amphitheatre, 18300 W. Alameda Pkwy, Morrison</div>
-        <div class="desc">Lace up and hit the legendary red-rock trails at one of the most scenic race venues on earth. The morning run at Red Rocks is a bucket-list experience for active Denver families.</div>
-        <a class="cta" href="https://www.redrocksonline.com" target="_blank">Details &amp; Tickets →</a>
+        <div class="card-meta">Oct 17 · Sat 11 AM–3 PM · FREE</div>
+        <div class="card-title">Halloween Costume Swap</div>
+        <div class="card-venue">Champagne Tiger, 601 E. Colfax Ave.</div>
+        <div class="card-desc">Bring an old-to-you costume and swap it for a new one — a fun, free, and sustainable way for the whole family to get Halloween-ready this weekend.</div>
+        <a class="card-link" href="https://westword.com" target="_blank">Details →</a>
       </div>
 
-    </div><!-- /grid -->
+    </div><!-- /card-grid family -->
 
-
-    <!-- ══════════════════════════════════════
-         SPORTS
-    ══════════════════════════════════════ -->
-    <div class="cat-header"><h2>🏒 Sports</h2></div>
-    <div class="grid">
-
-      <div class="card">
-        <div class="meta">Sat · Oct 10 · 5:00 PM · Ticketed</div>
-        <div class="title">Colorado Avalanche vs. Tampa Bay Lightning</div>
-        <div class="venue">Ball Arena, 1000 Chopper Cir, Denver</div>
-        <div class="desc">The Avs hit the ice at Ball Arena to face the Tampa Bay Lightning in an early-season NHL showdown. Great seats still available — an action-packed night for hockey families.</div>
-        <a class="cta" href="https://www.ballarena.com" target="_blank">Details &amp; Tickets →</a>
-      </div>
+    <!-- ═══════════════════════════════════ -->
+    <!--  SPORTS                             -->
+    <!-- ═══════════════════════════════════ -->
+    <div class="category-header">🏒 Sports</div>
+    <div class="card-grid">
 
       <div class="card">
-        <div class="meta">Sat · Oct 10 · TBD · Ticketed</div>
-        <div class="title">Colorado Rapids vs. San Jose Earthquakes</div>
-        <div class="venue">DICK'S Sporting Goods Park, 6000 Victory Way, Commerce City</div>
-        <div class="desc">The Colorado Rapids host San Jose in an MLS regular season showdown at DICK'S Sporting Goods Park. Family-friendly stadium with great sightlines, affordable tickets, and Colorado pride on the pitch.</div>
-        <a class="cta" href="https://www.coloradorapids.com" target="_blank">Details &amp; Tickets →</a>
+        <div class="card-meta">Oct 16 · Friday</div>
+        <div class="card-title">Colorado Avalanche vs. Pittsburgh Penguins</div>
+        <div class="card-venue">Ball Arena, 1000 Chopper Circle, Denver</div>
+        <div class="card-desc">The Avs open home ice this weekend against the Pittsburgh Penguins. Catch NHL action live at Ball Arena — one of the best pro sports experiences in the city for the whole family.</div>
+        <a class="card-link" href="https://coloradoavalanche.com" target="_blank">Details &amp; Tickets →</a>
       </div>
 
       <div class="card">
-        <div class="meta">Sun · Oct 11 · 1 – 5 PM · FREE</div>
-        <div class="title">¡Vamos Broncos! Watch Party — Broncos vs. L.A. Chargers</div>
-        <div class="venue">Gate 4 · Empower Field at Mile High, 1701 Bryant St, Denver</div>
-        <div class="desc">The Broncos are playing in California, but the watch party at the stadium's Gate 4 brings the gameday energy home. Free to attend — cheer on the orange and blue on the big screen with other fans.</div>
-        <a class="cta" href="https://www.denverbroncos.com" target="_blank">Details →</a>
+        <div class="card-meta">Oct 16 · Fri · 7:00 PM MT</div>
+        <div class="card-title">DU Hockey vs. Michigan — Banner Raising Night!</div>
+        <div class="card-venue">Magness Arena, University of Denver</div>
+        <div class="card-desc">The defending national champion DU Pioneers open the home NCHC season vs. Michigan — and raise the 2026 National Championship banner! A special evening for Denver hockey fans of all ages.</div>
+        <a class="card-link" href="https://denverpioneers.com" target="_blank">Details &amp; Tickets →</a>
       </div>
 
       <div class="card">
-        <div class="meta">Sat · Oct 10 · Noon – 6 PM · $30 / Free Under 9</div>
-        <div class="title">Down to Earth Mile High — Auto Show</div>
-        <div class="venue">Empower Field at Mile High, 1701 Bryant St, Denver</div>
-        <div class="desc">Hundreds of vehicles on display inside and outside Broncos Stadium in this massive outdoor/indoor auto show. A fun weekend outing for car-loving families — free for kids under 9.</div>
-        <a class="cta" href="https://downtoearthmvmt.com" target="_blank">Details &amp; Tickets →</a>
-      </div>
-
-    </div><!-- /grid -->
-
-
-    <!-- ══════════════════════════════════════
-         CONCERTS
-    ══════════════════════════════════════ -->
-    <div class="cat-header"><h2>🎵 Concerts</h2></div>
-    <div class="grid">
-
-      <div class="card">
-        <div class="meta">Fri · Oct 9 · 6:00 PM (Doors 5 PM) · Ticketed</div>
-        <div class="title">Tape B Presents: Hallow Rocks (Night 2)</div>
-        <div class="venue">Red Rocks Park &amp; Amphitheatre, 18300 W. Alameda Pkwy, Morrison</div>
-        <div class="desc">Night 2 of Tape B's Hallow Rocks Halloween series at Red Rocks, featuring Jykl &amp; Hyde, Gentlemens Club, Oliverse &amp; Cozy Kev. An immersive, theatrical electronic music experience at the world's greatest venue.</div>
-        <a class="cta" href="https://www.redrocksonline.com" target="_blank">Details &amp; Tickets →</a>
+        <div class="card-meta">Oct 17 · Sat · Away Game</div>
+        <div class="card-title">Denver Nuggets at Oklahoma City Thunder</div>
+        <div class="card-venue">Watch at a local sports bar | Tipoff ~7:00 PM MT</div>
+        <div class="card-desc">The Nuggets are on the road this weekend — catch Nikola Jokić and company on TV or stream at a local sports bar as Denver takes on OKC to start the season.</div>
+        <a class="card-link" href="https://nba.com/nuggets" target="_blank">Details →</a>
       </div>
 
       <div class="card">
-        <div class="meta">Sat · Oct 10 · 6:00 PM (Doors 5 PM) · Ticketed</div>
-        <div class="title">Sara Landry at Red Rocks</div>
-        <div class="venue">Red Rocks Park &amp; Amphitheatre, 18300 W. Alameda Pkwy, Morrison</div>
-        <div class="desc">Sara Landry brings her high-energy set to Red Rocks with Pendulum, Supergloss, and Lorely Mur as support. A spectacular Saturday night of music among the iconic red rocks under the Colorado sky.</div>
-        <a class="cta" href="https://www.redrocksonline.com" target="_blank">Details &amp; Tickets →</a>
+        <div class="card-meta">Oct 17 · Sat</div>
+        <div class="card-title">DU Hockey vs. Boston College</div>
+        <div class="card-venue">Magness Arena, University of Denver</div>
+        <div class="card-desc">The Pioneers follow up Friday night's banner raising with another home tilt against Boston College. Great college hockey atmosphere for families — affordable tickets and passionate fans.</div>
+        <a class="card-link" href="https://denverpioneers.com" target="_blank">Details &amp; Tickets →</a>
+      </div>
+
+    </div><!-- /card-grid sports -->
+
+    <!-- ═══════════════════════════════════ -->
+    <!--  CONCERTS & PERFORMING ARTS         -->
+    <!-- ═══════════════════════════════════ -->
+    <div class="category-header">🎵 Concerts &amp; Performing Arts</div>
+    <div class="card-grid">
+
+      <div class="card">
+        <div class="card-meta">Oct 16 · Fri · 6:00 PM</div>
+        <div class="card-title">Sammy Virji at Red Rocks</div>
+        <div class="card-venue">Red Rocks Amphitheatre, Morrison, CO</div>
+        <div class="card-desc">UK dance music DJ Sammy Virji headlines Red Rocks with Confidence Man (DJ Set), Oppidan and Sam Alfred. One of fall's hottest Red Rocks lineups — the amphitheatre is on fire this month.</div>
+        <a class="card-link" href="https://redrocksonline.com" target="_blank">Details &amp; Tickets →</a>
       </div>
 
       <div class="card">
-        <div class="meta">Sun · Oct 11 · 4:50 PM · Ticketed</div>
-        <div class="title">Cement Gardens at Red Rocks</div>
-        <div class="venue">Red Rocks Park &amp; Amphitheatre, 18300 W. Alameda Pkwy, Morrison</div>
-        <div class="desc">Cement Gardens closes the weekend with an afternoon show at Red Rocks Amphitheatre — a perfect way to wind down a big fall weekend in the mountains with live music as the sun sets over Morrison.</div>
-        <a class="cta" href="https://www.redrocksonline.com" target="_blank">Details &amp; Tickets →</a>
+        <div class="card-meta">Oct 18 · Sun · 7:00 PM</div>
+        <div class="card-title">Matt Rife – Stay Golden World Tour</div>
+        <div class="card-venue">Red Rocks Amphitheatre, Morrison, CO</div>
+        <div class="card-desc">Comedy at Red Rocks — comedian Matt Rife brings his Stay Golden World Tour to the world's best outdoor venue. A unique and hilarious night under the stars on the iconic red sandstone stage.</div>
+        <a class="card-link" href="https://redrocksonline.com" target="_blank">Details &amp; Tickets →</a>
       </div>
 
       <div class="card">
-        <div class="meta">Sat · Oct 10 · TBD · Ticketed</div>
-        <div class="title">Snarky Puppy at The Mission Ballroom</div>
-        <div class="venue">The Mission Ballroom, 4242 Wynkoop St, Denver</div>
-        <div class="desc">Genre-bending Grammy-winning collective Snarky Puppy takes the stage at Denver's The Mission Ballroom for an unforgettable live show mixing jazz, funk, rock and world music. Don't miss it.</div>
-        <a class="cta" href="https://www.missionballroom.com" target="_blank">Details &amp; Tickets →</a>
+        <div class="card-meta">Oct 18 · Sun</div>
+        <div class="card-title">Gorillaz – The Mountain Tour</div>
+        <div class="card-venue">Ball Arena, 1000 Chopper Circle, Denver</div>
+        <div class="card-desc">The legendary virtual band Gorillaz brings The Mountain Tour to Ball Arena. A visually spectacular live show featuring the iconic animated characters and an incredible setlist of fan favorites.</div>
+        <a class="card-link" href="https://ballarena.com" target="_blank">Details &amp; Tickets →</a>
       </div>
 
       <div class="card">
-        <div class="meta">Sat · Oct 10 · TBD · Ticketed</div>
-        <div class="title">The Rock Orchestra by Candlelight</div>
-        <div class="venue">Buell Theatre — Denver Performing Arts Complex, 14th &amp; Curtis, Denver</div>
-        <div class="desc">An intimate, candle-lit orchestral experience performing iconic rock anthems in one of Denver's most beautiful theatre spaces. A unique and memorable evening for older kids and adults alike.</div>
-        <a class="cta" href="https://www.denvercenter.org" target="_blank">Details &amp; Tickets →</a>
+        <div class="card-meta">Oct 16–17 · 7:30 PM</div>
+        <div class="card-title">Colorado Symphony: The Music of Studio Ghibli</div>
+        <div class="card-venue">Boettcher Concert Hall, 1000 14th St., Denver</div>
+        <div class="card-desc">The Colorado Symphony performs the beloved compositions of Studio Ghibli composer Joe Hisaishi in full orchestral glory. A magical night for families and film music fans of all ages.</div>
+        <a class="card-link" href="https://coloradosymphony.org" target="_blank">Details &amp; Tickets →</a>
       </div>
 
       <div class="card">
-        <div class="meta">Fri · Oct 9 · 9 PM · Ticketed</div>
-        <div class="title">Talia Tucker's Musical Bingo — Late Night Edition</div>
-        <div class="venue">Bierstadt Lagerhaus, 2875 Blake St, Denver</div>
-        <div class="desc">A late-night adults' night out — Musical Bingo with the Sensational Talia Tucker. Expect bingo, great music, German lager, and prizes in one of Denver's most acclaimed craft lager taprooms in RiNo.</div>
-        <a class="cta" href="https://bierstadtlagerhaus.com" target="_blank">Details →</a>
+        <div class="card-meta">Oct 16–18</div>
+        <div class="card-title">The Who's TOMMY – Broadway Tour</div>
+        <div class="card-venue">Denver Center for the Performing Arts</div>
+        <div class="card-desc">The electrifying Broadway tour of The Who's rock opera TOMMY hits Denver for three performances only. Featuring iconic songs and a stunning theatrical production. Tickets $47–$148.</div>
+        <a class="card-link" href="https://denvercenter.org" target="_blank">Details &amp; Tickets →</a>
       </div>
 
-    </div><!-- /grid -->
+      <div class="card">
+        <div class="card-meta">Oct 16 · Fri · 6:00 PM</div>
+        <div class="card-title">Afrojack at Mission Ballroom</div>
+        <div class="card-venue">Mission Ballroom, Denver</div>
+        <div class="card-desc">World-renowned DJ and producer Afrojack takes over Mission Ballroom for a high-energy electronic dance night. Mission Ballroom is running DJ events almost every week this October.</div>
+        <a class="card-link" href="https://missionballroom.com" target="_blank">Details &amp; Tickets →</a>
+      </div>
 
-    <div class="spacer"></div>
+    </div><!-- /card-grid concerts -->
+
+    <div class="bottom-spacer"></div>
 
   </div><!-- /wrap -->
-
 </body>
 </html>
 ```
