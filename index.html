@@ -5,75 +5,76 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>What's Happening in Denver This Weekend</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
     html, body {
       background: #162a3d;
       font-family: 'Lato', sans-serif;
-      color: #ffffff;
+      color: #cce0f5;
       min-height: 100vh;
     }
+
     .wrap {
       max-width: 960px;
       margin: 0 auto;
-      padding: 24px 16px;
+      padding: 0 16px 20px;
     }
-    /* Header */
-    .page-header {
+
+    /* ── Header ── */
+    .site-header {
+      background: #0f1e2c;
+      padding: 22px 16px 18px;
       text-align: center;
-      margin-bottom: 8px;
+      border-bottom: 3px solid #f5821f;
     }
-    .page-header h1 {
+    .site-header h1 {
       font-size: 26px;
       font-weight: 900;
       color: #ffffff;
       letter-spacing: 0.5px;
-      line-height: 1.2;
+      text-transform: uppercase;
     }
-    .page-header p {
+    .site-header p {
       font-size: 13px;
       color: #8aabcc;
       margin-top: 4px;
     }
-    /* Date Bar */
+
+    /* ── Date Bar ── */
     .date-bar {
       background: #f5821f;
       text-align: center;
       padding: 10px 16px;
-      border-radius: 4px;
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 700;
       color: #ffffff;
-      letter-spacing: 1px;
+      letter-spacing: 1.5px;
       text-transform: uppercase;
-      margin-bottom: 28px;
     }
-    /* Category Header */
-    .cat-header {
-      border-left: 4px solid #f5821f;
-      padding-left: 10px;
-      margin-bottom: 16px;
-      margin-top: 28px;
-    }
-    .cat-header h2 {
+
+    /* ── Category Header ── */
+    .category-header {
+      border-left: 5px solid #f5821f;
+      padding: 6px 12px;
+      margin: 28px 0 14px;
       font-size: 17px;
       font-weight: 900;
       color: #ffffff;
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 0.8px;
     }
-    /* Card Grid */
-    .card-grid {
+
+    /* ── Event Grid ── */
+    .event-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 14px;
-      margin-bottom: 10px;
     }
-    /* Event Card */
-    .card {
+
+    /* ── Event Card ── */
+    .event-card {
       background: #1a3349;
       border-radius: 4px;
       padding: 14px;
@@ -81,30 +82,35 @@
       flex-direction: column;
       gap: 5px;
     }
+
     .card-meta {
       font-size: 10px;
       font-weight: 700;
       color: #f5821f;
       text-transform: uppercase;
-      letter-spacing: 0.8px;
+      letter-spacing: 1.2px;
     }
+
     .card-title {
       font-size: 15px;
       font-weight: 700;
       color: #ffffff;
-      line-height: 1.3;
+      line-height: 1.35;
     }
+
     .card-venue {
       font-size: 12px;
       color: #8aabcc;
-      line-height: 1.3;
+      line-height: 1.4;
     }
+
     .card-desc {
       font-size: 11px;
       color: #ccddee;
       line-height: 1.5;
-      flex: 1;
+      flex-grow: 1;
     }
+
     .card-link {
       display: inline-block;
       margin-top: 8px;
@@ -113,179 +119,221 @@
       color: #f5821f;
       text-decoration: none;
       text-transform: uppercase;
-      letter-spacing: 0.6px;
+      letter-spacing: 0.8px;
     }
-    .card-link:hover {
-      text-decoration: underline;
-    }
-    /* Bottom Spacer */
-    .spacer { height: 20px; }
-    /* Responsive */
+    .card-link:hover { text-decoration: underline; }
+
+    /* ── Footer ── */
+    .footer-spacer { height: 20px; }
+
+    /* ── Responsive ── */
     @media (max-width: 600px) {
-      .card-grid { grid-template-columns: 1fr; }
-      .page-header h1 { font-size: 21px; }
+      .event-grid { grid-template-columns: 1fr; }
+      .site-header h1 { font-size: 20px; }
     }
   </style>
 </head>
 <body>
+
+  <div class="site-header">
+    <h1>What's Happening in Denver This Weekend</h1>
+    <p>Your family guide to the Mile High City</p>
+  </div>
+
+  <div class="date-bar">Oct 30 – Nov 1, 2026</div>
+
   <div class="wrap">
 
-    <div class="page-header">
-      <h1>What's Happening in Denver This Weekend</h1>
-      <p>Your family guide to the Mile High City — curated by <a href="https://jeremykanehomes.com/this-weekend-in-denver" style="color:#f5821f;text-decoration:none;">JeremyKaneHomes.com</a></p>
-    </div>
+    <!-- ════════════════════════════════════════
+         FAMILY EVENTS
+    ════════════════════════════════════════ -->
+    <div class="category-header">🎃 Family Events</div>
+    <div class="event-grid">
 
-    <div class="date-bar">🗓 Oct 23 – 25, 2026</div>
-
-    <!-- ======================== FAMILY EVENTS ======================== -->
-    <div class="cat-header"><h2>🎃 Family Events</h2></div>
-    <div class="card-grid">
-
-      <div class="card">
-        <div class="card-meta">Fri–Sun · Oct 23–25 · 9 AM–5 PM · Members FREE</div>
-        <div class="card-title">Harvest Hoot at the Children's Museum</div>
-        <div class="card-venue">Children's Museum of Denver at Marsico Campus · 2121 Children's Museum Dr</div>
-        <div class="card-desc">Dress up in your best costume and dive into carnival games, boo-tiful crafts, Monster Mash Circus, sensory sand potions, and a cranberry bog exploration. All activities included with regular admission — members get in free!</div>
-        <a class="card-link" href="https://www.mychildsmuseum.org/" target="_blank">Details &amp; Tickets →</a>
+      <div class="event-card">
+        <div class="card-meta">Fri Oct 30 · 5–7 PM · FREE</div>
+        <div class="card-title">Olde Town Arvada Trick or Treat Street</div>
+        <div class="card-venue">📍 Olde Town Arvada, Arvada, CO</div>
+        <div class="card-desc">Bring your little ghouls and goblins for free trick-or-treating at participating businesses throughout Olde Town, plus a costume contest in Olde Town Square. Perfect for all ages!</div>
+        <a class="card-link" href="https://www.arvada.org/government/departments/parks-recreation/events" target="_blank">Details &amp; Map →</a>
       </div>
 
-      <div class="card">
-        <div class="card-meta">Fri–Sun · Oct 23–25 · 4:30–9:00 PM</div>
-        <div class="card-title">Boo at the Zoo</div>
-        <div class="card-venue">Denver Zoo Conservation Alliance · 2300 Steele St, Denver</div>
-        <div class="card-desc">Trick-or-treat at candy stations across an illuminated campus while visiting cryptid-creature exhibits and animal ambassadors. One of Denver's most beloved Halloween traditions for the whole family.</div>
-        <a class="card-link" href="https://denverzoo.org/events/boo-at-the-zoo" target="_blank">Details &amp; Tickets →</a>
+      <div class="event-card">
+        <div class="card-meta">Fri Oct 30 · 5–8 PM · FREE</div>
+        <div class="card-title">Trunk or Treat &amp; Haunted House</div>
+        <div class="card-venue">📍 Ville 7877 · 7877 S. Chester St., Centennial</div>
+        <div class="card-desc">A free family Halloween event featuring decorated car trunks, candy, and a haunted house experience. No cover charge — great for kids of all ages.</div>
+        <a class="card-link" href="https://visitdenver.com/events/" target="_blank">Details &amp; Tickets →</a>
       </div>
 
-      <div class="card">
-        <div class="card-meta">Fri–Sun · Oct 23–25 · Starts 12 PM (Sat/Sun) · 6 PM (Fri)</div>
+      <div class="event-card">
+        <div class="card-meta">Fri Oct 30 · ALL TRAINS, NO TRICKS</div>
+        <div class="card-title">Sensory-Friendly Halloween at Union Station</div>
+        <div class="card-venue">📍 Denver Union Station · 1701 Wynkoop St., Denver</div>
+        <div class="card-desc">A low-sensory, inclusive Halloween celebration designed for children who need a calmer trick-or-treating experience. Costumes encouraged, stress-free fun guaranteed.</div>
+        <a class="card-link" href="https://unionstationindenver.com/" target="_blank">Details →</a>
+      </div>
+
+      <div class="event-card">
+        <div class="card-meta">Fri–Sun Oct 30–Nov 1 · From 6 PM Fri / 12 PM Sat–Sun</div>
         <div class="card-title">Fright Fest at Elitch Gardens</div>
-        <div class="card-venue">Elitch Gardens Theme Park · 2000 Elitch Circle, Denver</div>
-        <div class="card-desc">Denver's biggest Halloween theme park event is back! Includes daytime Booville family fun Sat & Sun, plus spooky rides, themed zones, and live entertainment. Runs through November 1.</div>
-        <a class="card-link" href="https://www.elitchgardens.com/fright-fest/" target="_blank">Details &amp; Tickets →</a>
+        <div class="card-venue">📍 Elitch Gardens · 2000 Elitch Circle, Denver</div>
+        <div class="card-desc">Colorado's largest Halloween event! Fun by day with Booville for kids, fright by night for thrill-seekers. Live entertainment, haunted attractions, Halloween-themed rides and more.</div>
+        <a class="card-link" href="https://www.elitchgardens.com/events/fright-fest/" target="_blank">Details &amp; Tickets →</a>
       </div>
 
-      <div class="card">
-        <div class="card-meta">Fri · Oct 23 · Evening</div>
-        <div class="card-title">Halloween Family Overnight</div>
-        <div class="card-venue">Denver Museum of Nature &amp; Science · 2001 Colorado Blvd, Denver</div>
-        <div class="card-desc">What did dinosaurs really do when no one was looking? Find out during this enchanting overnight experience with exhibits, activities, and spooky surprises for the whole family. Reserve early — spots are limited.</div>
-        <a class="card-link" href="https://www.dmns.org/" target="_blank">Details &amp; Tickets →</a>
+      <div class="event-card">
+        <div class="card-meta">Sat Oct 31 · 4–7 PM · FREE</div>
+        <div class="card-title">Trick-or-Treat Street on South Gaylord</div>
+        <div class="card-venue">📍 South Gaylord Street · Wash Park, Denver</div>
+        <div class="card-desc">Local Wash Park shops and restaurants hand out candy along South Gaylord. Includes a fun doggie costume contest. Free, family-friendly, and a neighborhood tradition.</div>
+        <a class="card-link" href="https://visitdenver.com/things-to-do/fall-winter/festivals-events/halloween/" target="_blank">Details →</a>
       </div>
 
-      <div class="card">
-        <div class="card-meta">Fri–Sun · Oct 23–25 · Various Times</div>
-        <div class="card-title">Don't Let the Pigeon Drive the Bus! The Musical</div>
-        <div class="card-venue">Denver Center for the Performing Arts · 1101 13th St, Denver</div>
-        <div class="card-desc">Based on Mo Willems' beloved, award-winning book, this hilariously interactive stage adventure follows a determined, mischievous Pigeon who desperately wants to drive a city bus. Fun for all ages!</div>
-        <a class="card-link" href="https://www.denvercenter.org/" target="_blank">Details &amp; Tickets →</a>
+      <div class="event-card">
+        <div class="card-meta">Sat Oct 31 · 12–4 PM · FREE</div>
+        <div class="card-title">Mall-O-Ween Trick-or-Treating</div>
+        <div class="card-venue">📍 Town Center at Aurora · 14200 E. Alameda Ave., Aurora</div>
+        <div class="card-desc">Safe indoor trick-or-treating at participating mall stores — perfect for younger kids! Free for all ages. Costumes strongly encouraged as you collect candy from store to store.</div>
+        <a class="card-link" href="https://www.shopataurora.com/" target="_blank">Details →</a>
       </div>
 
-      <div class="card">
-        <div class="card-meta">Fri–Sat · Oct 23–24 · Overnight</div>
-        <div class="card-title">Wild Dreams Overnight at the Aquarium</div>
-        <div class="card-venue">Downtown Aquarium Denver · 700 Water St, Denver</div>
-        <div class="card-desc">Spend an exciting night at the Downtown Aquarium! Explore exhibits, learn about animal habitats, play games, and wake up surrounded by the wonders of the deep. A unique sleepover adventure for the whole family.</div>
-        <a class="card-link" href="https://www.aquariumrestaurants.com/downtownaquariumdenver/" target="_blank">Details &amp; Tickets →</a>
+      <div class="event-card">
+        <div class="card-meta">Fri–Sun Oct 30–Nov 1 · 6:30–9:15 PM</div>
+        <div class="card-title">Magic of the Jack O'Lanterns</div>
+        <div class="card-venue">📍 Hudson Gardens · 6115 S. Santa Fe Dr., Littleton</div>
+        <div class="card-desc">Stroll through thousands of hand-carved and artistically lit jack o'lanterns in a beautiful outdoor garden setting. A magical Halloween experience for the whole family.</div>
+        <a class="card-link" href="https://hudsongardens.org/magic-of-the-jack-olanterns/" target="_blank">Details &amp; Tickets →</a>
       </div>
 
-      <div class="card">
-        <div class="card-meta">Sun · Oct 25 · 10 AM – Last Sunday of Season</div>
-        <div class="card-title">Highland Square Farmers Market</div>
-        <div class="card-venue">Highland Square · 32nd Ave &amp; Lowell Blvd, Denver · FREE</div>
-        <div class="card-desc">This beloved neighborhood market wraps up its season Oct 25 with locally grown produce, handcrafted goods, and homemade food ready to eat. Don't miss the final Sunday of the year!</div>
-        <a class="card-link" href="https://www.highlandsquarebid.org/" target="_blank">Details →</a>
+      <div class="event-card">
+        <div class="card-meta">Sun Nov 1 · Daytime</div>
+        <div class="card-title">Día de los Muertos Celebration – Colorado Symphony</div>
+        <div class="card-venue">📍 Boettcher Concert Hall · 1000 14th St., Denver</div>
+        <div class="card-desc">Celebrate and learn about the Mexican holiday Día de los Muertos with the Colorado Symphony in a festive, multicultural concert experience. A beautiful cultural event for families.</div>
+        <a class="card-link" href="https://coloradosymphony.org/" target="_blank">Details &amp; Tickets →</a>
       </div>
 
-      <div class="card">
-        <div class="card-meta">Fri–Sun · Oct 23–25 · Times Vary</div>
-        <div class="card-title">Denver Film Festival</div>
-        <div class="card-venue">Denver Film · Sie FilmCenter &amp; Various Venues, Denver</div>
-        <div class="card-desc">One of the oldest film festivals in the country is back for its 49th year, featuring a diverse and thought-provoking slate of films from all over the world. Weekend screenings available for all ages.</div>
-        <a class="card-link" href="https://denverfilm.org/" target="_blank">Details &amp; Tickets →</a>
+      <div class="event-card">
+        <div class="card-meta">Thru Nov 1 · Multiple Screenings Daily</div>
+        <div class="card-title">Denver Film Festival (Final Weekend!)</div>
+        <div class="card-venue">📍 Multiple Venues Across Denver</div>
+        <div class="card-desc">The 49th Denver Film Festival closes out its run this weekend! Hundreds of full-length films, shorts, and music videos at multiple venues around the city. One of the oldest film festivals in the country.</div>
+        <a class="card-link" href="https://denverfilm.org/festival/" target="_blank">Details &amp; Tickets →</a>
       </div>
 
-    </div>
-
-    <!-- ======================== CONCERTS ======================== -->
-    <div class="cat-header"><h2>🎸 Concerts at Red Rocks</h2></div>
-    <div class="card-grid">
-
-      <div class="card">
-        <div class="card-meta">Fri · Oct 23 · 5:00 PM</div>
-        <div class="card-title">Mersiv (Two Sets) at Red Rocks</div>
-        <div class="card-venue">Red Rocks Amphitheatre · 18300 W. Alameda Pkwy, Morrison</div>
-        <div class="card-desc">Bass music visionary Mersiv plays two full sets at one of the world's most iconic venues. Supporting acts include Know Good, Jaenga, Phrva, Dr. Ushuu, and Vyhara. An unforgettable night under the Colorado stars.</div>
-        <a class="card-link" href="https://www.redrocksonline.com/" target="_blank">Details &amp; Tickets →</a>
+      <div class="event-card">
+        <div class="card-meta">Fri Oct 30 · 4:30–9 PM</div>
+        <div class="card-title">Boo at the Zoo (Final Thursday Night!)</div>
+        <div class="card-venue">📍 Denver Zoo · 2300 Steele St., Denver</div>
+        <div class="card-desc">One of Denver's most beloved family Halloween traditions! Trick-or-treat at nine candy stations across an illuminated zoo campus, with cryptid creature exhibits and animal ambassadors. Timed, ticketed entry.</div>
+        <a class="card-link" href="https://denverzoo.org/boo-at-the-zoo/" target="_blank">Details &amp; Tickets →</a>
       </div>
 
-      <div class="card">
-        <div class="card-meta">Sat · Oct 24 · 5:30 PM</div>
-        <div class="card-title">Jade Cicada &amp; Mickman at Red Rocks</div>
-        <div class="card-venue">Red Rocks Amphitheatre · 18300 W. Alameda Pkwy, Morrison</div>
-        <div class="card-desc">A mesmerizing psychedelic bass and electronic music evening featuring Jade Cicada and Mickman, with support from Resonant Language, Schmoop, and Petals. The perfect fall night at Red Rocks.</div>
-        <a class="card-link" href="https://www.redrocksonline.com/" target="_blank">Details &amp; Tickets →</a>
-      </div>
+    </div><!-- /event-grid -->
 
-      <div class="card">
-        <div class="card-meta">Sun · Oct 25 · 7:30 PM</div>
-        <div class="card-title">Stardew Valley: Symphony of Seasons</div>
-        <div class="card-venue">Red Rocks Amphitheatre · 18300 W. Alameda Pkwy, Morrison</div>
-        <div class="card-desc">A magical live orchestral performance of music from ConcernedApe's beloved Stardew Valley video game. A truly unique concert experience perfect for gamers and music lovers of all ages.</div>
-        <a class="card-link" href="https://www.redrocksonline.com/" target="_blank">Details &amp; Tickets →</a>
-      </div>
 
-      <div class="card">
-        <div class="card-meta">Fri–Sun · Oct 22–25 · Times Vary</div>
-        <div class="card-title">Oktoberfest – The Denver Wiesn</div>
-        <div class="card-venue">Downtown Denver · Various Locations</div>
-        <div class="card-desc">Authentic Bavarian tradition meets high-altitude Colorado fun! Hosted by the Bavarian Guild, this multi-day celebration brings the energy and spirit of Munich's legendary festival to the Rocky Mountains with live music, beer, and food.</div>
-        <a class="card-link" href="https://www.denverwiesn.com/" target="_blank">Details &amp; Tickets →</a>
-      </div>
+    <!-- ════════════════════════════════════════
+         SPORTS
+    ════════════════════════════════════════ -->
+    <div class="category-header">🏒 Sports</div>
+    <div class="event-grid">
 
-    </div>
-
-    <!-- ======================== SPORTS ======================== -->
-    <div class="cat-header"><h2>🏒 Sports</h2></div>
-    <div class="card-grid">
-
-      <div class="card">
-        <div class="card-meta">Fri · Oct 23 · 7:00 PM</div>
-        <div class="card-title">Colorado Avalanche vs. Tampa Bay Lightning</div>
-        <div class="card-venue">Ball Arena · 1000 Chopper Circle, Denver</div>
-        <div class="card-desc">The defending Stanley Cup contenders welcome the Tampa Bay Lightning to Ball Arena for an exciting early-season NHL matchup. Bring the family and cheer on the Avs in one of the NHL's premier arenas.</div>
+      <div class="event-card">
+        <div class="card-meta">Sat Oct 31 · 8:00 PM MT</div>
+        <div class="card-title">Colorado Avalanche vs. Calgary Flames</div>
+        <div class="card-venue">📍 Ball Arena · 1000 Chopper Circle, Denver</div>
+        <div class="card-desc">Halloween night hockey at Ball Arena! The Avalanche host the Calgary Flames in what should be a spooky-good matchup. Catch the Avs on home ice in one of Denver's most exciting venues.</div>
         <a class="card-link" href="https://www.nhl.com/avalanche/tickets" target="_blank">Details &amp; Tickets →</a>
       </div>
 
-      <div class="card">
-        <div class="card-meta">Sat · Oct 24 · 7:00 PM · Home Opener</div>
-        <div class="card-title">Denver Nuggets vs. New Orleans Pelicans</div>
-        <div class="card-venue">Ball Arena · 1000 Chopper Circle, Denver</div>
-        <div class="card-desc">The Nuggets tip off their 2026–27 home schedule against the Pelicans! Catch Nikola Jokić and Jamal Murray in a festive Home Opener atmosphere. Ball Arena will be electric — don't miss it.</div>
-        <a class="card-link" href="https://www.nba.com/nuggets/tickets" target="_blank">Details &amp; Tickets →</a>
+      <div class="event-card">
+        <div class="card-meta">Fri Oct 30 · 7:00 PM MT</div>
+        <div class="card-title">DU Pioneers Hockey vs. Omaha (Game 1)</div>
+        <div class="card-venue">📍 Magness Arena · 2201 E. Arapahoe Rd., Denver</div>
+        <div class="card-desc">The #4-ranked DU Pioneers host Omaha in the first of a two-game NCHC home series. Great family-friendly college hockey action at one of Denver's best on-campus arenas. TV: NCHC.tv</div>
+        <a class="card-link" href="https://denverpioneers.com/sports/mens-ice-hockey/schedule" target="_blank">Details &amp; Tickets →</a>
       </div>
 
-      <div class="card">
-        <div class="card-meta">Fri · Oct 23 · 7:00 PM · Homecoming Weekend</div>
-        <div class="card-title">DU Pioneers Hockey vs. Boston College</div>
-        <div class="card-venue">Magness Arena · 2199 S. University Blvd, Denver</div>
-        <div class="card-desc">DU's nationally ranked Pioneers host Boston College in a Homecoming Weekend showdown at Magness Arena. Watch on Altitude 2 / NCHC.tv or be there live for the action. Saturday rematch at 6 PM!</div>
-        <a class="card-link" href="https://denverpioneers.com/" target="_blank">Details &amp; Tickets →</a>
+      <div class="event-card">
+        <div class="card-meta">Sat Oct 31 · 6:00 PM MT</div>
+        <div class="card-title">DU Pioneers Hockey vs. Omaha (Game 2)</div>
+        <div class="card-venue">📍 Magness Arena · 2201 E. Arapahoe Rd., Denver</div>
+        <div class="card-desc">Night two of the DU Pioneers vs. Omaha NCHC series. Come in costume for Halloween! Collegiate hockey is an affordable, exciting option for the whole family. TV: Altitude 2 / NCHC.tv</div>
+        <a class="card-link" href="https://denverpioneers.com/sports/mens-ice-hockey/schedule" target="_blank">Details &amp; Tickets →</a>
       </div>
 
-      <div class="card">
-        <div class="card-meta">Sat · Oct 24 · 6:00 PM · Homecoming Weekend</div>
-        <div class="card-title">DU Pioneers Hockey vs. Boston College (Game 2)</div>
-        <div class="card-venue">Magness Arena · 2199 S. University Blvd, Denver</div>
-        <div class="card-desc">The Pioneers and Eagles rematch in Game 2 of their Homecoming Weekend series. Presented by AAA. College hockey at its best — affordable family tickets available and a fantastic atmosphere in the stands.</div>
-        <a class="card-link" href="https://denverpioneers.com/" target="_blank">Details &amp; Tickets →</a>
+      <div class="event-card">
+        <div class="card-meta">Fri Oct 30 · Away Game</div>
+        <div class="card-title">Denver Nuggets @ Phoenix Suns</div>
+        <div class="card-venue">📍 Watch Locally at Area Sports Bars</div>
+        <div class="card-desc">The Nuggets are on the road in Phoenix for Game 5 of the young NBA season. Catch the action at a local Denver sports bar or stream on NBA League Pass. Next home game: Nov. 2 vs. Portland.</div>
+        <a class="card-link" href="https://www.nba.com/nuggets/schedule" target="_blank">Schedule &amp; Info →</a>
       </div>
 
-    </div>
+    </div><!-- /event-grid -->
 
-    <div class="spacer"></div>
 
-  </div>
+    <!-- ════════════════════════════════════════
+         CONCERTS
+    ════════════════════════════════════════ -->
+    <div class="category-header">🎶 Concerts</div>
+    <div class="event-grid">
+
+      <div class="event-card">
+        <div class="card-meta">Fri Oct 30 · 7:30 PM</div>
+        <div class="card-title">deadmau5 – Halloween Night 1</div>
+        <div class="card-venue">📍 Red Rocks Amphitheatre · 18300 W. Alameda Pkwy, Morrison</div>
+        <div class="card-desc">Night one of a special two-night Halloween extravaganza at Red Rocks! The Canadian electronic DJ delivers an elaborate light show with openers VOWWS, Josh Freese, Danny Lohner & PENULTIMATE. Ages 16+.</div>
+        <a class="card-link" href="https://www.redrocksonline.com/events/" target="_blank">Details &amp; Tickets →</a>
+      </div>
+
+      <div class="event-card">
+        <div class="card-meta">Sat Oct 31 · 7:30 PM</div>
+        <div class="card-title">deadmau5 – Halloween Night 2</div>
+        <div class="card-venue">📍 Red Rocks Amphitheatre · 18300 W. Alameda Pkwy, Morrison</div>
+        <div class="card-desc">Halloween night at Red Rocks with deadmau5 for the second of two sold-out shows! Same openers: VOWWS, Josh Freese, Danny Lohner & PENULTIMATE. Expect costumes, incredible lights, and epic sound.</div>
+        <a class="card-link" href="https://www.redrocksonline.com/events/" target="_blank">Details &amp; Tickets →</a>
+      </div>
+
+      <div class="event-card">
+        <div class="card-meta">Sun Nov 1 · 8:00 PM</div>
+        <div class="card-title">Yandel – SINFÓNICO</div>
+        <div class="card-venue">📍 Red Rocks Amphitheatre · 18300 W. Alameda Pkwy, Morrison</div>
+        <div class="card-desc">Latin reggaeton legend Yandel brings his SINFÓNICO orchestral concert experience to Red Rocks to close the weekend. A unique fusion of live orchestra and urban Latin music under the Colorado stars.</div>
+        <a class="card-link" href="https://www.redrocksonline.com/events/" target="_blank">Details &amp; Tickets →</a>
+      </div>
+
+      <div class="event-card">
+        <div class="card-meta">Fri Oct 30 · Doors Open</div>
+        <div class="card-title">Matroda at Mission Ballroom</div>
+        <div class="card-venue">📍 Mission Ballroom · 4242 Wynkoop St., Denver</div>
+        <div class="card-desc">AEG Presents brings Dutch electronic artist Matroda to Denver's premier indoor concert venue. High-energy house and tech-house beats to kick off Halloween weekend. Ages 18+.</div>
+        <a class="card-link" href="https://missionballroom.com/" target="_blank">Details &amp; Tickets →</a>
+      </div>
+
+      <div class="event-card">
+        <div class="card-meta">Sat Oct 31 · Halloween Night · 16+</div>
+        <div class="card-title">Whethan at Mission Ballroom</div>
+        <div class="card-venue">📍 Mission Ballroom · 4242 Wynkoop St., Denver</div>
+        <div class="card-desc">Celebrate Halloween with Chicago-born producer/DJ Whethan bringing his signature indie-electronic sound to Mission Ballroom. A high-energy 16+ show for an unforgettable Halloween night out.</div>
+        <a class="card-link" href="https://missionballroom.com/" target="_blank">Details &amp; Tickets →</a>
+      </div>
+
+      <div class="event-card">
+        <div class="card-meta">Sun Nov 1 · Ball Arena</div>
+        <div class="card-title">Teddy Swims – The UGLY Tour</div>
+        <div class="card-venue">📍 Ball Arena · 1000 Chopper Circle, Denver</div>
+        <div class="card-desc">Soul/R&B powerhouse Teddy Swims brings The UGLY Tour to Ball Arena for a massive Denver show. Known for his soaring vocals and genre-blending sound — a can't-miss concert to close the weekend.</div>
+        <a class="card-link" href="https://www.ballarena.com/" target="_blank">Details &amp; Tickets →</a>
+      </div>
+
+    </div><!-- /event-grid -->
+
+    <div class="footer-spacer"></div>
+
+  </div><!-- /wrap -->
+
 </body>
 </html>
 ```
