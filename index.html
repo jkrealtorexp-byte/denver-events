@@ -5,70 +5,90 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>What's Happening in Denver This Weekend</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
     html, body {
       background: #162a3d;
       font-family: 'Lato', sans-serif;
-      color: #ffffff;
-      min-height: 100vh;
+      color: #ccddee;
     }
+
     .wrap {
       max-width: 960px;
       margin: 0 auto;
       padding: 0 16px;
     }
+
     /* Header */
     .site-header {
-      background: #0f1f2e;
-      padding: 20px 0 16px;
-      text-align: center;
+      background: #0f1e2d;
+      padding: 18px 0 14px;
       border-bottom: 3px solid #f5821f;
+    }
+    .site-header .wrap {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      flex-wrap: wrap;
     }
     .site-header h1 {
       font-size: 22px;
       font-weight: 900;
-      letter-spacing: 0.5px;
       color: #ffffff;
-      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      line-height: 1.2;
     }
-    .site-header .tagline {
+    .site-header p {
       font-size: 12px;
       color: #8aabcc;
-      margin-top: 4px;
-      letter-spacing: 1px;
+      margin-top: 2px;
     }
+
     /* Date bar */
     .date-bar {
       background: #f5821f;
       text-align: center;
       padding: 10px 16px;
-      font-size: 15px;
-      font-weight: 700;
+      font-size: 14px;
+      font-weight: 900;
+      color: #fff;
       letter-spacing: 1.5px;
       text-transform: uppercase;
-      color: #ffffff;
     }
+
     /* Category header */
     .cat-header {
-      border-left: 4px solid #f5821f;
-      padding: 6px 0 6px 12px;
+      display: flex;
+      align-items: center;
       margin: 28px 0 14px;
-      font-size: 13px;
-      font-weight: 900;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: #f5821f;
+      gap: 10px;
     }
+    .cat-header::before {
+      content: '';
+      display: block;
+      width: 5px;
+      height: 26px;
+      background: #f5821f;
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+    .cat-header h2 {
+      font-size: 16px;
+      font-weight: 900;
+      color: #ffffff;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+    }
+
     /* Grid */
     .card-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 14px;
     }
+
     /* Card */
     .card {
       background: #1a3349;
@@ -76,14 +96,14 @@
       padding: 14px;
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      gap: 5px;
     }
     .card-meta {
       font-size: 10px;
       font-weight: 700;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
       color: #f5821f;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
     .card-title {
       font-size: 15px;
@@ -94,7 +114,7 @@
     .card-venue {
       font-size: 12px;
       color: #8aabcc;
-      font-weight: 400;
+      line-height: 1.3;
     }
     .card-desc {
       font-size: 11px;
@@ -110,250 +130,250 @@
       color: #f5821f;
       text-decoration: none;
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 0.8px;
     }
-    .card-link:hover {
-      text-decoration: underline;
-    }
+    .card-link:hover { text-decoration: underline; }
+
+    /* Badge */
     .badge-free {
       display: inline-block;
       background: #f5821f;
       color: #fff;
       font-size: 9px;
       font-weight: 900;
-      letter-spacing: 1px;
-      padding: 2px 6px;
+      text-transform: uppercase;
       border-radius: 2px;
-      margin-left: 6px;
+      padding: 1px 5px;
+      letter-spacing: 0.8px;
       vertical-align: middle;
+      margin-left: 4px;
     }
-    /* Bottom spacer */
-    .spacer { height: 20px; }
 
-    /* Footer */
-    .site-footer {
-      background: #0f1f2e;
-      text-align: center;
-      padding: 16px;
-      font-size: 11px;
-      color: #4a6a88;
-      margin-top: 10px;
-    }
-    .site-footer a { color: #f5821f; text-decoration: none; }
+    /* Spacer */
+    .spacer { height: 20px; }
 
     /* Responsive */
     @media (max-width: 600px) {
       .card-grid { grid-template-columns: 1fr; }
-      .site-header h1 { font-size: 17px; }
+      .site-header h1 { font-size: 18px; }
     }
   </style>
 </head>
 <body>
 
-  <div class="site-header">
+  <header class="site-header">
     <div class="wrap">
-      <h1>What's Happening in Denver This Weekend</h1>
-      <div class="tagline">Your Family Guide to the Mile High City</div>
+      <div>
+        <h1>What's Happening in Denver This Weekend</h1>
+        <p>Curated events for Denver metro families · jeremykanehomes.com</p>
+      </div>
     </div>
-  </div>
+  </header>
 
-  <div class="date-bar">Nov 13–15, 2026</div>
+  <div class="date-bar">Nov 20–22, 2026 &nbsp;·&nbsp; Denver Metro</div>
 
   <div class="wrap">
 
-    <!-- ═══════════════════════════════ FAMILY EVENTS ═══════════════════════════════ -->
-    <div class="cat-header">🎉 Family Events</div>
+    <!-- ═══ FAMILY EVENTS ═══ -->
+    <div class="cat-header"><h2>🎄 Family Events</h2></div>
     <div class="card-grid">
 
       <div class="card">
-        <div class="card-meta">Fri–Sun · Nov 13–15 · 10 AM – 6 PM</div>
-        <div class="card-title">Denver Holiday Food &amp; Gift Festival</div>
-        <div class="card-venue">National Western Complex · 4655 Humboldt St, Denver</div>
-        <div class="card-desc">Shop the 37th Annual Holiday Food &amp; Gift Festival with local artisans, gourmet foods, arts &amp; crafts. Visit with Santa on Saturday and Sunday! Fri 11am–6pm · Sat 10am–6pm · Sun 10am–4pm.</div>
-        <a class="card-link" href="https://nationalwesterncomplex.com/events/" target="_blank">Details &amp; Tickets →</a>
+        <div class="card-meta">Fri Nov 20 · Opens 1 PM Daily <span class="badge-free">FREE</span></div>
+        <div class="card-title">Denver Christkindlmarket — Opening Weekend</div>
+        <div class="card-venue">Tivoli Quad, Auraria Campus · Denver</div>
+        <div class="card-desc">Denver's beloved German holiday market returns for its 26th year with a larger footprint and more vendors. Stroll through festive stalls, sip warm drinks, and soak in the holiday magic — all free to attend.</div>
+        <a class="card-link" href="https://www.christkindlmarket.com/denver" target="_blank">Details &amp; Info →</a>
       </div>
 
       <div class="card">
-        <div class="card-meta">Fri · Nov 13 · 7:00 PM &nbsp;|&nbsp; Sun · Nov 15 · 10:30 AM &amp; 2:30 PM</div>
-        <div class="card-title">Disney On Ice: Find Your Hero</div>
-        <div class="card-venue">Ball Arena · Denver</div>
-        <div class="card-desc">Beloved Disney characters come to life on ice! Multiple shows this weekend — Friday evening plus two Sunday performances (10:30 AM &amp; 2:30 PM). Family matching T-shirts available as add-ons.</div>
-        <a class="card-link" href="https://www.ticketmaster.com/disney-on-ice-presents-find-your-hero-denver-colorado-11-13-2026/event/1E006192B1A44B9A" target="_blank">Details &amp; Tickets →</a>
+        <div class="card-meta">Fri Nov 20 · 4:30–9 PM Nightly</div>
+        <div class="card-title">Blossoms of Light® — Opening Night</div>
+        <div class="card-venue">Denver Botanic Gardens, 1007 York St · Denver</div>
+        <div class="card-desc">One of Denver's most beautiful holiday traditions kicks off this weekend. The gardens transform into a dazzling display of light and color each night from 4:30–9 PM. Runs through Jan 10, 2027 (closed Nov 26 & Dec 25).</div>
+        <a class="card-link" href="https://www.botanicgardens.org/events/blossoms-of-light" target="_blank">Get Tickets →</a>
       </div>
 
       <div class="card">
-        <div class="card-meta">Sat · Nov 14 · 10:00 AM <span class="badge-free">FREE</span></div>
-        <div class="card-title">MCA Denver Holiday Makers Market</div>
-        <div class="card-venue">MCA Denver at the Holiday Theater · Denver</div>
-        <div class="card-desc">Two free days of local artists and independent makers at the Museum of Contemporary Art Denver. Shop unique holiday gifts from Denver's creative community — no admission required.</div>
-        <a class="card-link" href="https://mcadenver.org" target="_blank">Details →</a>
+        <div class="card-meta">Fri–Sun Nov 20–22 <span class="badge-free">FREE</span></div>
+        <div class="card-title">Mile High Drone Shows — Opening Nights</div>
+        <div class="card-venue">Tivoli Quad & Downtown Denver</div>
+        <div class="card-desc">600 drones illuminate the Denver sky with holiday-themed animations every night at 7 PM — from Santa and reindeer to iconic Denver landmarks. This is the opening weekend of 41 magical free nights. No tickets needed!</div>
+        <a class="card-link" href="https://visitdenver.com" target="_blank">More Info →</a>
       </div>
 
       <div class="card">
-        <div class="card-meta">Sat · Nov 14 · All Day <span class="badge-free">FREE</span></div>
-        <div class="card-title">Free Family Day at the Colorado History Museum</div>
-        <div class="card-venue">History Colorado Center · 1200 Broadway, Denver</div>
-        <div class="card-desc">Bring the whole family for a free day at History Colorado Center as part of Denver Arts Week. Explore Colorado's rich past with interactive exhibits, galleries, and activities for kids of all ages.</div>
-        <a class="card-link" href="https://www.historycolorado.org" target="_blank">Details →</a>
+        <div class="card-meta">Fri–Sun Nov 20–22</div>
+        <div class="card-title">ice! Featuring Disney "Tim Burton's The Nightmare Before Christmas"</div>
+        <div class="card-venue">Gaylord Rockies Resort & Convention Center · Aurora</div>
+        <div class="card-desc">Step inside two million pounds of hand-carved, brilliantly colored ice sculptures. This year's theme features Disney's beloved classic — perfect for older kids and families. Also includes Gingerbread Decorating and Elf Training Academy on-site.</div>
+        <a class="card-link" href="https://www.gaylordhotels.com/gaylord-rockies" target="_blank">Get Tickets →</a>
       </div>
 
       <div class="card">
-        <div class="card-meta">Sun · Nov 15 · 11:00 AM <span class="badge-free">FREE</span></div>
-        <div class="card-title">Bowlero Heather Ridge Family Fest</div>
-        <div class="card-venue">Bowlero Heather Ridge · Aurora</div>
-        <div class="card-desc">A fun-filled free family festival at Bowlero in Aurora! Enjoy bowling, games, and family entertainment. A great Sunday activity for kids of all ages in the Denver metro area.</div>
-        <a class="card-link" href="https://www.eventbrite.com/d/co--denver/november/" target="_blank">Details →</a>
+        <div class="card-meta">Sat–Sun Nov 21–22</div>
+        <div class="card-title">Trail of Lights</div>
+        <div class="card-venue">Denver Botanic Gardens Chatfield Farms · Littleton</div>
+        <div class="card-desc">Walk through miles of twinkling lights at Chatfield Farms for a family-friendly holiday experience under the stars. A beloved Denver tradition in a stunning natural setting.</div>
+        <a class="card-link" href="https://www.botanicgardens.org/chatfield-farms" target="_blank">Get Tickets →</a>
       </div>
 
       <div class="card">
-        <div class="card-meta">Sun · Nov 15 · 10:00 AM – 5:00 PM</div>
-        <div class="card-title">Denver Cat Fest</div>
-        <div class="card-venue">National Western Complex · 4655 Humboldt St, Denver</div>
-        <div class="card-desc">A purrfect family outing! Denver Cat Fest features adoptable cats, vendors, celebrity kitties, and cat-themed art and entertainment. Fun for cat lovers of all ages.</div>
-        <a class="card-link" href="https://nationalwesterncomplex.com/events/" target="_blank">Details &amp; Tickets →</a>
+        <div class="card-meta">Sat–Sun Nov 21–22</div>
+        <div class="card-title">Don't Let the Pigeon Drive the Bus! The Musical!</div>
+        <div class="card-venue">Denver Center for the Performing Arts · Downtown Denver</div>
+        <div class="card-desc">Based on Mo Willems' beloved picture books, this hilarious live musical is perfect for the whole family. The Pigeon takes the stage in an energetic, laugh-out-loud show ideal for kids of all ages.</div>
+        <a class="card-link" href="https://www.denvercenter.org" target="_blank">Get Tickets →</a>
       </div>
 
       <div class="card">
-        <div class="card-meta">Sun · Nov 15 · 12:00 PM <span class="badge-free">FREE</span></div>
-        <div class="card-title">Hopscotch Holiday Market &amp; Dog Adoption Event</div>
-        <div class="card-venue">Hopscotch Beer Garden at Denargo Market · Denver</div>
-        <div class="card-desc">Shop local holiday vendors and meet adoptable dogs at this free Sunday market event. Family- and dog-friendly fun with a festive holiday atmosphere at Denver's Denargo Market.</div>
-        <a class="card-link" href="https://allevents.in/denver/holiday" target="_blank">Details →</a>
+        <div class="card-meta">Fri–Sun Nov 20–22</div>
+        <div class="card-title">30th Annual Zonarte Holiday Market</div>
+        <div class="card-venue">Centro Cultural Aztlan · Denver</div>
+        <div class="card-desc">Celebrate Latino artistry and culture at this 30th annual holiday market. Browse handmade gifts, folk art, jewelry, and local crafts from regional vendors — a unique and community-centered holiday shopping experience.</div>
+        <a class="card-link" href="https://www.centroculturalaztlan.org" target="_blank">Details →</a>
       </div>
 
       <div class="card">
-        <div class="card-meta">Sat · Nov 14 · 2:00 PM <span class="badge-free">FREE</span></div>
-        <div class="card-title">Cherry Creek Tree Lighting Holiday BAZAAR</div>
-        <div class="card-venue">Cherry Creek Shopping Center · Denver</div>
-        <div class="card-desc">Kick off the holiday season with Cherry Creek's festive tree lighting and holiday BAZAAR. Free and family-friendly with shopping, entertainment, and seasonal cheer in the heart of Cherry Creek.</div>
-        <a class="card-link" href="https://allevents.in/denver/holiday" target="_blank">Details →</a>
+        <div class="card-meta">Sat–Sun Nov 21–22</div>
+        <div class="card-title">Firefly Handmade Holiday Market</div>
+        <div class="card-venue">Old South Gaylord Street Shops · Washington Park</div>
+        <div class="card-desc">Shop local at this festive handmade market in the charming Washington Park neighborhood. Find unique, one-of-a-kind gifts from Colorado makers — clothing, art, home goods, and more. Dog-friendly and family-welcoming.</div>
+        <a class="card-link" href="https://www.fireflyhandmade.com" target="_blank">Details →</a>
+      </div>
+
+      <div class="card">
+        <div class="card-meta">Fri Nov 20 · 5 PM <span class="badge-free">FREE</span></div>
+        <div class="card-title">Streets at SouthGlenn Holiday Parade & Tree Lighting</div>
+        <div class="card-venue">Streets at SouthGlenn · Centennial</div>
+        <div class="card-desc">Kick off the holiday season in Centennial with Santa's arrival, a festive parade, and a tree lighting ceremony. This free family event starts at 5 PM and is perfect for young children.</div>
+        <a class="card-link" href="https://www.thestreetsatsouthglenn.com" target="_blank">More Info →</a>
+      </div>
+
+      <div class="card">
+        <div class="card-meta">Sat Nov 21 · Evening <span class="badge-free">FREE</span></div>
+        <div class="card-title">Castle Rock Starlighting</div>
+        <div class="card-venue">Wilcox Square · Castle Rock</div>
+        <div class="card-desc">A beloved community tradition since 1936, Castle Rock's annual Starlighting features caroling, dancing, Santa Claus, hot chocolate, Kids Zone, and more — all completely free and held along the charming downtown Wilcox Square.</div>
+        <a class="card-link" href="https://www.castlerock.org" target="_blank">More Info →</a>
+      </div>
+
+      <div class="card">
+        <div class="card-meta">Fri–Sat Nov 20–21</div>
+        <div class="card-title">Wild Dreams Overnight</div>
+        <div class="card-venue">Downtown Aquarium · Denver</div>
+        <div class="card-desc">An unforgettable overnight experience at Denver's Downtown Aquarium! Explore the exhibits after hours, learn about animals and their habitats, play games, and sleep under the sea. A truly magical night for families with kids.</div>
+        <a class="card-link" href="https://www.aquariumrestaurants.com/downtownaquariumdenver" target="_blank">Get Tickets →</a>
+      </div>
+
+      <div class="card">
+        <div class="card-meta">Fri Nov 20 · From 1 PM <span class="badge-free">FREE</span></div>
+        <div class="card-title">Cherry Creek Holiday Market — Opening Weekend</div>
+        <div class="card-venue">Fillmore Plaza, Cherry Creek North · Denver</div>
+        <div class="card-desc">More than 50 local artisan vendors, live music, festive drinks and holiday décor. The Cherry Creek Holiday Market runs through December 24 and is free, dog-friendly, and family-welcoming. This is opening weekend — catch it fresh!</div>
+        <a class="card-link" href="https://www.cherrycreeknorth.com" target="_blank">More Info →</a>
       </div>
 
     </div><!-- /card-grid -->
 
-    <!-- ═══════════════════════════════ ARTS WEEK ═══════════════════════════════ -->
-    <div class="cat-header">🎨 Denver Arts Week (thru Nov 15)</div>
+
+    <!-- ═══ SPORTS ═══ -->
+    <div class="cat-header"><h2>🏒 Sports</h2></div>
     <div class="card-grid">
 
       <div class="card">
-        <div class="card-meta">Fri–Sun · Nov 13–15 <span class="badge-free">FREE</span></div>
-        <div class="card-title">Denver Arts Week – Citywide Celebrations</div>
-        <div class="card-venue">Multiple Venues · Denver Metro</div>
-        <div class="card-desc">Ten days of gallery nights, performances, museum events, and deals across Denver's creative neighborhoods. Hundreds of events all free or discounted. Final weekend — don't miss it!</div>
-        <a class="card-link" href="https://visitdenver.com/denver-arts-week/" target="_blank">Full Calendar →</a>
+        <div class="card-meta">Fri Nov 20 · 8:00 PM</div>
+        <div class="card-title">Denver Nuggets vs. Houston Rockets</div>
+        <div class="card-venue">Ball Arena · 1000 Chopper Circle, Denver</div>
+        <div class="card-desc">The defending champions host the Houston Rockets in an NBA regular-season showdown Friday night at Ball Arena. The Nuggets are finding their stride this season — a great night out for basketball fans of all ages.</div>
+        <a class="card-link" href="https://www.ballarena.com" target="_blank">Get Tickets →</a>
       </div>
 
       <div class="card">
-        <div class="card-meta">Fri Nov 13 &amp; Sun Nov 15</div>
-        <div class="card-title">Opera Colorado: Verdi's Macbeth</div>
-        <div class="card-venue">Ellie Caulkins Opera House · Denver Performing Arts Complex</div>
-        <div class="card-desc">Opera Colorado opens its 2026–27 season with Verdi's Macbeth, sung in Italian with English &amp; Spanish captions. Four performances only — Nov 7, 10, 13 &amp; 15. Free pre-performance lecture 1 hour before curtain.</div>
-        <a class="card-link" href="https://www.operacolorado.org" target="_blank">Details &amp; Tickets →</a>
+        <div class="card-meta">Sun Nov 22 · Game Day</div>
+        <div class="card-title">Denver Broncos vs. Las Vegas Raiders</div>
+        <div class="card-venue">Empower Field at Mile High · Denver</div>
+        <div class="card-desc">The Orange and Blue host the Las Vegas Raiders in a critical AFC West divisional matchup this Sunday. DNVR Sports is running a pregame tailgate at Sportsfan starting at 11 AM. The stadium is packed with energy — bring the family!</div>
+        <a class="card-link" href="https://www.denverbroncos.com/tickets" target="_blank">Get Tickets →</a>
       </div>
 
       <div class="card">
-        <div class="card-meta">Fri–Sun · Nov 13–15</div>
-        <div class="card-title">Polish Film Festival</div>
-        <div class="card-venue">Regal UA Denver Pavilions · Downtown Denver</div>
-        <div class="card-desc">Catch acclaimed Polish cinema all weekend at the Regal UA Denver Pavilions as part of the Polish Film Festival. A unique cultural experience for film-loving families with older kids and teens.</div>
-        <a class="card-link" href="https://denver.citycast.fm/events" target="_blank">Details →</a>
-      </div>
-
-      <div class="card">
-        <div class="card-meta">Sat · Nov 14</div>
-        <div class="card-title">Don't Let the Pigeon Drive the Bus! The Musical</div>
-        <div class="card-venue">Denver Center for the Performing Arts · Denver</div>
-        <div class="card-desc">Mo Willems' beloved Pigeon takes the stage in this hilarious, interactive musical for young families. The Pigeon has big plans — and the audience gets to help decide! Showtimes Sat Nov 14 &amp; Sun Nov 15.</div>
-        <a class="card-link" href="https://www.denvercenter.org" target="_blank">Details &amp; Tickets →</a>
-      </div>
-
-    </div><!-- /card-grid -->
-
-    <!-- ═══════════════════════════════ SPORTS ═══════════════════════════════ -->
-    <div class="cat-header">🏒 Sports</div>
-    <div class="card-grid">
-
-      <div class="card">
-        <div class="card-meta">Fri · Nov 13 · 7:00 PM MT</div>
-        <div class="card-title">DU Pioneers Hockey vs. Lindenwood</div>
+        <div class="card-meta">Fri Nov 20 · 7:00 PM</div>
+        <div class="card-title">DU Pioneers Hockey vs. St. Thomas (Hockey Parents Weekend)</div>
         <div class="card-venue">Magness Arena · University of Denver</div>
-        <div class="card-desc">Watch the NCAA champion DU Pioneers men's hockey team take on Lindenwood in an Alumni Weekend home game. Series continues Saturday Nov 14 at 6 PM. TV: Altitude / NCHC.tv.</div>
-        <a class="card-link" href="https://denverpioneers.com/sports/mens-ice-hockey/schedule" target="_blank">Details &amp; Tickets →</a>
+        <div class="card-desc">The #3-ranked Denver Pioneers men's hockey team takes on St. Thomas Friday night in an NCHC conference game. This is Hockey Parents Weekend — a festive, fun atmosphere and a great family-priced alternative to pro sports.</div>
+        <a class="card-link" href="https://denverpioneers.com" target="_blank">Get Tickets →</a>
       </div>
 
       <div class="card">
-        <div class="card-meta">Sat · Nov 14 · 7:00 AM</div>
-        <div class="card-title">Denver Veterans Day Run</div>
-        <div class="card-venue">City Park · Denver</div>
-        <div class="card-desc">Lace up and honor those who served at the annual Denver Veterans Day Run through beautiful City Park. A great family-friendly race event perfect for runners of all ages and abilities.</div>
-        <a class="card-link" href="https://www.uncovercolorado.com/events/november/" target="_blank">Details &amp; Register →</a>
-      </div>
-
-      <div class="card">
-        <div class="card-meta">Fri · Nov 13 · Opening Day!</div>
-        <div class="card-title">Eldora Mountain Resort — Ski Season Opens</div>
-        <div class="card-venue">Eldora Mountain Resort · Nederland, CO</div>
-        <div class="card-desc">Get those skis and snowboards waxed — Eldora Mountain Resort opens for the 2026–27 winter season on Friday, Nov 13! Just an hour from Denver. RTD's NB1 bus route serves Eldora directly.</div>
-        <a class="card-link" href="https://www.eldora.com" target="_blank">Details &amp; Tickets →</a>
-      </div>
-
-      <div class="card">
-        <div class="card-meta">Fri–Sun · Nov 13–15</div>
-        <div class="card-title">Daku Con 2026 — Anime &amp; Gaming Convention</div>
-        <div class="card-venue">Hyatt Regency Aurora-Denver Conference Center · Aurora</div>
-        <div class="card-desc">Denver's anime, gaming, and geek culture convention runs all weekend (roughly noon–5 PM daily). Cosplay, panels, gaming, and more for teens and adult fans of all things anime and pop culture.</div>
-        <a class="card-link" href="https://www.eventbrite.com/d/co--denver/november/" target="_blank">Details &amp; Tickets →</a>
+        <div class="card-meta">Sat Nov 21 · 6:00 PM</div>
+        <div class="card-title">DU Pioneers Hockey vs. St. Thomas — Game 2</div>
+        <div class="card-venue">Magness Arena · University of Denver</div>
+        <div class="card-desc">The Pioneers and St. Thomas continue their weekend series Saturday at 6 PM MT at Magness Arena. Hockey Parents Weekend continues with pregame festivities. Presented by Canvas Credit Union. TV on Altitude/NCHC.tv.</div>
+        <a class="card-link" href="https://denverpioneers.com" target="_blank">Get Tickets →</a>
       </div>
 
     </div><!-- /card-grid -->
 
-    <!-- ═══════════════════════════════ CONCERTS ═══════════════════════════════ -->
-    <div class="cat-header">🎵 Concerts</div>
+
+    <!-- ═══ CONCERTS ═══ -->
+    <div class="cat-header"><h2>🎵 Concerts</h2></div>
     <div class="card-grid">
 
       <div class="card">
-        <div class="card-meta">Fri · Nov 13 · 6:00 PM</div>
-        <div class="card-title">GRYFFIN with Oliver Heldens &amp; AR/CO</div>
-        <div class="card-venue">Red Rocks Amphitheatre · Morrison, CO</div>
-        <div class="card-desc">DJ/producer GRYFFIN headlines Red Rocks with fellow electronic artists Oliver Heldens and local act AR/CO. Doors at 6 PM. Bring layers — late-season Red Rocks evenings get cold!</div>
-        <a class="card-link" href="https://www.redrocksonline.com" target="_blank">Details &amp; Tickets →</a>
+        <div class="card-meta">Fri Nov 20 · Evening</div>
+        <div class="card-title">LEVEL UP — Mission Ballroom</div>
+        <div class="card-venue">Mission Ballroom · 4242 Wynkoop St, Denver</div>
+        <div class="card-desc">LEVEL UP hits Mission Ballroom for an electrifying night of live music Friday, November 20. The Mission Ballroom is one of Denver's premier indoor concert venues with outstanding sound and sightlines.</div>
+        <a class="card-link" href="https://www.missionballroom.com" target="_blank">Get Tickets →</a>
       </div>
 
       <div class="card">
-        <div class="card-meta">Sat · Nov 14 · 7:30 PM &nbsp;|&nbsp; Sun · Nov 15 · 2:30 PM</div>
-        <div class="card-title">mike. — Final Shows of 2026 Red Rocks Season</div>
-        <div class="card-venue">Red Rocks Amphitheatre · Morrison, CO</div>
-        <div class="card-desc">Acclaimed rapper mike. closes out the 2026 Red Rocks season with back-to-back performances. Saturday doors at 6 PM / show 7:30 PM. Sunday is the FINAL show of the entire 2026 Red Rocks season, with DJ Stevie Daniels closing.</div>
-        <a class="card-link" href="https://www.redrocksonline.com/events/mike-1239116/" target="_blank">Details &amp; Tickets →</a>
+        <div class="card-meta">Fri Nov 20 · Evening</div>
+        <div class="card-title">Foy Vance — Fox Theatre</div>
+        <div class="card-venue">Fox Theatre · 1135 13th St, Boulder</div>
+        <div class="card-desc">Irish singer-songwriter Foy Vance performs an intimate evening at Boulder's beloved Fox Theatre on Friday night. Known for his soulful acoustic style and incredible voice, this is a must for fans of heartfelt live music.</div>
+        <a class="card-link" href="https://www.foxtheatre.com" target="_blank">Get Tickets →</a>
       </div>
 
       <div class="card">
-        <div class="card-meta">Fri · Nov 13 · Evening</div>
-        <div class="card-title">D.O.D — Live at Mission Ballroom</div>
-        <div class="card-venue">Mission Ballroom · Denver</div>
-        <div class="card-desc">Looking for a warmer Friday night alternative to Red Rocks? D.O.D plays Mission Ballroom the same evening as GRYFFIN. Indoor electronic music fun for 18+ crowds in Denver's RiNo neighborhood.</div>
-        <a class="card-link" href="https://www.missionballroom.com" target="_blank">Details &amp; Tickets →</a>
+        <div class="card-meta">Sat Nov 21 · Daytime · Family</div>
+        <div class="card-title">Rock and Roll Playhouse: Music of Dolly Parton for Kids</div>
+        <div class="card-venue">Bluebird Theater · 3317 E. Colfax Ave, Denver</div>
+        <div class="card-desc">A daytime, family-friendly concert experience where Dolly Parton's greatest songs are reimagined for young audiences. The Rock and Roll Playhouse makes live music accessible and fun for kids — dancing, singing, and pure joy.</div>
+        <a class="card-link" href="https://www.bluebirdtheater.net" target="_blank">Get Tickets →</a>
       </div>
 
       <div class="card">
-        <div class="card-meta">Fri · Nov 13 · 7:30 PM</div>
-        <div class="card-title">Murder Mystery Dinner Theater</div>
-        <div class="card-venue">The Old Spaghetti Factory · Westminster</div>
-        <div class="card-desc">An interactive murder mystery dinner show — perfect for a fun family night out with tweens and teens! Solve the crime over a delicious Italian dinner. Going fast, so grab tickets early.</div>
-        <a class="card-link" href="https://www.eventbrite.com/d/co--denver/november/" target="_blank">Details &amp; Tickets →</a>
+        <div class="card-meta">Sat Nov 21 · Evening</div>
+        <div class="card-title">Karina Rykman — Bluebird Theater</div>
+        <div class="card-venue">Bluebird Theater · 3317 E. Colfax Ave, Denver</div>
+        <div class="card-desc">Karina Rykman brings her funky, genre-blending sounds to the Bluebird Theater on Saturday night. Known for her infectious bass grooves and high-energy live shows, this is an unforgettable evening of Colorado music culture.</div>
+        <a class="card-link" href="https://www.bluebirdtheater.net" target="_blank">Get Tickets →</a>
+      </div>
+
+      <div class="card">
+        <div class="card-meta">Sat Nov 21 · Evening</div>
+        <div class="card-title">Zauntee with Skema Boy — Lost Lake Lounge</div>
+        <div class="card-venue">Lost Lake Lounge · 3602 E. Colfax Ave, Denver</div>
+        <div class="card-desc">Faith-driven rap and melodic crossover sounds from Zauntee, joined by Skema Boy, at the intimate Lost Lake Lounge on Colfax Saturday night. A unique and inspiring night of music on Denver's most storied street.</div>
+        <a class="card-link" href="https://www.lostlakelounge.com" target="_blank">Get Tickets →</a>
+      </div>
+
+      <div class="card">
+        <div class="card-meta">Sun Nov 22 · Evening</div>
+        <div class="card-title">Jervis Campbell — Bluebird Theater</div>
+        <div class="card-venue">Bluebird Theater · 3317 E. Colfax Ave, Denver</div>
+        <div class="card-desc">Jervis Campbell closes out the weekend at the Bluebird Theater Sunday night. His rich, soulful vocals and heartfelt songwriting make for an intimate and moving live performance — a perfect Sunday evening cap to the holiday weekend.</div>
+        <a class="card-link" href="https://www.bluebirdtheater.net" target="_blank">Get Tickets →</a>
       </div>
 
     </div><!-- /card-grid -->
 
     <div class="spacer"></div>
+    <div class="spacer"></div>
 
   </div><!-- /wrap -->
-
-  <div class="site-footer">
-    <div class="wrap">
-      Curated for Denver metro families by <a href="https://jeremykanehomes.com/this-weekend-in-denver" target="_blank">Jeremy Kane Homes</a> &nbsp;·&nbsp; More details at <a href="https://jeremykanehomes.com/this-weekend-in-denver" target="_blank">jeremykanehomes.com/this-weekend-in-denver</a>
-    </div>
-  </div>
 
 </body>
 </html>
